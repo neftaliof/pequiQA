@@ -1,8 +1,28 @@
 "use client";
 
+import { useEffect, useState } from "react";
+
 export default function CTAWhatsApp() {
+  const [visible, setVisible] = useState(true);
+
   const whatsappUrl =
     "https://wa.me/5548988526644?text=Ol%C3%A1%21%20Vi%20o%20site%20da%20Pequi%20QA%20e%20quero%20entender%20como%20voc%C3%AAs%20podem%20estruturar%20qualidade%20no%20meu%20produto.%20Pode%20me%20ajudar%3F";
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const footer = document.querySelector("footer");
+      if (!footer) return;
+
+      const footerTop = footer.getBoundingClientRect().top;
+      const windowHeight = window.innerHeight;
+
+      setVisible(footerTop > windowHeight - 100);
+    };
+
+    handleScroll(); // Verifica estado inicial
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <a
@@ -10,8 +30,12 @@ export default function CTAWhatsApp() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Falar com especialista no WhatsApp"
-      className="group fixed bottom-8 right-8 z-[9999] flex h-[60px] w-[60px] items-center justify-center overflow-visible rounded-full transition-transform duration-300 hover:scale-110"
+      className={`group fixed z-[9999] flex h-[60px] w-[60px] items-center justify-center overflow-visible rounded-full transition-all duration-300 hover:scale-110 ${
+        visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-16 opacity-0"
+      }`}
       style={{
+        bottom: "80px",
+        right: "24px",
         backgroundColor: "#25D366",
         boxShadow: "0 4px 24px rgba(37,211,102,0.4)",
       }}
