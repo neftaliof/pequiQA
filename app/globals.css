@@ -40,3 +40,10 @@
     @apply font-display;
   }
 }
+
+@keyframes whatsapp-ping {
+  75%, 100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}

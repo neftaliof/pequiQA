@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Syne } from "next/font/google";
 import "./globals.css";
+import CTAWhatsApp from "@/components/CTAWhatsApp";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default function RootLayout({
     <html lang="pt-BR" className={`${playfair.variable} ${syne.variable}`}>
       <body className="antialiased">
         {children}
+        <CTAWhatsApp />
       </body>
     </html>
   );
