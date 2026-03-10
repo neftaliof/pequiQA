@@ -2,6 +2,7 @@
 
 import dynamic from "next/dynamic";
 import Link from "next/link";
+import PioneiroBotao from "./PioneiroBotao";
 
 const ParticleCanvas = dynamic(() => import("./ParticleCanvas"), { ssr: false });
 
@@ -438,6 +439,87 @@ export default function HeroSection() {
                 Payback médio em 5 meses. Qualidade que se paga.
               </div>
             </div>
+          </div>
+
+          {/* Card Pioneiros */}
+          <div
+            style={{
+              background:
+                "linear-gradient(135deg, rgba(200,134,10,0.1) 0%, rgba(30,54,16,0.5) 100%)",
+              border: "1px solid rgba(200,134,10,0.2)",
+              borderRadius: "20px",
+              padding: "2rem 2.5rem",
+              position: "relative",
+              overflow: "hidden",
+              backdropFilter: "blur(12px)",
+              textAlign: "center",
+            }}
+          >
+            <div
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                right: 0,
+                height: "1px",
+                background:
+                  "linear-gradient(90deg, transparent, rgba(200,134,10,0.5), transparent)",
+              }}
+            />
+            <div
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                fontFamily: "Syne, sans-serif",
+                fontSize: "0.6rem",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "0.22em",
+                color: "rgba(200,134,10,0.7)",
+                marginBottom: "1.2rem",
+              }}
+            >
+              <span
+                style={{
+                  width: 5,
+                  height: 5,
+                  borderRadius: "50%",
+                  background: "#F0A500",
+                  display: "inline-block",
+                }}
+              />
+              Lançamento
+            </div>
+            <h2
+              style={{
+                fontFamily: '"Playfair Display", serif',
+                fontSize: "1.5rem",
+                fontWeight: 800,
+                color: "#FBF5E6",
+                lineHeight: 1.2,
+                marginBottom: "0.8rem",
+                letterSpacing: "-0.02em",
+              }}
+            >
+              Seja um dos primeiros
+              <br />
+              clientes
+            </h2>
+            <p
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontSize: "0.82rem",
+                lineHeight: 1.7,
+                color: "rgba(251,245,230,0.42)",
+                marginBottom: "1.8rem",
+              }}
+            >
+              Estamos construindo nossa história com quem acredita que qualidade
+              de software não deveria ser sorte. Condições especiais para os
+              primeiros projetos.
+            </p>
+            <PioneiroBotao />
           </div>
         </div>
       </div>
