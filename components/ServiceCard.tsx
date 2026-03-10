@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Settings, Users, FileSearch, GraduationCap, TrendingUp } from "lucide-react";
 
@@ -46,9 +45,13 @@ export default function ServiceCard({
         </CardHeader>
         <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
           <p className="text-text/70 mb-4 text-sm sm:text-base">{description}</p>
-          <Button variant="outline" asChild>
-            <Link href={href}>Saiba mais</Link>
-          </Button>
+          <div className="glow-btn-wrap">
+            <div className="glow-bloom" />
+            <Link href={href} className="glow-btn">
+              <span className="glow-symbol">✦</span>
+              <span className="glow-word">Saiba mais</span>
+            </Link>
+          </div>
         </CardContent>
       </Card>
     </motion.div>

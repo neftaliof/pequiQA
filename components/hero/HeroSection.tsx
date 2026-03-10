@@ -196,7 +196,7 @@ export default function HeroSection() {
             {[
               { n: "15+", l: "Anos de experiência" },
               { n: "100%", l: "QAs valorizados" },
-              { n: "0", l: "Atravessadores" },
+              { n: "zero", l: "Atravessadores" },
             ].map((s, i) => (
               <div
                 key={i}
