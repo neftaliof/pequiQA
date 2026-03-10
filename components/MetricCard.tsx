@@ -18,8 +18,8 @@ export default function MetricCard({ value, label, index = 0 }: MetricCardProps)
       transition={{ delay: index * 0.1 }}
     >
       <Card className="bg-gradient-to-br from-secondary to-accent border-none text-white">
-        <CardContent className="p-6 text-center">
-          <div className="text-4xl font-display font-bold mb-2">{value}</div>
+        <CardContent className="p-4 sm:p-6 text-center">
+          <div className="text-3xl sm:text-4xl font-display font-bold mb-1 sm:mb-2">{value}</div>
           <div className="text-sm font-body">{label}</div>
         </CardContent>
       </Card>

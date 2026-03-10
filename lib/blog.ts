@@ -15,6 +15,9 @@ export interface BlogPost {
 
 export function getAllPosts(): BlogPost[] {
   try {
+    if (!fs.existsSync(postsDirectory)) {
+      return [];
+    }
     const fileNames = fs.readdirSync(postsDirectory);
     const allPostsData = fileNames
       .filter((fileName) => fileName.endsWith('.md'))

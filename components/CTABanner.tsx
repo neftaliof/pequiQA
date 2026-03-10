@@ -24,19 +24,19 @@ export default function CTABanner({
   secondaryCTA,
 }: CTABannerProps) {
   return (
-    <section className="bg-primary py-20">
-      <div className="container mx-auto px-4">
+    <section className="bg-primary py-12 sm:py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-3 sm:mb-4 px-2">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-xl text-white/80 mb-8">{subtitle}</p>
+            <p className="text-lg sm:text-xl text-white/80 mb-6 sm:mb-8 px-2">{subtitle}</p>
           )}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             {primaryCTA && (

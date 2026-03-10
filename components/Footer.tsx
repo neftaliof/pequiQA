@@ -6,11 +6,11 @@ export default function Footer() {
 
   return (
     <footer className="bg-primary text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-10 mb-8">
           {/* Logo e Tagline */}
           <div className="col-span-1 md:col-span-2">
-            <div className="text-3xl font-display font-bold mb-2">
+            <div className="text-2xl sm:text-3xl font-display font-bold mb-2">
               Pequi <span className="text-accent">QA</span>
             </div>
             <p className="text-white/80 italic mb-4">
@@ -75,7 +75,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-white/10 pt-6 sm:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 sm:gap-4">
           <div className="text-sm text-white/60 text-center md:text-left">
             © {currentYear} Pequi QA. Todos os direitos reservados.
           </div>

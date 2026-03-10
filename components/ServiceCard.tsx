@@ -38,14 +38,14 @@ export default function ServiceCard({
       transition={{ delay: index * 0.1 }}
     >
       <Card className="h-full hover:shadow-lg transition-shadow bg-white border-none">
-        <CardHeader>
-          <div className="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-4">
+        <CardHeader className="p-4 sm:p-6">
+          <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg bg-accent/10 flex items-center justify-center mb-3 sm:mb-4">
             <Icon className="w-6 h-6 text-accent" />
           </div>
-          <CardTitle className="text-xl">{title}</CardTitle>
+          <CardTitle className="text-lg sm:text-xl">{title}</CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="text-text/70 mb-4">{description}</p>
+        <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
+          <p className="text-text/70 mb-4 text-sm sm:text-base">{description}</p>
           <Button variant="outline" asChild>
             <Link href={href}>Saiba mais</Link>
           </Button>

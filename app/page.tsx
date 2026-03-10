@@ -1,11 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import HeroSection from "@/components/HeroSection";
+import HeroSection from "@/components/hero/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import CaseCard from "@/components/CaseCard";
 import MetricCard from "@/components/MetricCard";
 import PostCard from "@/components/PostCard";
 import CTABanner from "@/components/CTABanner";
+import { getAllPosts } from "@/lib/blog";
 import DiferencialItem from "@/components/DiferencialItem";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -129,52 +130,30 @@ export default function Home() {
     },
   ];
 
-  const posts = [
-    {
-      title: "Como estruturar um plano de testes eficiente",
-      excerpt:
-        "Aprenda a criar um plano de testes que realmente funciona, com templates e exemplos práticos.",
-      date: "15 de março, 2024",
-      slug: "como-estruturar-plano-de-testes",
-    },
-    {
-      title: "O que é body shopping em QA e por que evitar",
-      excerpt:
-        "Entenda os riscos do modelo de body shopping e como escolher uma consultoria transparente.",
-      date: "10 de março, 2024",
-      slug: "o-que-e-body-shopping-em-qa",
-    },
-    {
-      title: "Como transformar profissionais de suporte em QAs",
-      excerpt:
-        "Um guia completo para criar um programa de transição de carreira estruturado e eficaz.",
-      date: "5 de março, 2024",
-      slug: "transformar-suporte-em-qa",
-    },
-  ];
+  const posts = getAllPosts().slice(0, 3);
 
   return (
     <>
       <Header />
-      <main className="pt-20">
+      <main className="pt-16 md:pt-20">
         {/* Hero */}
         <HeroSection />
 
         {/* Dor do Cliente */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 sm:mb-4">
                 Reconhece algum desses problemas?
               </h2>
-              <p className="text-xl text-text/70">
+              <p className="text-lg sm:text-xl text-text/70">
                 Você não está sozinho. Esses são os desafios mais comuns que empresas enfrentam.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-5xl mx-auto">
               {painPoints.map((point, index) => (
                 <Card key={index} className="bg-white border-none shadow-md">
-                  <CardContent className="p-6">
+                  <CardContent className="p-4 sm:p-6">
                     <div className="flex gap-4">
                       <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
                         <point.icon className="w-6 h-6 text-primary" />
@@ -194,22 +173,22 @@ export default function Home() {
         </section>
 
         {/* Serviços */}
-        <section className="py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-primary">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-3 sm:mb-4">
                 Como podemos ajudar
               </h2>
-              <p className="text-xl text-white/80">
+              <p className="text-lg sm:text-xl text-white/80">
                 Soluções completas em qualidade de software, do diagnóstico à execução.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {services.map((service, index) => (
                 <ServiceCard key={index} {...service} index={index} />
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-12">
               <Button variant="accent" size="lg" asChild>
                 <Link href="/servicos">Ver todos os serviços</Link>
               </Button>
@@ -218,18 +197,18 @@ export default function Home() {
         </section>
 
         {/* Diferenciais */}
-        <section className="py-20 bg-gradient-to-br from-primary via-primary to-[#3a6b1f]">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div className="space-y-8">
-                <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-8">
+        <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-[#3a6b1f]">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+              <div className="space-y-6 sm:space-y-8">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-6 sm:mb-8">
                   Por que escolher a Pequi QA?
                 </h2>
                 {diferenciais.map((diferencial, index) => (
                   <DiferencialItem key={index} {...diferencial} index={index} />
                 ))}
               </div>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-4 sm:gap-6">
                 {metrics.map((metric, index) => (
                   <MetricCard key={index} {...metric} index={index} />
                 ))}
@@ -239,10 +218,10 @@ export default function Home() {
         </section>
 
         {/* Manifesto */}
-        <section className="py-20 bg-[#3a6b1f]">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-[#3a6b1f]">
+          <div className="container mx-auto px-4 sm:px-6">
             <div className="max-w-4xl mx-auto text-center">
-              <blockquote className="text-3xl md:text-4xl font-display italic text-white mb-8 leading-relaxed">
+              <blockquote className="text-2xl sm:text-3xl md:text-4xl font-display italic text-white mb-6 sm:mb-8 leading-relaxed px-2">
                 "Acreditamos que qualidade não é sorte. É processo, é método, é respeito pelo
                 profissional e pelo cliente. É transparência, não body shopping."
               </blockquote>
@@ -254,22 +233,22 @@ export default function Home() {
         </section>
 
         {/* Cases */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-background">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 sm:mb-4">
                 Resultados reais, mensuráveis
               </h2>
-              <p className="text-xl text-text/70">
+              <p className="text-lg sm:text-xl text-text/70">
                 Veja como ajudamos empresas a transformar seus processos de qualidade.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {cases.map((caseItem, index) => (
                 <CaseCard key={index} {...caseItem} index={index} />
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-12">
               <Button variant="outline" size="lg" asChild>
                 <Link href="/cases">Ver todos os cases</Link>
               </Button>
@@ -278,22 +257,22 @@ export default function Home() {
         </section>
 
         {/* Blog */}
-        <section className="py-20 bg-background-alt">
-          <div className="container mx-auto px-4">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-primary mb-4">
+        <section className="py-12 sm:py-16 md:py-20 bg-background-alt">
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 sm:mb-4">
                 Conteúdo de qualidade
               </h2>
-              <p className="text-xl text-text/70">
+              <p className="text-lg sm:text-xl text-text/70">
                 Artigos, guias e insights sobre qualidade de software.
               </p>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
               {posts.map((post, index) => (
                 <PostCard key={index} {...post} index={index} />
               ))}
             </div>
-            <div className="text-center mt-12">
+            <div className="text-center mt-8 sm:mt-12">
               <Button variant="outline" size="lg" asChild>
                 <Link href="/blog">Ver todos os artigos</Link>
               </Button>

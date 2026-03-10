@@ -18,13 +18,33 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary border-b border-primary/20">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
+    <header
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+      style={{
+        background: "rgba(17, 29, 9, 0.72)",
+        backdropFilter: "blur(20px)",
+        WebkitBackdropFilter: "blur(20px)",
+        borderBottom: "1px solid rgba(200, 134, 10, 0.1)",
+      }}
+    >
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="text-2xl font-display font-bold text-white">
+          <Link href="/" className="flex flex-col">
+            <div className="text-xl sm:text-2xl font-display font-bold text-white">
               Pequi <span className="text-accent">QA</span>
+            </div>
+            <div
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontSize: "0.56rem",
+                letterSpacing: "0.22em",
+                textTransform: "uppercase",
+                color: "rgba(251,245,230,0.28)",
+                marginTop: "2px",
+              }}
+            >
+              by Jenafree Labs
             </div>
           </Link>
 
@@ -66,9 +86,14 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-primary border-t border-primary/20"
+            className="md:hidden border-t border-white/10"
+            style={{
+              background: "rgba(17, 29, 9, 0.95)",
+              backdropFilter: "blur(20px)",
+              WebkitBackdropFilter: "blur(20px)",
+            }}
           >
-            <nav className="container mx-auto px-4 py-6 flex flex-col space-y-4">
+            <nav className="container mx-auto px-4 sm:px-6 py-5 flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

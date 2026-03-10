@@ -26,13 +26,13 @@ export default function CaseCard({
       transition={{ delay: index * 0.1 }}
     >
       <Card className="h-full bg-white border-none hover:shadow-xl transition-shadow">
-        <CardHeader>
+        <CardHeader className="p-4 sm:p-6">
           <div className="text-sm font-semibold text-accent mb-2">{industry}</div>
-          <CardTitle className="text-xl">{title}</CardTitle>
+          <CardTitle className="text-lg sm:text-xl">{title}</CardTitle>
         </CardHeader>
-        <CardContent>
+        <CardContent className="p-4 pt-0 sm:p-6 sm:pt-0">
           <div className="space-y-2">
-            <div className="text-4xl font-display font-bold text-primary">{metric}</div>
+            <div className="text-3xl sm:text-4xl font-display font-bold text-primary">{metric}</div>
             <p className="text-text/70">{result}</p>
           </div>
         </CardContent>
