@@ -889,7 +889,7 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
     };
 
     const onTouchMove = (e: TouchEvent) => {
-      e.preventDefault();
+      // Não usar preventDefault: permite scroll da página no mobile
       if (e.touches[0]) {
         mouseRef.current = {
           x: e.touches[0].clientX,
@@ -912,7 +912,7 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
     };
 
     window.addEventListener("mousemove", onMouseMove);
-    window.addEventListener("touchmove", onTouchMove, { passive: false });
+    window.addEventListener("touchmove", onTouchMove, { passive: true });
     window.addEventListener("touchstart", onTouchStart);
     window.addEventListener("touchend", onTouchEnd);
 
