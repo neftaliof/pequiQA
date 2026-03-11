@@ -30,6 +30,27 @@ interface Tool {
   draw: DrawToolFn;
 }
 
+// Helper: rounded rect (fallback para navegadores sem roundRect)
+function roundRectPath(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  w: number,
+  h: number,
+  rad: number
+) {
+  const r = Math.min(rad, w / 2, h / 2);
+  ctx.moveTo(x + r, y);
+  ctx.lineTo(x + w - r, y);
+  ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+  ctx.lineTo(x + w, y + h - r);
+  ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+  ctx.lineTo(x + r, y + h);
+  ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+  ctx.lineTo(x, y + r);
+  ctx.quadraticCurveTo(x, y, x + r, y);
+}
+
 const TOOLS: Tool[] = [
   {
     name: "Cypress",
@@ -38,14 +59,14 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      ctx.beginPath();
-      ctx.arc(0, 0, r, Math.PI * 0.35, Math.PI * 1.65);
       ctx.strokeStyle = "#69D3A7";
-      ctx.lineWidth = r * 0.38;
+      ctx.lineWidth = Math.max(1.2, r * 0.32);
       ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.arc(0, 0, r * 0.88, Math.PI * 0.32, Math.PI * 1.68);
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(0, 0, r * 0.18, 0, Math.PI * 2);
+      ctx.arc(0, 0, r * 0.2, 0, Math.PI * 2);
       ctx.fillStyle = "#69D3A7";
       ctx.fill();
       ctx.restore();
@@ -58,18 +79,18 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      ctx.beginPath();
-      ctx.arc(0, 0, r, 0, Math.PI * 2);
       ctx.strokeStyle = "#2EAD33";
-      ctx.lineWidth = r * 0.2;
-      ctx.stroke();
-      const s = r * 0.45;
+      ctx.lineWidth = Math.max(1, r * 0.18);
       ctx.beginPath();
-      ctx.moveTo(-s * 0.5, -s * 0.85);
-      ctx.lineTo(s * 1.0, 0);
-      ctx.lineTo(-s * 0.5, s * 0.85);
-      ctx.closePath();
+      ctx.arc(0, 0, r * 0.92, 0, Math.PI * 2);
+      ctx.stroke();
+      const s = r * 0.5;
       ctx.fillStyle = "#2EAD33";
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.55, -s * 0.82);
+      ctx.lineTo(s * 0.95, 0);
+      ctx.lineTo(-s * 0.55, s * 0.82);
+      ctx.closePath();
       ctx.fill();
       ctx.restore();
     },
@@ -81,30 +102,29 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
+      ctx.fillStyle = "rgba(255,108,55,0.12)";
       ctx.beginPath();
       ctx.arc(0, 0, r, 0, Math.PI * 2);
-      ctx.fillStyle = "rgba(255,108,55,0.15)";
       ctx.fill();
       ctx.strokeStyle = "#FF6C37";
-      ctx.lineWidth = r * 0.18;
+      ctx.lineWidth = Math.max(1, r * 0.16);
       ctx.stroke();
-      const s = r * 0.5;
-      ctx.beginPath();
-      ctx.moveTo(-s, 0);
-      ctx.lineTo(s * 0.4, 0);
+      const s = r * 0.52;
       ctx.strokeStyle = "#FF6C37";
-      ctx.lineWidth = r * 0.22;
+      ctx.lineWidth = Math.max(1.2, r * 0.2);
       ctx.lineCap = "round";
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(s * 0.05, -s * 0.45);
-      ctx.lineTo(s * 0.55, 0);
-      ctx.lineTo(s * 0.05, s * 0.45);
-      ctx.strokeStyle = "#FF6C37";
-      ctx.lineWidth = r * 0.22;
       ctx.lineJoin = "round";
-      ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.moveTo(-s * 0.92, 0);
+      ctx.lineTo(s * 0.35, 0);
       ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(s * 0.1, -s * 0.5);
+      ctx.lineTo(s * 0.6, 0);
+      ctx.lineTo(s * 0.1, s * 0.5);
+      ctx.closePath();
+      ctx.fillStyle = "#FF6C37";
+      ctx.fill();
       ctx.restore();
     },
   },
@@ -115,29 +135,27 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      const s = r * 0.75;
-      const roundRect = (ctx as CanvasRenderingContext2D & { roundRect?: (x: number, y: number, w: number, h: number, rad: number) => void }).roundRect;
-      if (roundRect) {
-        roundRect.call(ctx, -s, -s, s * 2, s * 2, r * 0.2);
-      } else {
-        ctx.rect(-s, -s, s * 2, s * 2);
-      }
-      ctx.fillStyle = "rgba(50,50,50,0.3)";
+      const s = r * 0.72;
+      const rad = r * 0.18;
+      ctx.beginPath();
+      roundRectPath(ctx, -s, -s, s * 2, s * 2, rad);
+      ctx.fillStyle = "rgba(40,40,40,0.4)";
       ctx.fill();
-      ctx.strokeStyle = "#aaa";
-      ctx.lineWidth = r * 0.18;
+      ctx.strokeStyle = "#b0b0b0";
+      ctx.lineWidth = Math.max(1, r * 0.16);
       ctx.stroke();
-      [-s * 0.38, s * 0.38].forEach((ox) => {
+      const eyeR = r * 0.14;
+      [-s * 0.4, s * 0.4].forEach((ox) => {
         ctx.beginPath();
-        ctx.arc(ox, -s * 0.1, r * 0.16, 0, Math.PI * 2);
-        ctx.fillStyle = "#00cfff";
+        ctx.arc(ox, -s * 0.08, eyeR, 0, Math.PI * 2);
+        ctx.fillStyle = "#00d4ff";
         ctx.fill();
       });
       ctx.beginPath();
-      ctx.moveTo(-s * 0.35, s * 0.38);
-      ctx.lineTo(s * 0.35, s * 0.38);
-      ctx.strokeStyle = "#aaa";
-      ctx.lineWidth = r * 0.15;
+      ctx.moveTo(-s * 0.38, s * 0.4);
+      ctx.lineTo(s * 0.38, s * 0.4);
+      ctx.strokeStyle = "#b0b0b0";
+      ctx.lineWidth = Math.max(0.8, r * 0.12);
       ctx.lineCap = "round";
       ctx.stroke();
       ctx.restore();
@@ -150,18 +168,16 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      const s = r * 0.7;
-      ctx.beginPath();
-      ctx.arc(-s * 0.1, -s * 0.3, s * 0.55, Math.PI * 1.1, Math.PI * 2.1);
+      const s = r * 0.72;
+      const lw = Math.max(1.2, r * 0.26);
       ctx.strokeStyle = "#43B02A";
-      ctx.lineWidth = r * 0.3;
+      ctx.lineWidth = lw;
       ctx.lineCap = "round";
+      ctx.beginPath();
+      ctx.arc(-s * 0.08, -s * 0.28, s * 0.52, Math.PI * 1.05, Math.PI * 2.05);
       ctx.stroke();
       ctx.beginPath();
-      ctx.arc(s * 0.1, s * 0.3, s * 0.55, Math.PI * 0.1, Math.PI * 1.1);
-      ctx.strokeStyle = "#43B02A";
-      ctx.lineWidth = r * 0.3;
-      ctx.lineCap = "round";
+      ctx.arc(s * 0.08, s * 0.28, s * 0.52, Math.PI * 0.05, Math.PI * 1.05);
       ctx.stroke();
       ctx.restore();
     },
@@ -173,18 +189,19 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
+      const hexR = r * 0.92;
       ctx.beginPath();
       for (let i = 0; i < 6; i++) {
         const ang = (i / 6) * Math.PI * 2 - Math.PI / 6;
-        i === 0
-          ? ctx.moveTo(Math.cos(ang) * r, Math.sin(ang) * r)
-          : ctx.lineTo(Math.cos(ang) * r, Math.sin(ang) * r);
+        const px = Math.cos(ang) * hexR;
+        const py = Math.sin(ang) * hexR;
+        i === 0 ? ctx.moveTo(px, py) : ctx.lineTo(px, py);
       }
       ctx.closePath();
       ctx.strokeStyle = "#7D64FF";
-      ctx.lineWidth = r * 0.2;
+      ctx.lineWidth = Math.max(1, r * 0.18);
       ctx.stroke();
-      ctx.font = `bold ${r * 0.65}px sans-serif`;
+      ctx.font = `bold ${Math.max(8, r * 0.58)}px system-ui, sans-serif`;
       ctx.fillStyle = "#7D64FF";
       ctx.textAlign = "center";
       ctx.textBaseline = "middle";
@@ -199,17 +216,17 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      const s = r * 0.75;
+      const s = r * 0.76;
       const g = ctx.createLinearGradient(-s, 0, s, 0);
       g.addColorStop(0, "#2684FF");
       g.addColorStop(1, "#0052CC");
       ctx.beginPath();
       ctx.moveTo(0, -s);
       ctx.quadraticCurveTo(s, -s, s, 0);
-      ctx.quadraticCurveTo(s, s * 0.7, 0, s * 0.7);
-      ctx.quadraticCurveTo(-s * 0.5, s * 0.7, -s * 0.5, s * 0.2);
+      ctx.quadraticCurveTo(s, s * 0.68, 0, s * 0.68);
+      ctx.quadraticCurveTo(-s * 0.5, s * 0.68, -s * 0.5, s * 0.2);
       ctx.strokeStyle = g;
-      ctx.lineWidth = r * 0.28;
+      ctx.lineWidth = Math.max(1.2, r * 0.24);
       ctx.lineCap = "round";
       ctx.lineJoin = "round";
       ctx.stroke();
@@ -223,31 +240,30 @@ const TOOLS: Tool[] = [
       ctx.save();
       ctx.globalAlpha = a;
       ctx.translate(x, y);
-      const s = r * 0.85;
+      const s = r * 0.88;
       ctx.beginPath();
       ctx.moveTo(0, -s);
-      ctx.lineTo(s, -s * 0.4);
-      ctx.lineTo(s, s * 0.2);
-      ctx.quadraticCurveTo(s, s * 0.9, 0, s);
-      ctx.quadraticCurveTo(-s, s * 0.9, -s, s * 0.2);
-      ctx.lineTo(-s, -s * 0.4);
+      ctx.lineTo(s, -s * 0.38);
+      ctx.lineTo(s, s * 0.18);
+      ctx.quadraticCurveTo(s, s * 0.88, 0, s);
+      ctx.quadraticCurveTo(-s, s * 0.88, -s, s * 0.18);
+      ctx.lineTo(-s, -s * 0.38);
       ctx.closePath();
-      ctx.strokeStyle = "#F5A623";
-      ctx.lineWidth = r * 0.2;
-      ctx.stroke();
-      ctx.fillStyle = "rgba(245,166,35,0.1)";
+      ctx.fillStyle = "rgba(245,166,35,0.12)";
       ctx.fill();
-      ctx.beginPath();
-      ctx.arc(0, s * 0.1, r * 0.22, Math.PI, Math.PI * 2);
       ctx.strokeStyle = "#F5A623";
-      ctx.lineWidth = r * 0.18;
+      ctx.lineWidth = Math.max(1, r * 0.18);
       ctx.stroke();
-      const roundRect = (ctx as CanvasRenderingContext2D & { roundRect?: (x: number, y: number, w: number, h: number, rad: number) => void }).roundRect;
-      if (roundRect) {
-        roundRect.call(ctx, -r * 0.25, s * 0.1, r * 0.5, r * 0.35, r * 0.08);
-      } else {
-        ctx.rect(-r * 0.25, s * 0.1, r * 0.5, r * 0.35);
-      }
+      const ly = s * 0.12;
+      ctx.beginPath();
+      ctx.arc(0, ly, r * 0.2, Math.PI, Math.PI * 2);
+      ctx.strokeStyle = "#F5A623";
+      ctx.lineWidth = Math.max(0.8, r * 0.14);
+      ctx.stroke();
+      const lw = r * 0.48;
+      const lh = r * 0.32;
+      ctx.beginPath();
+      roundRectPath(ctx, -lw / 2, ly, lw, lh, r * 0.08);
       ctx.fillStyle = "#F5A623";
       ctx.fill();
       ctx.restore();
