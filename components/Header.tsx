@@ -32,15 +32,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="text-accent flex items-center justify-center [&_img]:hidden sm:[&_img]:block">
-                <img
-                  src="/pequi-mark.svg"
-                  alt=""
-                  width={26}
-                  height={26}
-                  className="h-6 w-6 sm:h-7 sm:w-7"
-                  style={{ color: "currentColor" }}
-                />
+              <span className="text-accent hidden sm:flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0" aria-hidden>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 120 140" className="h-full w-full" fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M 0 -46 C 22 -48 34 -40 40 -26 C 46 -12 44 -2 40 8 C 34 22 24 32 12 40 C 4 46 0 48 0 50 C 0 48 -4 46 -12 40 C -24 32 -34 22 -40 8 C -44 -2 -46 -12 -40 -26 C -34 -40 -22 -48 0 -46 Z" />
+                  <path d="M 0 -48 L 0 -60" />
+                  <path d="M 0 -58 C 9 -62 16 -59 18 -52" />
+                </svg>
               </span>
               <div className="text-xl sm:text-2xl font-display font-bold text-white">
                 Pequi <span className="text-accent">QA</span>
