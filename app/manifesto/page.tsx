@@ -145,7 +145,7 @@ export default function ManifestoPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:pequiqa@gmail.com",
           }}
         />
       </main>

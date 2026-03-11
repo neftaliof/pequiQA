@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -31,8 +32,19 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           {/* Logo */}
           <Link href="/" className="flex flex-col">
-            <div className="text-xl sm:text-2xl font-display font-bold text-white">
-              Pequi <span className="text-accent">QA</span>
+            <div className="flex items-center gap-2">
+              <span className="text-accent flex items-center justify-center">
+                <Image
+                  src="/pequi-mark.svg"
+                  alt=""
+                  width={26}
+                  height={26}
+                  className="hidden sm:block"
+                />
+              </span>
+              <div className="text-xl sm:text-2xl font-display font-bold text-white">
+                Pequi <span className="text-accent">QA</span>
+              </div>
             </div>
             <div
               style={{

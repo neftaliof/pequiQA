@@ -2,16 +2,18 @@
 
 import { useEffect, useRef, useCallback } from "react";
 
+// Paleta pequi refinada: dourados que destacam no escuro, semente em marrom
 const CORES: [number, number, number][] = [
-  [200, 134, 10],
-  [240, 165, 0],
-  [253, 217, 106],
-  [45, 100, 20],
-  [28, 68, 12],
-  [160, 110, 18],
+  [255, 248, 210], // polpa clara
+  [255, 228, 140], // amarelo ouro
+  [253, 210, 100], // dourado pequi
+  [245, 185, 75],  // âmbar
+  [255, 170, 60],  // laranja pequi
+  [180, 130, 45],  // marrom dourado (casca)
+  [90, 65, 25],    // semente escura
 ];
 
-const N = 700;
+const N = 550;
 const ESPINHOS = 18;
 const TRAIL_MAX = 40;
 
@@ -271,151 +273,12 @@ const TOOLS: Tool[] = [
   },
 ];
 
-// Órbitas — 3 elipses, velocidades diferentes
+// Órbitas — 3 elipses, velocidades diferentes (mais próximas do logo)
 const ORBITS = [
-  { r: 0.22, speed: 0.28, tools: [0, 4] },
-  { r: 0.32, speed: -0.18, tools: [1, 3, 6] },
-  { r: 0.42, speed: 0.12, tools: [2, 5, 7] },
+  { r: 0.17, speed: 0.28, tools: [0, 4] },
+  { r: 0.24, speed: -0.18, tools: [1, 3, 6] },
+  { r: 0.31, speed: 0.12, tools: [2, 5, 7] },
 ];
-
-type OrbitIconType = "sun" | "pequi" | "cypress" | "playwright" | "postman" | "cross";
-
-const ORBIT_ICON_TYPES: OrbitIconType[] = [
-  "sun",
-  "pequi",
-  "cypress",
-  "playwright",
-  "postman",
-  "cross",
-];
-
-interface OrbitIconDef {
-  type: OrbitIconType;
-  baseAngle: number;
-  spiralR: number;
-}
-
-const ORBIT_ICONS: OrbitIconDef[] = (() => {
-  const arr: OrbitIconDef[] = [];
-  for (let i = 0; i < 28; i++) {
-    const frac = (i + 0.5) / 28;
-    arr.push({
-      type: ORBIT_ICON_TYPES[i % ORBIT_ICON_TYPES.length],
-      baseAngle: frac * Math.PI * 2 * 137.508,
-      spiralR: 0.22 + frac * 0.72,
-    });
-  }
-  return arr;
-})();
-
-function drawOrbitIcon(
-  ctx: CanvasRenderingContext2D,
-  type: OrbitIconType,
-  x: number,
-  y: number,
-  size: number,
-  alpha: number
-) {
-  const gold = `rgba(253,217,106,${alpha.toFixed(3)})`;
-  const amber = `rgba(240,165,0,${alpha.toFixed(3)})`;
-  ctx.strokeStyle = amber;
-  ctx.fillStyle = gold;
-  ctx.lineWidth = Math.max(1, size * 0.12);
-  ctx.lineCap = "round";
-  ctx.lineJoin = "round";
-
-  switch (type) {
-    case "sun": {
-      ctx.beginPath();
-      ctx.arc(x, y, size * 0.35, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-      for (let r = 0; r < 8; r++) {
-        const a = (r / 8) * Math.PI * 2;
-        ctx.beginPath();
-        ctx.moveTo(x + Math.cos(a) * size * 0.4, y + Math.sin(a) * size * 0.4);
-        ctx.lineTo(x + Math.cos(a) * size * 0.85, y + Math.sin(a) * size * 0.85);
-        ctx.stroke();
-      }
-      break;
-    }
-    case "pequi": {
-      ctx.beginPath();
-      ctx.ellipse(x, y, size * 0.5, size * 0.35, 0, 0, Math.PI * 2);
-      ctx.stroke();
-      for (let i = 0; i < 4; i++) {
-        const ax = x + (Math.cos((i / 4) * Math.PI * 2) * size * 0.25);
-        const ay = y + (Math.sin((i / 4) * Math.PI * 2) * size * 0.18);
-        ctx.beginPath();
-        ctx.arc(ax, ay, size * 0.12, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      break;
-    }
-    case "cypress": {
-      // Logo Cypress: folha / C estilizado
-      ctx.beginPath();
-      ctx.ellipse(x, y, size * 0.48, size * 0.38, 0, Math.PI * 0.35, Math.PI * 2 - Math.PI * 0.35);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(x + size * 0.08, y - size * 0.25);
-      ctx.lineTo(x + size * 0.08, y + size * 0.28);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x + size * 0.22, y, size * 0.12, 0, Math.PI * 2);
-      ctx.fill();
-      break;
-    }
-    case "playwright": {
-      // Logo Playwright: duas máscaras de teatro
-      const r = size * 0.32;
-      ctx.beginPath();
-      ctx.arc(x - size * 0.22, y, r, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x + size * 0.22, y, r, 0, Math.PI * 2);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x - size * 0.22, y + size * 0.08, size * 0.12, 0.2 * Math.PI, 0.8 * Math.PI);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x + size * 0.22, y - size * 0.05, size * 0.1, 0.6 * Math.PI, 1.4 * Math.PI);
-      ctx.stroke();
-      break;
-    }
-    case "postman": {
-      // Logo Postman: foguete (vista lateral)
-      ctx.beginPath();
-      ctx.moveTo(x - size * 0.5, y + size * 0.05);
-      ctx.lineTo(x, y - size * 0.45);
-      ctx.lineTo(x + size * 0.5, y + size * 0.05);
-      ctx.lineTo(x + size * 0.28, y + size * 0.35);
-      ctx.lineTo(x - size * 0.15, y + size * 0.2);
-      ctx.lineTo(x - size * 0.5, y + size * 0.05);
-      ctx.fill();
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(x + size * 0.28, y + size * 0.35);
-      ctx.lineTo(x + size * 0.5, y + size * 0.05);
-      ctx.stroke();
-      break;
-    }
-    case "cross": {
-      const s = size * 0.45;
-      ctx.beginPath();
-      ctx.moveTo(x, y - s);
-      ctx.lineTo(x, y + s);
-      ctx.moveTo(x - s * 0.6, y);
-      ctx.lineTo(x + s * 0.6, y);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.arc(x, y, size * 0.15, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.stroke();
-      break;
-    }
-  }
-}
 
 interface PequiCanvasProps {
   intensity?: number;
@@ -440,6 +303,7 @@ class Semente {
   layer: number;
   pequiA: number;
   spawned?: boolean;
+  axisBoost: number;
 
   constructor(i: number) {
     this.i = i;
@@ -451,10 +315,10 @@ class Semente {
 
     const ci = Math.floor(Math.random() * CORES.length);
     this.rgb = CORES[ci];
-    this.baseSize = 0.6 + Math.random() * 2;
+    this.baseSize = 0.5 + Math.random() * 1.3;
     this.size = this.baseSize;
     this.alpha = 0;
-    this.targetAlpha = 0.15 + Math.random() * 0.45;
+    this.targetAlpha = 0.12 + Math.random() * 0.26;
     this.phase = Math.random() * Math.PI * 2;
     this.phaseV = 0.006 + Math.random() * 0.014;
 
@@ -465,6 +329,7 @@ class Semente {
 
     this.layer = Math.floor(Math.random() * 6);
     this.pequiA = this.frac * Math.PI * 2 * (3 + this.layer * 0.7);
+    this.axisBoost = 0;
   }
 
   getFloatPos(CX: number, CY: number, W: number, H: number) {
@@ -536,21 +401,33 @@ class Semente {
     this.x += this.vx;
     this.y += this.vy;
 
+    // Realça partículas próximas aos eixos horizontal/vertical (cruz sutil tipo plano-piloto)
+    const axDx = this.x - CX;
+    const axDy = this.y - CY;
+    if (axDx !== 0 || axDy !== 0) {
+      const theta = Math.atan2(axDy, axDx);
+      const axis = Math.abs(Math.cos(theta * 2)); // 1 em cima/baixo/esquerda/direita, 0 nas diagonais
+      this.axisBoost += (axis - this.axisBoost) * 0.08;
+    }
+
     const floatA = this.targetAlpha * (0.55 + 0.45 * Math.sin(this.phase));
-    const pequiA = 0.35 + this.layer * 0.1;
-    const ta = floatA * (1 - conv) + pequiA * conv;
+    const pequiA = 0.32 + this.layer * 0.08;
+    const convDamp = 1 - conv * 0.3;
+    const ta = (floatA * (1 - conv) + pequiA * conv) * convDamp;
     this.alpha += (ta - this.alpha) * 0.055;
 
-    const pequiSize = this.baseSize * (1.2 + (5 - this.layer) * 0.25);
-    this.size = (this.baseSize * (1 - conv) + pequiSize * conv) * intensity;
+    const pequiSize = this.baseSize * (1.1 + (5 - this.layer) * 0.22);
+    const baseSize = this.baseSize * (0.8 + conv * 0.4);
+    this.size = (baseSize * (1 - conv) + pequiSize * conv) * intensity * convDamp;
   }
 
   draw(ctx: CanvasRenderingContext2D, intensity: number, isMobile = false) {
     if (this.alpha < 0.01) return;
     const [r, g, b] = this.rgb;
-    const a = this.alpha * intensity;
-    const sizeMul = isMobile ? 0.65 : 1;
-    const haloMul = isMobile ? 2 : 3.5;
+    const axisMul = 1 + 0.5 * (this.axisBoost || 0);
+    const a = this.alpha * intensity * axisMul;
+    const sizeMul = isMobile ? 0.6 : 0.9;
+    const haloMul = (isMobile ? 1.6 : 2.6) * (0.9 + 0.25 * (this.axisBoost || 0));
 
     const hr = this.size * haloMul;
     const grd = ctx.createRadialGradient(
@@ -717,7 +594,7 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
       const { W, H, CX, CY } = dimensionsRef.current;
       const minWH = Math.min(W, H);
       const isMobile = isMobileRef.current;
-      const scale = isMobile ? 0.85 : 1;
+      const scale = isMobile ? 0.8 : 1;
 
       // Pulso de visibilidade: órbitas aparecem e somem suavemente ao longo do tempo (~10s ciclo)
       const orbitVis = 0.18 + 0.72 * (0.5 + 0.5 * Math.sin(tSec * 0.6));
@@ -725,15 +602,6 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
 
       ORBITS.forEach((orbit, oi) => {
         const orbitR = orbit.r * minWH * scale;
-        ctx.save();
-        ctx.strokeStyle = `rgba(240,165,0,${(0.25 * orbitVis).toFixed(3)})`;
-        ctx.lineWidth = 1;
-        ctx.setLineDash([3, 8]);
-        ctx.beginPath();
-        ctx.ellipse(CX, CY, orbitR, orbitR * 0.65, 0, 0, Math.PI * 2);
-        ctx.stroke();
-        ctx.setLineDash([]);
-        ctx.restore();
 
         orbit.tools.forEach((toolIdx, ti) => {
           const tool = TOOLS[toolIdx];
@@ -743,7 +611,8 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
           const ox = CX + Math.cos(angle) * orbitR;
           const oy = CY + Math.sin(angle) * orbitR * 0.65;
           const depth = (Math.sin(angle) + 1) / 2;
-          const iconR = (8 + oi * 3.5) * (0.6 + depth * 0.4) * scale;
+          const baseR = isMobile ? 6 : 7;
+          const iconR = (baseR + oi * 2.4) * (0.55 + depth * 0.35) * scale;
           const iconA = (0.35 + depth * 0.55) * orbitVis;
 
           const halo = ctx.createRadialGradient(ox, oy, 0, ox, oy, iconR * 2.2);
@@ -777,6 +646,69 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
       });
     };
 
+    const drawPequiShell = (conv: number) => {
+      const a = conv * 0.6;
+      if (a < 0.05) return;
+      const { W, H, CX, CY } = dimensionsRef.current;
+      const minWH = Math.min(W, H);
+      const r = minWH * 0.22;
+      const top = r * 0.9;
+      const mid = r * 0.55;
+      const bottom = r * 0.95;
+
+      ctx.save();
+      ctx.beginPath();
+      ctx.moveTo(CX, CY - top);
+      ctx.bezierCurveTo(
+        CX + r * 0.32,
+        CY - top * 1.02,
+        CX + r * 0.75,
+        CY - mid * 1.05,
+        CX + r * 0.9,
+        CY - mid * 0.3
+      );
+      ctx.bezierCurveTo(
+        CX + r * 1.0,
+        CY + mid * 0.15,
+        CX + r * 0.9,
+        CY + bottom * 0.45,
+        CX + r * 0.4,
+        CY + bottom
+      );
+      ctx.bezierCurveTo(
+        CX + r * 0.18,
+        CY + bottom * 1.05,
+        CX - r * 0.18,
+        CY + bottom * 1.05,
+        CX - r * 0.4,
+        CY + bottom
+      );
+      ctx.bezierCurveTo(
+        CX - r * 0.9,
+        CY + bottom * 0.45,
+        CX - r * 1.0,
+        CY + mid * 0.15,
+        CX - r * 0.9,
+        CY - mid * 0.3
+      );
+      ctx.bezierCurveTo(
+        CX - r * 0.75,
+        CY - mid * 1.05,
+        CX - r * 0.32,
+        CY - top * 1.02,
+        CX,
+        CY - top
+      );
+
+      const strokeA = (0.55 + 0.45 * Math.sin(tRef.current * 0.0018)) * a;
+      ctx.strokeStyle = `rgba(253,217,106,${strokeA.toFixed(3)})`;
+      ctx.lineWidth = 1.4;
+      ctx.shadowColor = `rgba(240,165,0,${(strokeA * 0.6).toFixed(3)})`;
+      ctx.shadowBlur = 10;
+      ctx.stroke();
+      ctx.restore();
+    };
+
     const drawPolpa = (conv: number) => {
       const a = conv * 0.5;
       if (a < 0.01) return;
@@ -804,21 +736,60 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
     };
 
     const drawCore = (conv: number) => {
-      const a = conv * 0.7;
+      const a = conv * 0.8;
       if (a < 0.01) return;
       const { W, H, CX, CY } = dimensionsRef.current;
+      const baseR = Math.min(W, H) * 0.075;
       const r =
-        Math.min(W, H) *
-        0.08 *
+        baseR *
         (1 + 0.1 * Math.sin(tRef.current * 0.003));
+
+      // Polpa amarela ao redor da semente
       const grd = ctx.createRadialGradient(CX, CY, 0, CX, CY, r);
-      grd.addColorStop(0, `rgba(253,217,106,${a.toFixed(3)})`);
-      grd.addColorStop(0.5, `rgba(240,165,0,${(a * 0.4).toFixed(3)})`);
+      grd.addColorStop(0, `rgba(255,242,205,${(a * 0.7).toFixed(3)})`);
+      grd.addColorStop(0.55, `rgba(245,190,80,${(a * 0.6).toFixed(3)})`);
       grd.addColorStop(1, "rgba(200,134,10,0)");
       ctx.beginPath();
       ctx.arc(CX, CY, r, 0, Math.PI * 2);
       ctx.fillStyle = grd;
       ctx.fill();
+
+      // Anel de espinhos (marrom em volta da semente)
+      const ringR = r * 0.62;
+      const ringW = r * 0.26;
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(CX, CY, ringR, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(120,70,30,${(a * 0.85).toFixed(3)})`;
+      ctx.lineWidth = ringW;
+      ctx.stroke();
+
+      // Espinhos radiais suaves
+      const spikes = 26;
+      ctx.strokeStyle = `rgba(90,50,20,${(a * 0.7).toFixed(3)})`;
+      ctx.lineWidth = 1;
+      for (let i = 0; i < spikes; i++) {
+        const ang = (i / spikes) * Math.PI * 2;
+        const r1 = ringR - ringW * 0.6;
+        const r2 = ringR + ringW * 0.5;
+        ctx.beginPath();
+        ctx.moveTo(CX + Math.cos(ang) * r1, CY + Math.sin(ang) * r1);
+        ctx.lineTo(CX + Math.cos(ang) * r2, CY + Math.sin(ang) * r2);
+        ctx.stroke();
+      }
+      ctx.restore();
+
+      // Semente clara no centro
+      const seedR = r * 0.32;
+      ctx.beginPath();
+      ctx.ellipse(CX, CY, seedR * 0.82, seedR, 0.25, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(252,249,242,${(0.9 * a).toFixed(3)})`;
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(CX, CY, seedR * 0.82, seedR, 0.25, 0, Math.PI * 2);
+      ctx.strokeStyle = `rgba(160,120,60,${(0.8 * a).toFixed(3)})`;
+      ctx.lineWidth = 1;
+      ctx.stroke();
     };
 
     function loop(now: number) {
@@ -852,16 +823,18 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
         0,
         CX,
         CY,
-        Math.max(W, H) * 0.8
+        Math.max(W, H) * 0.9
       );
-      bg.addColorStop(0, `rgba(22,45,10,${0.04 + converge * 0.12})`);
-      bg.addColorStop(1, "rgba(10,20,6,0)");
+      const cv = 0.06 + converge * 0.06;
+      bg.addColorStop(0, `rgba(22,18,10,${cv})`);
+      bg.addColorStop(0.5, `rgba(12,10,6,${cv * 0.7})`);
+      bg.addColorStop(1, "rgba(5,4,3,0)");
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, W, H);
 
       if (mx > 0) addTrail(mx, my);
 
-      drawOrbits(now / 1000);
+      drawPequiShell(converge);
       drawPolpa(converge);
       for (const s of sementesRef.current) {
         s.update(
@@ -875,23 +848,6 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
           intensity
         );
         s.draw(ctx, intensity, isMobileRef.current);
-      }
-
-      const minWH = Math.min(W, H);
-      const iconSize = isMobileRef.current
-        ? Math.max(8, minWH * 0.012)
-        : Math.max(14, minWH * 0.024);
-      const iconAlpha = 0.35 + 0.15 * Math.sin(now * 0.001);
-      const iconCount = isMobileRef.current ? 14 : ORBIT_ICONS.length;
-      for (let i = 0; i < iconCount; i++) {
-        const icon = ORBIT_ICONS[i];
-        const rx = minWH * (0.28 + 0.14 * icon.spiralR);
-        const ry = minWH * (0.22 + 0.12 * icon.spiralR);
-        const drift = now * 0.00012 + i * 0.25;
-        const angle = icon.baseAngle + drift;
-        const ix = CX + Math.cos(angle) * rx * icon.spiralR;
-        const iy = CY + Math.sin(angle) * ry * icon.spiralR;
-        drawOrbitIcon(ctx, icon.type, ix, iy, iconSize, iconAlpha * intensity);
       }
 
       updateDrawTrail();

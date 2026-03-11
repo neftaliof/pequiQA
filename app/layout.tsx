@@ -23,6 +23,9 @@ export const metadata: Metadata = {
   description: "Qualidade que nasce do processo, não da sorte. Consultoria especializada em QA com transparência e resultados mensuráveis.",
   keywords: ["QA", "qualidade de software", "consultoria", "testes", "alocação de QAs", "Goiás"],
   authors: [{ name: "Jenafree Labs" }],
+  icons: {
+    icon: "/icon.svg",
+  },
   openGraph: {
     title: "Pequi QA - Consultoria em Qualidade de Software",
     description: "Qualidade que nasce do processo, não da sorte.",
@@ -30,6 +33,7 @@ export const metadata: Metadata = {
     siteName: "Pequi QA",
     locale: "pt_BR",
     type: "website",
+    images: ["/icon.svg"],
   },
   robots: {
     index: true,
