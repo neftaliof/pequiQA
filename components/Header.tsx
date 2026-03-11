@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
@@ -33,13 +32,14 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col">
             <div className="flex items-center gap-2">
-              <span className="text-accent flex items-center justify-center">
-                <Image
+              <span className="text-accent flex items-center justify-center [&_img]:hidden sm:[&_img]:block">
+                <img
                   src="/pequi-mark.svg"
                   alt=""
                   width={26}
                   height={26}
-                  className="hidden sm:block"
+                  className="h-6 w-6 sm:h-7 sm:w-7"
+                  style={{ color: "currentColor" }}
                 />
               </span>
               <div className="text-xl sm:text-2xl font-display font-bold text-white">
