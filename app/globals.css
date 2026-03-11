@@ -229,3 +229,29 @@
     transform: scale(1.06);
   }
 }
+
+/* HeroFold — animações da dobra Home */
+@keyframes heroLogoReveal {
+  to { color: rgba(251,245,230,0.88); }
+}
+@keyframes heroGoldReveal {
+  to { color: #F0A500; }
+}
+@keyframes heroTaglineFadeIn {
+  to { color: rgba(251,245,230,0.82); }
+}
+@keyframes heroHintFadeIn {
+  to { color: rgba(251,245,230,0.45); }
+}
+@keyframes heroHintPulse {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.5; }
+}
+
+/* Hero mobile: canvas 55vh */
+@media (max-width: 767px) {
+  .hero-fold {
+    min-height: 55vh !important;
+    height: 55vh;
+  }
+}

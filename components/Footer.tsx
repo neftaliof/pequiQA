@@ -79,9 +79,27 @@ export default function Footer() {
           <div className="text-sm text-white/60 text-center md:text-left">
             © {currentYear} Pequi QA. Todos os direitos reservados.
           </div>
-          <div className="text-sm text-white/60 text-center md:text-right">
-            <span className="text-accent font-semibold">by Jenafree Labs</span>
-            <span className="mx-2">•</span>
+          <div className="text-sm text-white/60 text-center md:text-right flex items-center justify-center md:justify-end gap-2 flex-wrap">
+            <span>
+              by{" "}
+              <span
+                className="jenafree-electric"
+                style={{
+                  display: "inline-block",
+                  padding: "0.1em 0.35em",
+                  margin: "0 0.1em",
+                  border: "2px solid #F0A500",
+                  borderRadius: 4,
+                  color: "#F0A500",
+                  fontWeight: 600,
+                  filter: "url(#electric-border)",
+                }}
+              >
+                Jenafree
+              </span>{" "}
+              Labs
+            </span>
+            <span className="mx-1">•</span>
             <span className="italic">Feito com orgulho no Cerrado</span>
           </div>
         </div>

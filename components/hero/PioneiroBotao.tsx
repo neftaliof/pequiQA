@@ -159,6 +159,7 @@ export default function PioneiroBotao() {
       H = 0;
 
     function resize() {
+      if (!canvas) return;
       W = canvas.width = window.innerWidth;
       H = canvas.height = window.innerHeight;
     }

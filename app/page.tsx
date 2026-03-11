@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import HeroFold from "@/components/hero/HeroFold";
 import HeroSection from "@/components/hero/HeroSection";
 import ServiceCard from "@/components/ServiceCard";
 import CaseCard from "@/components/CaseCard";
@@ -135,8 +136,11 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="pt-16 md:pt-20">
-        {/* Hero */}
+      <main>
+        {/* Dobra Home — efeito canvas igual ao HTML */}
+        <HeroFold />
+
+        {/* Hero (conteúdo) — mantida abaixo */}
         <HeroSection />
 
         {/* Dor do Cliente */}

@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 import PioneiroBotao from "./PioneiroBotao";
 
-const ParticleCanvas = dynamic(() => import("./ParticleCanvas"), { ssr: false });
+const PequiCanvas = dynamic(() => import("./PequiCanvas"), { ssr: false });
 
 const implantacaoItems = [
   "Diagnóstico do processo atual",
@@ -31,6 +31,7 @@ const miniCards = [
 export default function HeroSection() {
   return (
     <section
+      id="hero"
       style={{
         position: "relative",
         minHeight: "100vh",
@@ -45,7 +46,9 @@ export default function HeroSection() {
         `,
       }}
     >
-      <ParticleCanvas />
+      <div className="hidden md:block absolute inset-0 w-full h-full">
+        <PequiCanvas intensity={0.85} />
+      </div>
 
       {/* Linha decorativa vertical - apenas desktop */}
       <div
@@ -63,12 +66,137 @@ export default function HeroSection() {
         }}
       />
 
-      {/* Grid 2 colunas */}
+      {/* Grid 2 colunas (desktop) + bloco mobile */}
       <div
-        className="md:grid md:grid-cols-2 md:gap-12 lg:gap-[3rem] md:items-center md:flex-1 md:px-14 md:py-28 md:pb-12 max-w-[1280px] mx-auto w-full relative z-10 flex flex-col gap-8 pt-24 pb-12 px-6"
+        className="max-w-[1280px] mx-auto w-full relative z-10 flex flex-col items-center px-6 pb-12 pt-8 gap-6 md:grid md:grid-cols-2 md:gap-12 lg:gap-[3rem] md:items-center md:flex-1 md:px-14 md:py-28 md:pt-24 md:pb-12 md:gap-8 hero-section-inner"
       >
-        {/* ── ESQUERDA ── */}
-        <div>
+        {/* ── MOBILE: conteúdo completo ── */}
+        <div className="flex flex-col items-center w-full gap-6 md:hidden">
+          <div
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "0.65rem",
+              fontWeight: 700,
+              textTransform: "uppercase",
+              letterSpacing: "0.22em",
+              color: "rgba(200,134,10,0.75)",
+              textAlign: "center",
+            }}
+          >
+            Consultoria em Qualidade de Software
+          </div>
+          <h1
+            style={{
+              fontFamily: '"Playfair Display", serif',
+              fontSize: "clamp(2rem, 8vw, 3rem)",
+              fontWeight: 800,
+              lineHeight: 1.15,
+              color: "#FBF5E6",
+              letterSpacing: "-0.03em",
+              textAlign: "center",
+            }}
+          >
+            Seu software testado.
+            <br />
+            Sem intermediário.
+            <br />
+            Sob demanda.
+          </h1>
+          <p
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "0.9rem",
+              lineHeight: 1.5,
+              color: "rgba(251,245,230,0.48)",
+              textAlign: "center",
+              maxWidth: 320,
+              margin: "0 auto",
+            }}
+          >
+            Arquiteto de testes dentro da sua sprint.
+            <br />
+            Direto com quem faz.
+          </p>
+          <div
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "0.75rem",
+              textAlign: "center",
+              border: "1px solid rgba(200,134,10,0.15)",
+              borderLeft: "3px solid rgba(200,134,10,0.5)",
+              borderRadius: "0 8px 8px 0",
+              padding: "0.8rem 1rem",
+              margin: "0 0",
+              width: "100%",
+              maxWidth: "calc(100% - 0px)",
+              boxSizing: "border-box",
+              color: "rgba(251,245,230,0.6)",
+            }}
+          >
+            🌱 Startup nova em Goiás · 15 anos de mercado · Primeiros clientes com oferta especial
+          </div>
+          <div className="flex flex-col gap-3 w-full">
+            <a
+              href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20conversar%20com%20a%20fundadora."
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontSize: "0.9rem",
+                fontWeight: 700,
+                background: "linear-gradient(135deg, #C8860A, #F0A500)",
+                color: "#0e1a07",
+                border: "none",
+                borderRadius: 8,
+                padding: "1rem",
+                textDecoration: "none",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              Conversar com a fundadora
+            </a>
+            <Link
+              href="/manifesto"
+              style={{
+                fontFamily: "Syne, sans-serif",
+                fontSize: "0.9rem",
+                fontWeight: 600,
+                background: "transparent",
+                border: "1px solid rgba(200,134,10,0.25)",
+                color: "rgba(251,245,230,0.5)",
+                borderRadius: 8,
+                padding: "0.9rem",
+                textDecoration: "none",
+                textAlign: "center",
+                width: "100%",
+              }}
+            >
+              Ler o manifesto →
+            </Link>
+          </div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gap: "0.5rem",
+              width: "100%",
+              fontFamily: "Syne, sans-serif",
+              fontSize: "0.65rem",
+              textAlign: "center",
+              borderTop: "1px solid rgba(200,134,10,0.1)",
+              paddingTop: "1.5rem",
+              color: "rgba(251,245,230,0.5)",
+            }}
+          >
+            <span>🎯 Sob demanda</span>
+            <span>🔧 Sem body shop</span>
+            <span>🌿 Goiânia</span>
+          </div>
+        </div>
+
+        {/* ── DESKTOP ESQUERDA ── */}
+        <div className="hidden md:block">
           {/* Eyebrow */}
           <div
             style={{
@@ -237,8 +365,8 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── DIREITA: Cards ── */}
-        <div className="flex flex-col gap-4">
+        {/* ── DIREITA: Cards (oculto no mobile) ── */}
+        <div className="hidden md:flex flex-col gap-4">
           {/* Card principal — Implantação */}
           <div
             style={{
