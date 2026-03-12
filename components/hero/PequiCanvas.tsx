@@ -803,17 +803,28 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
       }
       ctx.restore();
 
-      // Semente clara no centro
-      const seedR = r * 0.32;
-      ctx.beginPath();
-      ctx.ellipse(CX, CY, seedR * 0.82, seedR, 0.25, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(252,249,242,${(0.9 * a).toFixed(3)})`;
-      ctx.fill();
-      ctx.beginPath();
-      ctx.ellipse(CX, CY, seedR * 0.82, seedR, 0.25, 0, Math.PI * 2);
-      ctx.strokeStyle = `rgba(160,120,60,${(0.8 * a).toFixed(3)})`;
-      ctx.lineWidth = 1;
-      ctx.stroke();
+      // Conjunto de sementinhas no centro (em vez de um "olho" único)
+      const seedR = r * 0.18;
+      const seeds = [
+        { ox: 0, oy: -seedR * 0.4, rot: 0.25 },
+        { ox: seedR * 0.7, oy: seedR * 0.4, rot: 0.4 },
+        { ox: -seedR * 0.7, oy: seedR * 0.4, rot: 0.1 },
+      ];
+      seeds.forEach((s) => {
+        ctx.save();
+        ctx.translate(CX + s.ox, CY + s.oy);
+        ctx.rotate(s.rot);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, seedR * 0.8, seedR * 1.15, 0, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(252,249,242,${(0.85 * a).toFixed(3)})`;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.ellipse(0, 0, seedR * 0.8, seedR * 1.15, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = `rgba(160,120,60,${(0.7 * a).toFixed(3)})`;
+        ctx.lineWidth = 0.9;
+        ctx.stroke();
+        ctx.restore();
+      });
     };
 
     function loop(now: number) {
