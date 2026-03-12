@@ -336,10 +336,34 @@ class Semente {
     const minWH = Math.min(W, H);
     const rx = minWH * (0.28 + 0.14 * this.spiralR);
     const ry = minWH * (0.22 + 0.12 * this.spiralR);
-    const drift = this.phase * 0.15;
+    const drift = this.phase * 0.12;
+    const a = this.spiralA + drift;
+
+    const baseR = this.spiralR;
+    const cosA = Math.cos(a);
+    const sinA = Math.sin(a);
+    const absCos = Math.abs(cosA);
+    const absSin = Math.abs(sinA);
+
+    // Espessura da cruz (0 = linha finíssima, 1 = círculo cheio)
+    const crossThickness = 0.18;
+
+    let dx: number;
+    let dy: number;
+
+    if (absCos >= absSin) {
+      // Braços horizontais: estica no X, comprime bem no Y
+      dx = cosA * rx * baseR;
+      dy = sinA * rx * baseR * crossThickness;
+    } else {
+      // Braços verticais: estica no Y, comprime bem no X
+      dx = cosA * ry * baseR * crossThickness;
+      dy = sinA * ry * baseR;
+    }
+
     return {
-      x: CX + Math.cos(this.spiralA + drift) * rx * this.spiralR,
-      y: CY + Math.sin(this.spiralA + drift) * ry * this.spiralR,
+      x: CX + dx,
+      y: CY + dy,
     };
   }
 
