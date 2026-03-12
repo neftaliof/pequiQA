@@ -73,19 +73,18 @@ export default function HeroFold() {
         <div
           style={{
             fontFamily: "Syne, sans-serif",
-            fontSize: "clamp(0.5rem, 1.4vw, 0.8rem)",
+            fontSize: "clamp(0.55rem, 1.5vw, 0.85rem)",
             fontWeight: 600,
-            letterSpacing: "0.3em",
-            textTransform: "uppercase",
+            letterSpacing: "0.08em",
             color: "rgba(251,245,230,0.82)",
-            marginTop: "0.4rem",
+            marginTop: "0.5rem",
             paddingLeft: "0.2em",
             opacity: 0,
             animation: "heroTaglineFadeIn 1.5s 3s ease forwards",
             textShadow: "0 0 20px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4)",
           }}
         >
-          Qualidade que nasce do processo
+          Quality as a Service — Engenharia de qualidade para produtos digitais
         </div>
       </div>
 

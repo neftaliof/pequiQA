@@ -106,7 +106,7 @@ export default function ContatoPage() {
                         Localização
                       </h4>
                       <p className="text-text/70">
-                        Goiânia, GO
+                        Anápolis, GO
                         <br />
                         Atendimento em todo o Brasil
                       </p>

@@ -75,69 +75,49 @@ export default function HeroSection() {
           <div
             style={{
               fontFamily: "Syne, sans-serif",
-              fontSize: "0.65rem",
+              fontSize: "0.6rem",
               fontWeight: 700,
               textTransform: "uppercase",
-              letterSpacing: "0.22em",
-              color: "rgba(200,134,10,0.75)",
+              letterSpacing: "0.2em",
+              color: "rgba(200,134,10,0.6)",
               textAlign: "center",
             }}
           >
-            Consultoria em Qualidade de Software
+            Engenharia de Qualidade · Goiás, Brasil
           </div>
           <h1
             style={{
-              fontFamily: '"Playfair Display", serif',
-              fontSize: "clamp(2rem, 8vw, 3rem)",
-              fontWeight: 800,
-              lineHeight: 1.15,
+              fontFamily: "var(--font-playfair), serif",
+              fontSize: "clamp(1.9rem, 8vw, 2.8rem)",
+              fontWeight: 700,
+              lineHeight: 1.2,
               color: "#FBF5E6",
-              letterSpacing: "-0.03em",
+              letterSpacing: "-0.02em",
               textAlign: "center",
             }}
           >
-            Seu software testado.
+            Não encontramos bugs.
             <br />
-            Sem intermediário.
-            <br />
-            Sob demanda.
+            <em style={{ fontStyle: "italic", color: "#F0A500" }}>
+              Nós evitamos que eles existam.
+            </em>
           </h1>
           <p
             style={{
               fontFamily: "Syne, sans-serif",
-              fontSize: "0.9rem",
-              lineHeight: 1.5,
-              color: "rgba(251,245,230,0.48)",
+              fontSize: "0.88rem",
+              lineHeight: 1.6,
+              color: "rgba(251,245,230,0.55)",
               textAlign: "center",
-              maxWidth: 320,
+              maxWidth: 340,
               margin: "0 auto",
             }}
           >
-            Arquiteto de testes dentro da sua sprint.
-            <br />
-            Direto com quem faz.
+            Quality as a Service — Engenharia de qualidade para produtos digitais.
           </p>
-          <div
-            style={{
-              fontFamily: "Syne, sans-serif",
-              fontSize: "0.75rem",
-              textAlign: "center",
-              border: "1px solid rgba(200,134,10,0.15)",
-              borderLeft: "3px solid rgba(200,134,10,0.5)",
-              borderRadius: "0 8px 8px 0",
-              padding: "0.8rem 1rem",
-              margin: "0 0",
-              width: "100%",
-              maxWidth: "calc(100% - 0px)",
-              boxSizing: "border-box",
-              color: "rgba(251,245,230,0.6)",
-            }}
-          >
-            🌱 Startup nova em Goiás · 15 anos de mercado · Primeiros clientes com oferta especial
-          </div>
           <div className="flex flex-col gap-3 w-full">
             <a
-              href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20conversar%20com%20a%20fundadora."
+              href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Quero%20prevenir%20bugs%20em%20produ%C3%A7%C3%A3o.%20Como%20a%20Pequi%20QA%20pode%20ajudar%3F"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -154,7 +134,7 @@ export default function HeroSection() {
                 width: "100%",
               }}
             >
-              Conversar com a fundadora
+              Quero prevenir bugs em produção 🌿
             </a>
             <Link
               href="/manifesto"
@@ -164,7 +144,7 @@ export default function HeroSection() {
                 fontWeight: 600,
                 background: "transparent",
                 border: "1px solid rgba(200,134,10,0.25)",
-                color: "rgba(251,245,230,0.5)",
+                color: "rgba(251,245,230,0.7)",
                 borderRadius: 8,
                 padding: "0.9rem",
                 textDecoration: "none",
@@ -175,23 +155,55 @@ export default function HeroSection() {
               Ler o manifesto →
             </Link>
           </div>
+          <p
+            style={{
+              fontFamily: "Syne, sans-serif",
+              fontSize: "0.7rem",
+              textAlign: "center",
+              color: "rgba(251,245,230,0.4)",
+            }}
+          >
+            🌱 Startup nova em Goiás · 15 anos de mercado · Oferta especial para
+            primeiros clientes
+          </p>
           <div
             style={{
               display: "grid",
               gridTemplateColumns: "1fr 1fr 1fr",
-              gap: "0.5rem",
+              gap: "0.75rem",
               width: "100%",
               fontFamily: "Syne, sans-serif",
-              fontSize: "0.65rem",
+              fontSize: "0.6rem",
               textAlign: "center",
               borderTop: "1px solid rgba(200,134,10,0.1)",
               paddingTop: "1.5rem",
               color: "rgba(251,245,230,0.5)",
             }}
           >
-            <span>🎯 Sob demanda</span>
-            <span>🔧 Sem body shop</span>
-            <span>🌿 Goiânia</span>
+            <div>
+              <div style={{ fontWeight: 700, color: "#F0A500", marginBottom: 2 }}>
+                Processo
+              </div>
+              <div style={{ textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                Qualidade no requisito
+              </div>
+            </div>
+            <div>
+              <div style={{ fontWeight: 700, color: "#F0A500", marginBottom: 2 }}>
+                Automação
+              </div>
+              <div style={{ textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                Qualidade no deploy
+              </div>
+            </div>
+            <div>
+              <div style={{ fontWeight: 700, color: "#F0A500", marginBottom: 2 }}>
+                Prevenção
+              </div>
+              <div style={{ textTransform: "uppercase", letterSpacing: "0.08em" }}>
+                Antes da produção
+              </div>
+            </div>
           </div>
         </div>
 
@@ -204,11 +216,11 @@ export default function HeroSection() {
               alignItems: "center",
               gap: "0.7rem",
               fontFamily: "Syne, sans-serif",
-              fontSize: "0.65rem",
+              fontSize: "0.62rem",
               fontWeight: 700,
               textTransform: "uppercase",
-              letterSpacing: "0.22em",
-              color: "rgba(200,134,10,0.75)",
+              letterSpacing: "0.2em",
+              color: "rgba(200,134,10,0.6)",
               marginBottom: "1.8rem",
             }}
           >
@@ -220,27 +232,26 @@ export default function HeroSection() {
                 display: "block",
               }}
             />
-            Consultoria em Qualidade de Software
+            Engenharia de Qualidade · Goiás, Brasil
           </div>
 
           {/* Headline */}
           <h1
             style={{
-              fontFamily: '"Playfair Display", serif',
-              fontSize: "clamp(2.8rem, 4.8vw, 4.6rem)",
-              fontWeight: 800,
-              lineHeight: 1.06,
+              fontFamily: "var(--font-playfair), serif",
+              fontSize: "clamp(2.6rem, 4.2vw, 4.2rem)",
+              fontWeight: 700,
+              lineHeight: 1.1,
               color: "#FBF5E6",
-              letterSpacing: "-0.03em",
-              marginBottom: "1.6rem",
+              letterSpacing: "-0.02em",
+              marginBottom: "1.5rem",
             }}
           >
-            Qualidade que
+            Não encontramos bugs.
             <br />
-            nasce do processo,
-            <br />
-            não da{" "}
-            <em style={{ fontStyle: "italic", color: "#F0A500" }}>sorte.</em>
+            <em style={{ fontStyle: "italic", color: "#F0A500" }}>
+              Nós evitamos que eles existam.
+            </em>
           </h1>
 
           {/* Descrição */}
@@ -249,38 +260,36 @@ export default function HeroSection() {
               fontFamily: "Syne, sans-serif",
               fontSize: "0.98rem",
               lineHeight: 1.75,
-              color: "rgba(251,245,230,0.45)",
-              maxWidth: 400,
-              marginBottom: "2.4rem",
+              color: "rgba(251,245,230,0.5)",
+              maxWidth: 420,
+              marginBottom: "2rem",
             }}
           >
-            Estruturamos qualidade de software do zero — ou transformamos o que
-            já existe. 15 anos de prática real, sem atravessadores, sem promessa
-            vazia.
+            Quality as a Service — Engenharia de qualidade para produtos digitais.
           </p>
 
           {/* CTAs */}
           <div
             style={{
               display: "flex",
-              gap: "0.9rem",
+              gap: "1rem",
               alignItems: "center",
               flexWrap: "wrap",
             }}
           >
             <a
-              href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20quero%20um%20diagn%C3%B3stico%20gratuito."
+              href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Quero%20prevenir%20bugs%20em%20produ%C3%A7%C3%A3o.%20Como%20a%20Pequi%20QA%20pode%20ajudar%3F"
               target="_blank"
               rel="noopener noreferrer"
               style={{
                 fontFamily: "Syne, sans-serif",
-                fontSize: "0.88rem",
+                fontSize: "0.9rem",
                 fontWeight: 700,
                 background: "linear-gradient(135deg, #C8860A 0%, #F0A500 100%)",
                 color: "#111d09",
                 border: "none",
-                borderRadius: 5,
-                padding: "0.85rem 1.7rem",
+                borderRadius: 8,
+                padding: "0.9rem 1.8rem",
                 cursor: "pointer",
                 textDecoration: "none",
                 display: "inline-flex",
@@ -288,81 +297,110 @@ export default function HeroSection() {
                 gap: "0.5rem",
               }}
             >
-              ◆ Diagnóstico gratuito
+              Quero prevenir bugs em produção 🌿
             </a>
             <Link
-              href="/servicos"
+              href="/manifesto"
               style={{
                 fontFamily: "Syne, sans-serif",
                 fontSize: "0.88rem",
                 fontWeight: 600,
                 color: "rgba(251,245,230,0.85)",
-                border: "1px solid rgba(251,245,230,0.35)",
-                borderRadius: 5,
-                padding: "0.85rem 1.7rem",
                 textDecoration: "none",
                 display: "inline-flex",
                 alignItems: "center",
                 transition: "all 0.2s",
               }}
-              className="hover:bg-white/5 hover:border-white/50"
+              className="hover:text-accent"
             >
-              Ver nossos serviços →
+              Ler o manifesto →
             </Link>
           </div>
 
-          {/* Stats */}
+          {/* Pilares */}
           <div
             style={{
               display: "flex",
-              gap: 0,
-              marginTop: "3rem",
+              gap: "2rem",
+              marginTop: "2.5rem",
               paddingTop: "2rem",
-              borderTop: "1px solid rgba(200, 134, 10, 0.1)",
+              borderTop: "1px solid rgba(200,134,10,0.12)",
             }}
           >
-            {[
-              { n: "15+", l: "Anos de experiência" },
-              { n: "100%", l: "QAs valorizados" },
-              { n: "zero", l: "Atravessadores" },
-            ].map((s, i) => (
+            <div>
               <div
-                key={i}
                 style={{
-                  flex: 1,
-                  paddingLeft: i > 0 ? "1.8rem" : 0,
-                  borderLeft:
-                    i > 0
-                      ? "1px solid rgba(200, 134, 10, 0.1)"
-                      : "none",
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  color: "#F0A500",
+                  marginBottom: "0.25rem",
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: '"Playfair Display", serif',
-                    fontSize: "2.1rem",
-                    fontWeight: 700,
-                    color: "#F0A500",
-                    lineHeight: 1,
-                  }}
-                >
-                  {s.n}
-                </div>
-                <div
-                  style={{
-                    fontFamily: "Syne, sans-serif",
-                    fontSize: "0.62rem",
-                    textTransform: "uppercase",
-                    letterSpacing: "0.12em",
-                    color: "rgba(251, 245, 230, 0.28)",
-                    marginTop: "0.4rem",
-                  }}
-                >
-                  {s.l}
-                </div>
+                Processo
               </div>
-            ))}
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "0.58rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "rgba(251,245,230,0.4)",
+                }}
+              >
+                Qualidade no requisito
+              </div>
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  color: "#F0A500",
+                  marginBottom: "0.25rem",
+                }}
+              >
+                Automação
+              </div>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "0.58rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "rgba(251,245,230,0.4)",
+                }}
+              >
+                Qualidade no deploy
+              </div>
+            </div>
+            <div>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "1rem",
+                  fontWeight: 700,
+                  color: "#F0A500",
+                  marginBottom: "0.25rem",
+                }}
+              >
+                Prevenção
+              </div>
+              <div
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  fontSize: "0.58rem",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12em",
+                  color: "rgba(251,245,230,0.4)",
+                }}
+              >
+                Antes da produção
+              </div>
+            </div>
           </div>
+
         </div>
 
         {/* ── DIREITA: Cards (oculto no mobile) ── */}

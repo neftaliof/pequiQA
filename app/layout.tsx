@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Syne } from "next/font/google";
+import { Cormorant_Garamond, Syne } from "next/font/google";
 import "./globals.css";
 import CTAWhatsApp from "@/components/CTAWhatsApp";
 import Analytics from "@/components/Analytics";
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
-  weight: ["700", "800"],
+  weight: ["500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-playfair",
   display: "swap",
@@ -48,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${playfair.variable} ${syne.variable}`}>
+    <html lang="pt-BR" className={`${cormorant.variable} ${syne.variable}`}>
       <body className="antialiased">
         <Analytics />
         {/* SVG filter para electric border (Jenafree no footer) */}

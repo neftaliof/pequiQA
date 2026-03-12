@@ -13,20 +13,6 @@ function isActive(href: string, pathname: string) {
 
 const WHATSAPP_URL = "https://wa.me/5548988526644";
 
-function SeedIcon({ className }: { className?: string }) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className={className}
-      aria-hidden
-    >
-      <path d="M12 2c5 0 9 4 9 10s-3 10-9 10-9-4-9-10 4-10 9-10z" />
-    </svg>
-  );
-}
-
 const servicosChildren = [
   { href: "/servicos/implantacao-de-qualidade", label: "Implantação de Qualidade" },
   { href: "/servicos/alocacao-de-qas", label: "Alocação de QAs" },
@@ -75,7 +61,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex flex-col flex-shrink-0">
             <div className="flex items-center gap-2">
-              <span className="text-accent hidden sm:flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0" aria-hidden>
+              <span className="text-accent flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0" aria-hidden>
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 120 140" className="h-full w-full" fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">
                   <path d="M 0 -46 C 22 -48 34 -40 40 -26 C 46 -12 44 -2 40 8 C 34 22 24 32 12 40 C 4 46 0 48 0 50 C 0 48 -4 46 -12 40 C -24 32 -34 22 -40 8 C -44 -2 -46 -12 -40 -26 C -34 -40 -22 -48 0 -46 Z" />
                   <path d="M 0 -48 L 0 -60" />
@@ -89,11 +75,12 @@ export default function Header() {
             <div
               style={{
                 fontFamily: "Syne, sans-serif",
-                fontSize: "0.56rem",
-                letterSpacing: "0.22em",
+                fontSize: "0.48rem",
+                letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "rgba(251,245,230,0.28)",
-                marginTop: "2px",
+                color: "rgba(251,245,230,0.18)",
+                marginTop: "1px",
+                alignSelf: "flex-end",
               }}
             >
               by Jenafree Labs
@@ -197,9 +184,18 @@ export default function Header() {
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg font-semibold text-base bg-accent text-accent-foreground hover:bg-accent/90 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-accent/20 hover:shadow-accent/30 transition-all duration-200"
+              className="inline-flex items-center justify-center gap-2.5 h-12 px-6 rounded-lg font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0A500]"
+              style={{
+                fontFamily: "Syne, sans-serif",
+                letterSpacing: "0.02em",
+                background: "linear-gradient(135deg, #C8860A 0%, #F0A500 50%, #fdd96a 100%)",
+                color: "#0e1a07",
+                border: "1px solid rgba(251,245,230,0.3)",
+                boxShadow:
+                  "0 2px 12px rgba(0,0,0,0.3), 0 0 20px rgba(200,134,10,0.2), inset 0 1px 0 rgba(255,255,255,0.25)",
+              }}
             >
-              <SeedIcon className="w-5 h-5" />
+              <span className="text-base" aria-hidden>🌿</span>
               Plantar qualidade
             </a>
           </div>
@@ -315,9 +311,18 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center gap-2 w-full h-12 px-6 rounded-lg font-semibold text-base bg-accent text-accent-foreground hover:bg-accent/90 active:bg-accent/80 shadow-lg shadow-accent/20 transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2.5 w-full h-12 px-6 rounded-lg font-semibold text-base transition-all duration-200"
+                style={{
+                  fontFamily: "Syne, sans-serif",
+                  letterSpacing: "0.02em",
+                  background: "linear-gradient(135deg, #C8860A 0%, #F0A500 50%, #fdd96a 100%)",
+                  color: "#0e1a07",
+                  border: "1px solid rgba(251,245,230,0.3)",
+                  boxShadow:
+                    "0 2px 12px rgba(0,0,0,0.3), 0 0 20px rgba(200,134,10,0.2), inset 0 1px 0 rgba(255,255,255,0.25)",
+                }}
               >
-                <SeedIcon className="w-5 h-5" />
+                <span className="text-base" aria-hidden>🌿</span>
                 Plantar qualidade
               </a>
             </nav>
