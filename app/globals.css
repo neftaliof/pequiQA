@@ -232,13 +232,16 @@
 
 /* HeroFold — animações da dobra Home */
 @keyframes heroLogoReveal {
-  to { color: rgba(251,245,230,0.88); }
+  from { opacity: 0; }
+  to { opacity: 1; color: rgba(251,245,230,0.96); }
 }
 @keyframes heroGoldReveal {
-  to { color: #F0A500; }
+  from { opacity: 0; }
+  to { opacity: 1; color: #F0A500; }
 }
 @keyframes heroTaglineFadeIn {
-  to { color: rgba(251,245,230,0.82); }
+  from { opacity: 0; }
+  to { opacity: 1; color: rgba(251,245,230,0.82); }
 }
 @keyframes heroHintFadeIn {
   to { color: rgba(251,245,230,0.45); }

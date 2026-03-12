@@ -18,13 +18,14 @@ export default function HeroFold() {
           "radial-gradient(ellipse 120% 70% at 50% -10%, rgba(255,235,180,0.06) 0%, transparent 45%), linear-gradient(180deg, #0f0d08 0%, #0c0a06 25%, #080706 55%, #050504 100%)",
       }}
     >
-      {/* Canvas de efeito fullscreen */}
+      {/* Canvas de efeito fullscreen (partículas) */}
       <div
         style={{
           position: "absolute",
           inset: 0,
           width: "100%",
           height: "100%",
+          zIndex: 1,
         }}
       >
         <PequiCanvas intensity={1} />
@@ -49,10 +50,11 @@ export default function HeroFold() {
             fontFamily: '"Playfair Display", serif',
             fontSize: "clamp(2.8rem, 6vw, 5.5rem)",
             fontWeight: 800,
-            color: "rgba(251,245,230,0)",
+            color: "rgba(251,245,230,0.96)",
             letterSpacing: "-0.04em",
             lineHeight: 1.1,
             textAlign: "center",
+            opacity: 0,
             animation: "heroLogoReveal 2s 1.5s ease forwards",
           }}
         >
@@ -60,7 +62,8 @@ export default function HeroFold() {
           <span
             style={{
               fontWeight: 700,
-              color: "rgba(240,165,0,0)",
+              color: "#F0A500",
+              opacity: 0,
               animation: "heroGoldReveal 2s 2s ease forwards",
             }}
           >
@@ -74,9 +77,10 @@ export default function HeroFold() {
             fontWeight: 600,
             letterSpacing: "0.3em",
             textTransform: "uppercase",
-            color: "rgba(251,245,230,0)",
+            color: "rgba(251,245,230,0.82)",
             marginTop: "0.4rem",
             paddingLeft: "0.2em",
+            opacity: 0,
             animation: "heroTaglineFadeIn 1.5s 3s ease forwards",
             textShadow: "0 0 20px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4)",
           }}

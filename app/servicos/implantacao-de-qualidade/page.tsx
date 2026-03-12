@@ -5,9 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, Clock, Target } from "lucide-react";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Implantação de Processo de Qualidade - Pequi QA",
   description: "Estruturamos do zero o processo de QA da sua empresa com metodologia comprovada e resultados mensuráveis.",
+  keywords: ["implantação de QA", "processo de qualidade", "estruturação de testes", "CI/CD"],
+  openGraph: {
+    title: "Implantação de Processo de Qualidade - Pequi QA",
+    description: "Do zero ao processo de QA estruturado. Metodologia comprovada e resultados mensuráveis.",
+    url: `${baseUrl}/servicos/implantacao-de-qualidade/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function ImplantacaoPage() {

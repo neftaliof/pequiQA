@@ -15,6 +15,8 @@ export async function generateStaticParams() {
   }));
 }
 
+const baseUrl = "https://pequiqa.com.br";
+
 export async function generateMetadata({
   params,
 }: {
@@ -32,6 +34,14 @@ export async function generateMetadata({
   return {
     title: `${post.title} - Blog Pequi QA`,
     description: post.excerpt,
+    openGraph: {
+      title: `${post.title} - Blog Pequi QA`,
+      description: post.excerpt,
+      url: `${baseUrl}/blog/${slug}/`,
+      siteName: "Pequi QA",
+      locale: "pt_BR",
+      type: "article",
+    },
   };
 }
 

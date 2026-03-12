@@ -3,9 +3,19 @@ import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Sobre - Pequi QA",
   description: "Conheça a história, missão e valores da Pequi QA. Consultoria em qualidade de software com transparência e resultados mensuráveis.",
+  openGraph: {
+    title: "Sobre - Pequi QA",
+    description: "Nascemos do Cerrado com a missão de transformar a qualidade de software no Brasil.",
+    url: `${baseUrl}/sobre/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function SobrePage() {

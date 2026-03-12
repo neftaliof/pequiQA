@@ -2,12 +2,24 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import ContactForm from "@/components/ContactForm";
 import { Mail, MessageCircle, MapPin, Clock } from "lucide-react";
 import { Metadata } from "next";
+
+const baseUrl = "https://pequiqa.com.br";
 
 export const metadata: Metadata = {
   title: "Contato - Pequi QA",
   description: "Entre em contato com a Pequi QA. Agende uma conversa e receba um diagnóstico gratuito de qualidade.",
+  keywords: ["contato", "diagnóstico gratuito", "consultoria QA"],
+  openGraph: {
+    title: "Contato - Pequi QA",
+    description: "Agende uma conversa sem compromisso. Diagnóstico gratuito do seu processo de qualidade.",
+    url: `${baseUrl}/contato/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function ContatoPage() {
@@ -70,13 +82,18 @@ export default function ContatoPage() {
                       Prefere e-mail? Envie sua mensagem e responderemos em até 24 horas úteis.
                     </p>
                     <Button variant="default" size="lg" asChild className="w-full">
-                      <a href="mailto:jenafreelabs@gmail.com">Enviar e-mail</a>
+                      <a href="mailto:contato@pequiqa.com.br">Enviar e-mail</a>
                     </Button>
                     <p className="text-sm text-text/60 mt-4 text-center">
-                      jenafreelabs@gmail.com
+                      contato@pequiqa.com.br
                     </p>
                   </CardContent>
                 </Card>
+              </div>
+
+              {/* Formulário de contato */}
+              <div className="mb-12">
+                <ContactForm />
               </div>
 
               {/* Informações Adicionais */}

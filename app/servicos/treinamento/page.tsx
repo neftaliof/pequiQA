@@ -5,9 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, GraduationCap } from "lucide-react";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Treinamento de Times Internos - Pequi QA",
   description: "Capacitação do seu time com as melhores práticas de QA, automação de testes e ferramentas modernas.",
+  keywords: ["treinamento QA", "capacitação em testes", "automação de testes", "boas práticas"],
+  openGraph: {
+    title: "Treinamento de Times Internos - Pequi QA",
+    description: "Capacitação em QA, automação e ferramentas modernas para seu time.",
+    url: `${baseUrl}/servicos/treinamento/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function TreinamentoPage() {

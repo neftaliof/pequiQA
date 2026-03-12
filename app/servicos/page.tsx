@@ -4,9 +4,20 @@ import ServiceCard from "@/components/ServiceCard";
 import CTABanner from "@/components/CTABanner";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Serviços - Pequi QA",
-  description: "Conheça nossos serviços: implantação de QA, alocação de profissionais, consultoria, treinamento e transformação de suporte em QA.",
+  description: "Implantação de QA, alocação de QAs, consultoria, treinamento e transformação suporte → QA. Soluções completas em qualidade de software.",
+  keywords: ["serviços QA", "implantação", "alocação", "consultoria", "treinamento"],
+  openGraph: {
+    title: "Serviços - Pequi QA",
+    description: "Implantação de QA, alocação de profissionais, consultoria e treinamento. Sem body shopping.",
+    url: `${baseUrl}/servicos/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function ServicosPage() {

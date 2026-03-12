@@ -5,9 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, Shield, Users } from "lucide-react";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Alocação de QAs Especializados - Pequi QA",
   description: "QAs seniores prontos para integrar seu time, com equipamento e suporte adequado. Sem body shopping.",
+  keywords: ["alocação de QAs", "QA dedicado", "body shopping", "time de testes"],
+  openGraph: {
+    title: "Alocação de QAs Especializados - Pequi QA",
+    description: "QAs seniores para seu time. Equipamento e suporte inclusos. Transparência total.",
+    url: `${baseUrl}/servicos/alocacao-de-qas/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function AlocacaoPage() {

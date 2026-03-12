@@ -26,8 +26,8 @@ export default function Footer() {
             <h4 className="font-display font-bold text-lg mb-4">Navegação</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/sobre" className="text-white/80 hover:text-accent transition-colors">
-                  Sobre
+                <Link href="/servicos" className="text-white/80 hover:text-accent transition-colors">
+                  Serviços
                 </Link>
               </li>
               <li>
@@ -36,19 +36,17 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/servicos" className="text-white/80 hover:text-accent transition-colors">
-                  Serviços
-                </Link>
-              </li>
-              <li>
-                <Link href="/cases" className="text-white/80 hover:text-accent transition-colors">
-                  Cases
-                </Link>
-              </li>
-              <li>
                 <Link href="/blog" className="text-white/80 hover:text-accent transition-colors">
                   Blog
                 </Link>
+              </li>
+              <li>
+                <a
+                  href="mailto:contato@pequiqa.com.br"
+                  className="text-white/80 hover:text-accent transition-colors"
+                >
+                  contato@pequiqa.com.br
+                </a>
               </li>
             </ul>
           </div>
@@ -60,10 +58,10 @@ export default function Footer() {
               <li className="flex items-start gap-2">
                 <Mail size={18} className="mt-1 text-accent flex-shrink-0" />
                 <a
-                  href="mailto:jenafreelabs@gmail.com"
+                  href="mailto:contato@pequiqa.com.br"
                   className="text-white/80 hover:text-accent transition-colors"
                 >
-                  jenafreelabs@gmail.com
+                  contato@pequiqa.com.br
                 </a>
               </li>
               <li className="flex items-start gap-2">

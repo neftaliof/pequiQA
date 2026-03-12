@@ -3,9 +3,20 @@ import Footer from "@/components/Footer";
 import CTABanner from "@/components/CTABanner";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Manifesto - Pequi QA",
   description: "Nosso manifesto: qualidade que nasce do processo, não da sorte. Conheça nossos princípios e compromissos.",
+  keywords: ["manifesto", "princípios QA", "transparência", "qualidade de software"],
+  openGraph: {
+    title: "Manifesto - Pequi QA",
+    description: "Qualidade que nasce do processo, não da sorte. Nossos princípios e compromissos.",
+    url: `${baseUrl}/manifesto/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function ManifestoPage() {

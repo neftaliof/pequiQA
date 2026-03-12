@@ -5,9 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, FileSearch } from "lucide-react";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Consultoria Pontual & Auditoria de QA - Pequi QA",
   description: "Diagnóstico completo do seu processo atual e plano de ação detalhado para melhorias imediatas.",
+  keywords: ["consultoria QA", "auditoria de qualidade", "diagnóstico de testes", "plano de ação"],
+  openGraph: {
+    title: "Consultoria Pontual & Auditoria de QA - Pequi QA",
+    description: "Diagnóstico do seu processo de QA e plano de ação para melhorias.",
+    url: `${baseUrl}/servicos/consultoria-e-auditoria/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function ConsultoriaPage() {

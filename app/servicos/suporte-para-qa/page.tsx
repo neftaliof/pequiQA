@@ -5,9 +5,20 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Check, TrendingUp, Users } from "lucide-react";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Transformação: Suporte → QA - Pequi QA",
   description: "Programa estruturado para transformar profissionais de suporte em QAs funcionais de alta performance.",
+  keywords: ["suporte para QA", "transformação de carreira", "QA funcional", "capacitação"],
+  openGraph: {
+    title: "Transformação: Suporte → QA - Pequi QA",
+    description: "Programa para transformar profissionais de suporte em QAs de alta performance.",
+    url: `${baseUrl}/servicos/suporte-para-qa/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function SuporteParaQAPage() {

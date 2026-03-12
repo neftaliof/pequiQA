@@ -43,6 +43,10 @@ O site será exportado como HTML estático na pasta `out/`.
 
 O site é automaticamente deployado no GitHub Pages quando há push na branch `main`.
 
+## 📚 Documentação detalhada
+
+Para configuração de analytics, formulário de contato, SEO, Open Graph e tudo que foi implementado no projeto, veja **[DOCUMENTACAO.md](./DOCUMENTACAO.md)**.
+
 ## 📝 Estrutura
 
 ```

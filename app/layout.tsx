@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Playfair_Display, Syne } from "next/font/google";
 import "./globals.css";
 import CTAWhatsApp from "@/components/CTAWhatsApp";
+import Analytics from "@/components/Analytics";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
   return (
     <html lang="pt-BR" className={`${playfair.variable} ${syne.variable}`}>
       <body className="antialiased">
+        <Analytics />
         {/* SVG filter para electric border (Jenafree no footer) */}
         <svg
           aria-hidden

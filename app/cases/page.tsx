@@ -4,9 +4,19 @@ import CaseCard from "@/components/CaseCard";
 import CTABanner from "@/components/CTABanner";
 import { Metadata } from "next";
 
+const baseUrl = "https://pequiqa.com.br";
+
 export const metadata: Metadata = {
   title: "Cases de Sucesso - Pequi QA",
   description: "Conheça casos reais de empresas que transformaram seus processos de qualidade com a Pequi QA.",
+  openGraph: {
+    title: "Cases de Sucesso - Pequi QA",
+    description: "Casos reais: implantação de QA, redução de bugs e processos estruturados.",
+    url: `${baseUrl}/cases/`,
+    siteName: "Pequi QA",
+    locale: "pt_BR",
+    type: "website",
+  },
 };
 
 export default function CasesPage() {
