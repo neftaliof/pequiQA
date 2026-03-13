@@ -113,7 +113,7 @@ export default function HeroSection() {
               margin: "0 auto",
             }}
           >
-            Quality as a Service — Engenharia de qualidade para produtos digitais.
+            Engenharia de Qualidade — engenharia de qualidade para produtos digitais.
           </p>
           <div className="flex flex-col gap-3 w-full">
             <a
@@ -265,7 +265,7 @@ export default function HeroSection() {
               marginBottom: "2rem",
             }}
           >
-            Quality as a Service — Engenharia de qualidade para produtos digitais.
+            Engenharia de Qualidade — engenharia de qualidade para produtos digitais.
           </p>
 
           {/* CTAs */}

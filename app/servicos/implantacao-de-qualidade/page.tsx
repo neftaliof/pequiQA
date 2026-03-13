@@ -9,7 +9,7 @@ const baseUrl = "https://pequiqa.com.br";
 
 export const metadata: Metadata = {
   title: "Implantação de Processo de Qualidade - Pequi QA",
-  description: "Estruturamos do zero o processo de QA da sua empresa com metodologia comprovada e resultados mensuráveis.",
+  description: "Estruturo do zero o processo de QA da sua empresa com metodologia comprovada e resultados mensuráveis.",
   keywords: ["implantação de QA", "processo de qualidade", "estruturação de testes", "CI/CD"],
   openGraph: {
     title: "Implantação de Processo de Qualidade - Pequi QA",
@@ -76,7 +76,7 @@ export default function ImplantacaoPage() {
                 Implantação de Processo de Qualidade
               </h1>
               <p className="text-xl text-white/90">
-                Estruturamos do zero o processo de QA da sua empresa com metodologia comprovada.
+                Estruturo do zero o processo de QA da sua empresa com metodologia comprovada.
               </p>
             </div>
           </div>
@@ -196,7 +196,7 @@ export default function ImplantacaoPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com?subject=Implantação de Processo de Qualidade",
+            href: "mailto:contato@pequiqa.com.br?subject=Implantação de Processo de Qualidade",
           }}
         />
       </main>

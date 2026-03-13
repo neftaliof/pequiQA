@@ -149,7 +149,7 @@ export default function ManifestoPage() {
         {/* CTA */}
         <CTABanner
           title="Compartilha desses valores?"
-          subtitle="Vamos conversar sobre como podemos ajudar sua empresa."
+          subtitle="Vamos conversar sobre como posso ajudar sua empresa."
           primaryCTA={{
             text: "Falar no WhatsApp",
             href: "https://wa.me/5548988526644?text=Olá! Li o manifesto e gostaria de conversar.",

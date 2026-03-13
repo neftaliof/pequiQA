@@ -5,8 +5,6 @@ const NAV_LINKS = [
   { href: "/servicos", label: "Serviços" },
   { href: "/manifesto", label: "Manifesto" },
   { href: "/blog", label: "Blog" },
-  { href: "/cases", label: "Cases" },
-  { href: "/contato", label: "Contato" },
 ];
 
 const WHATSAPP_URL =
@@ -414,7 +412,7 @@ export default function Footer() {
 
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 pb-2">
             <p className="text-xs text-white/30 text-center md:text-left font-body">
-              © {currentYear} Pequi QA. Todos os direitos reservados.
+              © 2026 Pequi QA. Todos os direitos reservados.
             </p>
             <div className="flex items-center gap-3 text-xs text-white/30 font-body">
               <span>

@@ -186,4 +186,4 @@ Use o template acima como ponto de partida e adapte para a realidade da sua empr
 
 ---
 
-**Precisa de ajuda para estruturar o processo de QA da sua empresa?** [Entre em contato conosco](/contato) e vamos conversar sobre como podemos ajudar.
+**Precisa de ajuda para estruturar o processo de QA da sua empresa?** [Entre em contato comigo](/contato) e vamos conversar sobre como posso ajudar.

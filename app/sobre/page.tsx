@@ -124,7 +124,7 @@ export default function SobrePage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:contato@pequiqa.com.br",
           }}
         />
       </main>

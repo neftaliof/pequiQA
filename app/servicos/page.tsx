@@ -25,7 +25,7 @@ export default function ServicosPage() {
     {
       title: "Implantação de Processo de Qualidade",
       description:
-        "Estruturamos do zero o processo de QA da sua empresa com metodologia comprovada e resultados mensuráveis.",
+        "Estruturo do zero o processo de QA da sua empresa com metodologia comprovada e resultados mensuráveis.",
       iconName: "Settings",
       href: "/servicos/implantacao-de-qualidade",
     },
@@ -167,7 +167,7 @@ export default function ServicosPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:contato@pequiqa.com.br",
           }}
         />
       </main>

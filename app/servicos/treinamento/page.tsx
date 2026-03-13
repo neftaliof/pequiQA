@@ -239,7 +239,7 @@ export default function TreinamentoPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com?subject=Treinamento de Times",
+            href: "mailto:contato@pequiqa.com.br?subject=Treinamento de Times",
           }}
         />
       </main>

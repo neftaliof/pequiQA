@@ -299,7 +299,7 @@ export default function SuporteParaQAPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com?subject=Transformação Suporte → QA",
+            href: "mailto:contato@pequiqa.com.br?subject=Transformação Suporte → QA",
           }}
         />
       </main>

@@ -96,14 +96,14 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         {/* CTA */}
         <CTABanner
           title="Gostou do conteúdo?"
-          subtitle="Vamos conversar sobre como podemos ajudar sua empresa."
+          subtitle="Vamos conversar sobre como posso ajudar sua empresa."
           primaryCTA={{
             text: "Falar no WhatsApp",
             href: "https://wa.me/5548988526644?text=Olá! Li o artigo e gostaria de conversar.",
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:contato@pequiqa.com.br",
           }}
         />
       </main>

@@ -68,9 +68,17 @@ export default function HeroV3() {
 
       {/* Conteúdo central */}
       <div className="relative z-20 flex flex-col items-center justify-center w-full flex-1 px-6 pt-20">
+        {/* Eyebrow */}
+        <p
+          className="text-[10px] sm:text-xs uppercase tracking-[0.3em] text-center font-body mb-4 hero-stagger-1"
+          style={{ color: c(0.55) }}
+        >
+          Engenharia de Qualidade · Goiânia, GO
+        </p>
+
         {/* Título */}
         <h1
-          className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center hero-stagger-1"
+          className="font-display font-bold text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-center hero-stagger-2"
           style={{
             color: c(1),
             textShadow: `0 0 80px ${g(0.12)}, 0 2px 4px rgba(0,0,0,0.3)`,
@@ -78,25 +86,17 @@ export default function HeroV3() {
             letterSpacing: "-0.03em",
           }}
         >
-          Pequi{" "}
-          <span
-            style={{
-              background: "linear-gradient(135deg, #F0A500, #FDD96A, #F0A500)",
-              WebkitBackgroundClip: "text",
-              WebkitTextFillColor: "transparent",
-              backgroundClip: "text",
-            }}
-          >
-            QA
-          </span>
+          Não encontramos bugs.
+          <br className="hidden sm:block" />
+          Nós evitamos que eles existam.
         </h1>
 
-        {/* Slogan */}
+        {/* Slogan abaixo do título */}
         <p
-          className="text-xs sm:text-sm uppercase tracking-[0.3em] text-center font-body mt-4 hero-stagger-2"
+          className="text-xs sm:text-sm uppercase tracking-[0.3em] text-center font-body mt-4 hero-stagger-3"
           style={{ color: c(0.6) }}
         >
-          Qualidade que nasce do processo
+          Pequi QA — by Jenafree Labs
         </p>
 
         {/* Divisor */}
@@ -107,7 +107,7 @@ export default function HeroV3() {
           }}
         />
 
-        {/* QaaS */}
+        {/* Subtítulo principal */}
         <p
           className="text-base sm:text-lg leading-relaxed font-body max-w-lg text-center hero-stagger-4"
           style={{
@@ -115,13 +115,15 @@ export default function HeroV3() {
             letterSpacing: "0.01em",
           }}
         >
-          Quality as a Service — Prevenção de bugs antes da produção.
+          Processo, automação e estratégia de qualidade
+          <br className="hidden sm:block" />
+          para produtos digitais — direto com quem faz, sem intermediário.
         </p>
 
         {/* CTAs */}
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 items-center mt-8 sm:mt-10 hero-stagger-5">
           <a
-            href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Quero%20prevenir%20bugs%20em%20produ%C3%A7%C3%A3o.%20Como%20a%20Pequi%20QA%20pode%20ajudar%3F"
+            href="https://wa.me/5548988526644?text=Ol%C3%A1!%20Vi%20o%20site%20da%20Pequi%20QA%20e%20quero%20conversar."
             target="_blank"
             rel="noopener noreferrer"
             className="group inline-flex items-center gap-2.5 font-semibold text-sm px-8 py-4 rounded-xl transition-all duration-300 hover:-translate-y-0.5 hover:shadow-2xl font-body tracking-wide"
@@ -143,7 +145,7 @@ export default function HeroV3() {
               backdropFilter: "blur(8px)",
             }}
           >
-            Ler o manifesto
+            Ler o manifesto →
             <span className="inline-block ml-1.5 transition-transform duration-300 group-hover:translate-x-1">→</span>
           </Link>
         </div>
@@ -173,9 +175,9 @@ export default function HeroV3() {
               Goiás
             </strong>
             <span style={{ color: g(0.2) }}>{" · "}</span>
-            15 anos de experiência
+            15 anos de mercado
             <span style={{ color: g(0.2) }}>{" · "}</span>
-            Condições exclusivas para primeiros clientes
+            Oferta especial para primeiros clientes
           </span>
         </div>
       </div>

@@ -259,14 +259,14 @@ export default function CasesPage() {
         {/* CTA */}
         <CTABanner
           title="Quer resultados como esses na sua empresa?"
-          subtitle="Vamos conversar sobre como podemos ajudar você."
+          subtitle="Vamos conversar sobre como posso ajudar você."
           primaryCTA={{
             text: "Falar no WhatsApp",
             href: "https://wa.me/5548988526644?text=Olá! Vi os cases e gostaria de conversar.",
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:contato@pequiqa.com.br",
           }}
         />
       </main>

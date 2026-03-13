@@ -84,7 +84,7 @@ export default function HeroFold() {
             textShadow: "0 0 20px rgba(0,0,0,0.5), 0 1px 2px rgba(0,0,0,0.4)",
           }}
         >
-          Quality as a Service — Engenharia de qualidade para produtos digitais
+          Engenharia de Qualidade — engenharia de qualidade para produtos digitais
         </div>
       </div>
 

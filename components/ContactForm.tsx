@@ -140,7 +140,7 @@ export default function ContactForm() {
               required
               rows={4}
               className="w-full px-4 py-2.5 rounded-md border border-border bg-background text-text focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent resize-y min-h-[120px]"
-              placeholder="Conte brevemente como podemos ajudar..."
+              placeholder="Conte brevemente como posso ajudar..."
             />
           </div>
           <Button

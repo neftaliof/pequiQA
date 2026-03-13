@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import HeroV3 from "@/components/hero/HeroV3";
 import ServiceCard from "@/components/ServiceCard";
 import CaseCard from "@/components/CaseCard";
-import MetricCard from "@/components/MetricCard";
 import PostCard from "@/components/PostCard";
 import CTABanner from "@/components/CTABanner";
 import { getAllPosts } from "@/lib/blog";
@@ -49,7 +48,7 @@ export default function Home() {
   const services = [
     {
       title: "Implantação de Processo de Qualidade",
-      description: "Estruturamos do zero o processo de QA da sua empresa com metodologia comprovada.",
+      description: "Estruturo do zero o processo de QA da sua empresa com metodologia comprovada.",
       iconName: "Settings",
       href: "/servicos/implantacao-de-qualidade",
     },
@@ -88,7 +87,7 @@ export default function Home() {
     {
       title: "QAs com equipamento e suporte adequado",
       description:
-        "Nossos profissionais têm as ferramentas certas e suporte técnico para entregar o melhor resultado.",
+        "QAs especializados com as ferramentas certas e suporte técnico para entregar o melhor resultado.",
     },
     {
       title: "Resultado mensurável com métricas reais",
@@ -100,13 +99,6 @@ export default function Home() {
       description:
         "Orgulhosamente do Cerrado, atendemos todo o Brasil com a mesma qualidade e comprometimento.",
     },
-  ];
-
-  const metrics = [
-    { value: "15+", label: "Anos de experiência" },
-    { value: "100%", label: "QAs valorizados" },
-    { value: "0", label: "Atravessadores" },
-    { value: "90%", label: "Clientes satisfeitos" },
   ];
 
   const cases = [
@@ -214,7 +206,7 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6">
             <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-white mb-3 sm:mb-4">
-                Como podemos ajudar
+                Como posso ajudar
               </h2>
               <p className="text-lg sm:text-xl text-white/80">
                 Soluções completas em qualidade de software, do diagnóstico à execução.
@@ -233,6 +225,77 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Quality Shield */}
+        <section className="py-20 px-6 border-t border-white/5">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-14">
+              <div className="text-xs font-bold tracking-widest uppercase text-[#C8860A] mb-3">
+                ✦ Framework proprietário
+              </div>
+              <h2 className="font-display text-4xl font-bold text-white/90 mb-4">
+                Quality Shield 🛡️
+              </h2>
+              <p className="text-white/45 text-sm max-w-md mx-auto leading-relaxed">
+                Avalio a maturidade de qualidade do seu produto em 5 pilares.
+                O resultado é um score de 0 a 100 com plano de ação priorizado.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-5 gap-4 mb-12">
+              {[
+                { num: "01", title: "Product Quality", desc: "Critérios de aceite e fluxos críticos" },
+                { num: "02", title: "Test Strategy", desc: "Pirâmide de testes e cobertura" },
+                { num: "03", title: "API & Integration", desc: "Contratos, payload e integrações" },
+                { num: "04", title: "Automation & CI/CD", desc: "Pipeline e regressão automatizada" },
+                { num: "05", title: "Security & Resilience", desc: "Vulnerabilidades e testes de carga" },
+              ].map((p) => (
+                <div
+                  key={p.num}
+                  className="border border-white/8 rounded-xl p-5 hover:border-[#C8860A]/40 transition-colors"
+                  style={{ background: "rgba(255,255,255,0.02)" }}
+                >
+                  <div className="text-[#C8860A] text-xs font-bold mb-3">{p.num}</div>
+                  <div className="text-white/85 text-sm font-semibold mb-2 leading-tight">{p.title}</div>
+                  <div className="text-white/35 text-xs leading-relaxed">{p.desc}</div>
+                </div>
+              ))}
+            </div>
+
+            <div
+              className="border border-white/8 rounded-2xl p-8 text-center"
+              style={{ background: "rgba(255,255,255,0.02)" }}
+            >
+              <div className="text-white/40 text-xs mb-4 tracking-widest uppercase">Score de maturidade</div>
+              <div className="flex justify-center items-end gap-2 mb-4">
+                <div className="flex gap-1 items-end">
+                  <div className="w-10 h-4 rounded bg-red-900/60 opacity-80" />
+                  <div className="w-10 h-6 rounded bg-orange-800/60 opacity-80" />
+                  <div className="w-10 h-10 rounded bg-yellow-700/60 opacity-80" />
+                  <div className="w-10 h-14 rounded bg-[#4A7C28]/80" />
+                  <div className="w-10 h-20 rounded bg-[#F0A500]/90" />
+                </div>
+              </div>
+              <div className="flex justify-between text-xs text-white/30 max-w-xs mx-auto">
+                <span>0 — risco alto</span>
+                <span>40 — gaps críticos</span>
+                <span>100 — sólido</span>
+              </div>
+            </div>
+
+            <div className="text-center mt-10">
+              <a
+                href="https://wa.me/5548988526644?text=Quero%20fazer%20o%20Quality%20Readiness%20Assessment%20da%20Pequi%20QA."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-sm text-[#0e1a07] transition-opacity hover:opacity-90"
+                style={{ background: "linear-gradient(135deg, #C8860A, #F0A500)" }}
+              >
+                Quero saber meu score 🌿
+              </a>
+            </div>
+          </div>
+        </section>
+
         {/* Diferenciais */}
         <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-primary via-primary to-[#3a6b1f]">
           <div className="container mx-auto px-4 sm:px-6">
@@ -245,10 +308,25 @@ export default function Home() {
                   <DiferencialItem key={index} {...diferencial} index={index} />
                 ))}
               </div>
-              <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                {metrics.map((metric, index) => (
-                  <MetricCard key={index} {...metric} index={index} />
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                <div>
+                  <div className="font-display text-3xl font-bold text-[#F0A500] mb-2">
+                    15 anos
+                  </div>
+                  <div className="text-sm text-white/60">de mercado em QA</div>
+                </div>
+                <div>
+                  <div className="font-display text-3xl font-bold text-[#F0A500] mb-2">
+                    Direto
+                  </div>
+                  <div className="text-sm text-white/60">sem intermediário</div>
+                </div>
+                <div>
+                  <div className="font-display text-3xl font-bold text-[#F0A500] mb-2">
+                    Cerrado
+                  </div>
+                  <div className="text-sm text-white/60">raiz, processo e precisão</div>
+                </div>
               </div>
             </div>
           </div>
@@ -270,26 +348,26 @@ export default function Home() {
         </section>
 
         {/* Cases */}
-        <section className="py-12 sm:py-16 md:py-20 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-primary mb-3 sm:mb-4">
-                Resultados reais, mensuráveis
-              </h2>
-              <p className="text-lg sm:text-xl text-text/70">
-                Veja como ajudamos empresas a transformar seus processos de qualidade.
-              </p>
+        <section className="bg-background">
+          <div className="text-center max-w-xl mx-auto py-16 px-6">
+            <div className="text-xs font-bold tracking-widest uppercase text-[#C8860A] mb-4">
+              ✦ Em construção
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-              {cases.map((caseItem, index) => (
-                <CaseCard key={index} {...caseItem} index={index} />
-              ))}
-            </div>
-            <div className="text-center mt-8 sm:mt-12">
-              <Button variant="outline" size="lg" asChild>
-                <Link href="/cases">Ver todos os cases</Link>
-              </Button>
-            </div>
+            <h2 className="font-display text-3xl font-bold text-primary mb-4 leading-tight">
+              Primeiros cases em andamento
+            </h2>
+            <p className="text-text/70 text-sm leading-relaxed mb-8">
+              Estamos construindo nossa história com os primeiros clientes.
+              Se você quer fazer parte disso — condições especiais para projetos pioneiros.
+            </p>
+            <a
+              href="https://wa.me/5548988526644?text=Quero%20ser%20um%20dos%20primeiros%20clientes%20da%20Pequi%20QA."
+              target="_blank"
+              className="inline-flex items-center gap-2 font-bold text-sm px-6 py-3 rounded-lg"
+              style={{ background: "linear-gradient(135deg, #C8860A, #F0A500)", color: "#0e1a07" }}
+            >
+              Quero ser pioneiro 🌿
+            </a>
           </div>
         </section>
 
@@ -327,7 +405,7 @@ export default function Home() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com",
+            href: "mailto:contato@pequiqa.com.br",
           }}
         />
       </main>

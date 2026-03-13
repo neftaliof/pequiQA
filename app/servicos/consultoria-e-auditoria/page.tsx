@@ -209,7 +209,7 @@ export default function ConsultoriaPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com?subject=Consultoria e Auditoria",
+            href: "mailto:contato@pequiqa.com.br?subject=Consultoria e Auditoria",
           }}
         />
       </main>

@@ -181,6 +181,6 @@ Escolher a ferramenta certa é apenas o começo. O verdadeiro desafio é:
 3. **Treinar o time** para manter e evoluir os testes
 4. **Medir resultados** com métricas reais de qualidade
 
-Na Pequi QA, ajudamos empresas em todas essas etapas — do diagnóstico à execução. Nossos QAs seniores dominam todas as ferramentas deste artigo e vão ajudar você a escolher e implementar a combinação ideal para o seu produto.
+Na Pequi QA, ajudo empresas em todas essas etapas — do diagnóstico à execução. QAs especializados dominam todas as ferramentas deste artigo e vão ajudar você a escolher e implementar a combinação ideal para o seu produto.
 
 **[Agende um diagnóstico gratuito](https://wa.me/5548988526644?text=Olá!%20Vi%20o%20artigo%20sobre%20ferramentas%20de%20automação%20e%20quero%20saber%20como%20a%20Pequi%20QA%20pode%20ajudar.)** e descubra qual estratégia de automação faz mais sentido para a sua empresa.

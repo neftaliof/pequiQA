@@ -1,0 +1,164 @@
+# PEQUI QA — Cursor Rules
+# Fonte de verdade: PEQUIQA_MASTER.md
+# Liderança técnica: Claude | Founder: Neftali
+
+---
+
+## IDENTIDADE DO PROJETO
+
+Você está desenvolvendo o site institucional da **Pequi QA** (by Jenafree Labs).
+É uma consultoria boutique de engenharia de qualidade — solo, sem body shop, sem intermediário.
+Founder: Neftali, 15 anos de experiência em QA, baseada em Goiânia/Anápolis GO.
+
+Leia o arquivo `PEQUIQA_MASTER.md` antes de qualquer tarefa.
+Se ele não estiver acessível, pergunte antes de prosseguir.
+
+---
+
+## STACK TÉCNICO
+
+- Next.js 15 App Router
+- TypeScript (strict)
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- Deploy: Vercel
+
+---
+
+## PALETA DE CORES (use sempre essas variáveis)
+
+```
+fundo principal:  #0e1a07  (verde-noite)
+verde cerrado:    #2D5016
+verde médio:      #4A7C28
+dourado pequi:    #C8860A
+dourado vivo:     #F0A500
+dourado claro:    #FFD97D
+creme:            #FBF5E6
+terra:            #6B4C1E
+grafite:          #2C2C2C
+```
+
+⛔ NUNCA use #000000 (preto puro) — é proibido no projeto.
+⛔ NUNCA use cores fora dessa paleta sem aprovação.
+
+---
+
+## TIPOGRAFIA
+
+- Títulos: `font-playfair` (Playfair Display)
+- Corpo: `font-syne` (Syne)
+- Citações: Cormorant Garamond
+
+---
+
+## REGRAS DE COPY — OBRIGATÓRIAS
+
+✅ Voz sempre SINGULAR:
+- "Estruturo", "Integro", "Capacito", "Diagnostico"
+- NUNCA "Estruturamos", "Nossa equipe", "Nossos profissionais"
+
+✅ Métricas: só usar quando reais
+- NUNCA inventar porcentagens, números ou resultados
+
+✅ Cases: não existem ainda
+- NUNCA criar cases fictícios
+- Se precisar de prova social, use: "Primeiros projetos em andamento"
+
+✅ Honestidade como diferencial:
+- "Startup nova em Goiás · 15 anos de mercado" é o posicionamento correto
+
+---
+
+## CONTATO — VALORES FIXOS
+
+```
+email:      contato@pequiqa.com.br
+whatsapp:   5548988526644
+site:       pequiqa.vercel.app
+cidade:     Goiânia (Anápolis), GO — Brasil
+```
+
+WhatsApp URLs:
+- Geral:    https://wa.me/5548988526644?text=Olá!%20Vi%20o%20site%20da%20Pequi%20QA%20e%20quero%20conversar.
+- Pioneiro: https://wa.me/5548988526644?text=Quero%20ser%20um%20dos%20primeiros%20clientes%20da%20Pequi%20QA.
+- Nav CTA:  https://wa.me/5548988526644
+
+⛔ NUNCA use jenafreelabs@gmail.com — está banido do projeto.
+
+---
+
+## NAVEGAÇÃO APROVADA
+
+```
+[Logo Pequi QA]   Serviços   Manifesto   Blog   [Plantar qualidade →WA]
+```
+
+⛔ Não adicionar "Sobre", "Cases", "Contato" no nav sem aprovação.
+
+---
+
+## HERO — COPY FIXO
+
+```
+EYEBROW:   Engenharia de Qualidade · Goiânia, GO
+HEADLINE:  Não encontramos bugs.
+           Nós evitamos que eles existam.
+SUB:       Processo, automação e estratégia de qualidade
+           para produtos digitais — direto com quem faz, sem intermediário.
+CTA 1:     Conversar com a fundadora 🌿
+CTA 2:     Ler o manifesto →
+HONESTY:   🟢 Startup nova em Goiás · 15 anos de mercado · Oferta especial para primeiros clientes
+PILARES:   Processo/No requisito | Automação/No deploy | Prevenção/Antes da produção
+```
+
+⛔ NUNCA use "Quality as a Service" isolado.
+⛔ NUNCA altere a headline sem aprovação da Neftali.
+
+---
+
+## SERVIÇOS — COPY SINGULAR APROVADO
+
+| Serviço | Copy |
+|---|---|
+| Implantação de Processo | "Estruturo do zero o processo de QA da sua empresa: diagnóstico, estratégia e execução." |
+| Alocação de QA | "Integro ao seu time como especialista dedicada. Com equipamento próprio. Sem atravessador." |
+| Consultoria & Auditoria | "Diagnóstico completo do seu processo atual e plano de ação com prioridades claras." |
+| Treinamento | "Capacito seu time com práticas reais de QA — do manual ao automatizado." |
+| Suporte → QA | "Programa estruturado para transformar profissionais de suporte em QAs funcionais." |
+
+---
+
+## DECISÕES FECHADAS — NÃO ALTERAR
+
+- Nome: Pequi QA ✅
+- Tagline: "Qualidade que nasce do processo, não da sorte." ✅
+- Paleta 9 tons ✅
+- Copy singular ✅
+- Sem cases fictícios ✅
+- Email: contato@pequiqa.com.br ✅
+- Framework: Quality Shield 5 pilares ✅
+
+---
+
+## COMPORTAMENTO ESPERADO DO CURSOR
+
+1. Sempre leia o `PEQUIQA_MASTER.md` antes de criar ou editar componentes
+2. Nunca invente dados, métricas, cases ou depoimentos
+3. Nunca use cores fora da paleta
+4. Nunca use copy no plural
+5. Sempre pergunte antes de contradizer uma decisão fechada
+6. Em caso de dúvida sobre copy: use o texto do master, não crie novo
+7. Componentes novos devem seguir o padrão visual existente (dark theme, dourado, verde cerrado)
+8. Preserve o canvas/animações existentes — não remova sem instrução explícita
+
+---
+
+## PRIORIDADES ATUAIS (pendências urgentes)
+
+1. Remover métricas inventadas (15+, 100%, 90%, -60%)
+2. Remover cases fictícios (Fintech, E-commerce, SaaS B2B)
+3. Substituir jenafreelabs@gmail.com por contato@pequiqa.com.br
+4. Corrigir copy plural → singular
+5. Implementar Quality Shield como seção visual

@@ -90,8 +90,8 @@ export default function AlocacaoPage() {
               </h2>
               <div className="prose prose-lg max-w-none text-text/80 space-y-4 mb-12">
                 <p>
-                  <strong>Não fazemos body shopping.</strong> Nossos QAs não são "peças" que você aluga
-                  e esquece. Eles são profissionais valorizados, com equipamento adequado, suporte
+                  <strong>Não faço body shopping.</strong> Especialistas dedicados não são "peças" que você aluga
+                  e esquece. São profissionais valorizados, com equipamento adequado, suporte
                   técnico e acompanhamento contínuo.
                 </p>
                 <p>
@@ -225,7 +225,7 @@ export default function AlocacaoPage() {
           }}
           secondaryCTA={{
             text: "Enviar e-mail",
-            href: "mailto:jenafreelabs@gmail.com?subject=Alocação de QAs",
+            href: "mailto:contato@pequiqa.com.br?subject=Alocação de QAs",
           }}
         />
       </main>
