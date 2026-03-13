@@ -20,12 +20,14 @@ const syne = Syne({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://pequiqa.com.br"),
   title: "Pequi QA - Consultoria em Qualidade de Software",
   description: "Qualidade que nasce do processo, não da sorte. Consultoria especializada em QA com transparência e resultados mensuráveis.",
   keywords: ["QA", "qualidade de software", "consultoria", "testes", "alocação de QAs", "Goiás"],
   authors: [{ name: "Jenafree Labs" }],
   icons: {
-    icon: "/icon.svg",
+    icon: "/favicon.svg",
+    apple: "/icon.svg",
   },
   openGraph: {
     title: "Pequi QA - Consultoria em Qualidade de Software",

@@ -34,8 +34,8 @@ export default function CTAWhatsApp() {
         visible ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-16 opacity-0"
       }`}
       style={{
-        bottom: "80px",
-        right: "24px",
+        bottom: "24px",
+        right: "20px",
         backgroundColor: "#25D366",
         boxShadow:
           "0 0 0 0 rgba(37,211,102,0.4), 0 4px 20px rgba(37,211,102,0.5), inset 0 1px 0 rgba(255,255,255,0.2)",

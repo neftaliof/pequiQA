@@ -59,6 +59,14 @@
   }
 }
 
+@keyframes hero-dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.hero-dot-pulse {
+  animation: hero-dot-pulse 2.5s ease-in-out infinite;
+}
+
 @keyframes pequi-sway {
   0%, 100% { transform: rotate(-4deg); }
   50% { transform: rotate(4deg); }

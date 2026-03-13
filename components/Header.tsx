@@ -59,31 +59,25 @@ export default function Header() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className={`flex items-center justify-between w-full gap-4 lg:gap-8 transition-all duration-300 ${scrolled ? "h-14 sm:h-16" : "h-16 sm:h-20"}`}>
           {/* Logo */}
-          <Link href="/" className="flex flex-col flex-shrink-0">
-            <div className="flex items-center gap-2">
-              <span className="text-accent flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0" aria-hidden>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 120 140" className="h-full w-full" fill="none" stroke="currentColor" strokeWidth={4} strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M 0 -46 C 22 -48 34 -40 40 -26 C 46 -12 44 -2 40 8 C 34 22 24 32 12 40 C 4 46 0 48 0 50 C 0 48 -4 46 -12 40 C -24 32 -34 22 -40 8 C -44 -2 -46 -12 -40 -26 C -34 -40 -22 -48 0 -46 Z" />
-                  <path d="M 0 -48 L 0 -60" />
-                  <path d="M 0 -58 C 9 -62 16 -59 18 -52" />
-                </svg>
-              </span>
-              <div className="text-xl sm:text-2xl font-display font-bold text-white">
-                Pequi <span className="text-accent">QA</span>
-              </div>
-            </div>
-            <div
-              style={{
-                fontFamily: "Syne, sans-serif",
-                fontSize: "0.48rem",
-                letterSpacing: "0.18em",
-                textTransform: "uppercase",
-                color: "rgba(251,245,230,0.18)",
-                marginTop: "1px",
-                alignSelf: "flex-end",
-              }}
-            >
-              by Jenafree Labs
+          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
+            <span className="flex items-center justify-center h-6 w-6 sm:h-7 sm:w-7 flex-shrink-0" aria-hidden>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 120 140" className="h-full w-full">
+                {/* Casca esquerda */}
+                <path d="M -4 -38 C -18 -42 -34 -38 -42 -22 C -48 -8 -48 8 -42 22 C -36 34 -24 44 -12 50 C -6 53 -2 52 0 50 C -6 40 -14 24 -16 6 C -18 -12 -14 -28 -4 -38 Z" fill="#3D4A28" stroke="#2A3418" strokeWidth={1.5} />
+                {/* Casca direita */}
+                <path d="M 4 -38 C 18 -42 34 -38 42 -22 C 48 -8 48 8 42 22 C 36 34 24 44 12 50 C 6 53 2 52 0 50 C 6 40 14 24 16 6 C 18 -12 14 -28 4 -38 Z" fill="#3D4A28" stroke="#2A3418" strokeWidth={1.5} />
+                {/* Polpa amarela */}
+                <ellipse cx={0} cy={4} rx={14} ry={20} fill="#F0A500" />
+                <ellipse cx={-2} cy={0} rx={8} ry={12} fill="#FFE88A" opacity={0.5} />
+                {/* Sementinha */}
+                <ellipse cx={0} cy={2} rx={5} ry={7.5} fill="#C8860A" opacity={0.7} />
+                {/* Cabinho */}
+                <path d="M 0 -38 C -1 -46 0 -54 2 -60" fill="none" stroke="#5A6B3A" strokeWidth={3} strokeLinecap="round" />
+                <path d="M 1 -54 C 8 -60 16 -57 18 -50" fill="none" stroke="#6B7D44" strokeWidth={2.2} strokeLinecap="round" />
+              </svg>
+            </span>
+            <div className="text-xl sm:text-2xl font-display font-bold text-white">
+              Pequi <span className="text-accent">QA</span>
             </div>
           </Link>
 

@@ -13,7 +13,8 @@ const CORES: [number, number, number][] = [
   [90, 65, 25],    // semente escura
 ];
 
-const N = 550;
+const N_DESKTOP = 550;
+const N_MOBILE = 250;
 const ESPINHOS = 18;
 const TRAIL_MAX = 40;
 
@@ -305,9 +306,9 @@ class Semente {
   spawned?: boolean;
   axisBoost: number;
 
-  constructor(i: number) {
+  constructor(i: number, total: number = N_DESKTOP) {
     this.i = i;
-    this.frac = i / N;
+    this.frac = i / total;
     const angle = this.frac * Math.PI * 2 * 137.508;
     const r = Math.sqrt(this.frac);
     this.spiralA = angle;
@@ -569,7 +570,8 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
     };
 
     if (sementesRef.current.length === 0) {
-      sementesRef.current = Array.from({ length: N }, (_, i) => new Semente(i));
+      const count = isMobileRef.current ? N_MOBILE : N_DESKTOP;
+      sementesRef.current = Array.from({ length: count }, (_, i) => new Semente(i, count));
       espinhosRef.current = Array.from(
         { length: ESPINHOS },
         (_, i) => new Espinho(i, ESPINHOS)
@@ -843,13 +845,17 @@ export default function PequiCanvas({ intensity = 1 }: PequiCanvasProps) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
 
+      // Animação contínua: ciclo cruz → pequi/flor → cruz (sem depender do mouse)
+      const cycleSec = now / 1000;
+      const autoTarget = 0.5 + 0.5 * Math.sin(cycleSec * 0.5);
       const dx = mx - CX;
       const dy = my - CY;
       const dist = Math.sqrt(dx * dx + dy * dy);
       const zoneRadius = Math.min(W, H) * (isMobileRef.current ? 0.35 : 0.28);
-      const newTarget = dist < zoneRadius && mx > 0 ? 1 : 0;
+      const mouseNear = dist < zoneRadius && mx > 0;
+      const newTarget = mouseNear ? Math.min(1, autoTarget + 0.35) : autoTarget;
       targetConvergeRef.current = newTarget;
-      converge += (newTarget - converge) * 0.04;
+      converge += (newTarget - converge) * 0.035;
       convergeRef.current = converge;
 
       const bg = ctx.createRadialGradient(

@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
 export const alt = "Pequi QA - Consultoria em Qualidade de Software";
 export const size = {
   width: 1200,
@@ -27,6 +28,7 @@ export default async function Image() {
         {/* Logo + nome */}
         <div
           style={{
+            display: "flex",
             fontSize: 96,
             fontWeight: 800,
             letterSpacing: -4,
@@ -48,6 +50,7 @@ export default async function Image() {
         {/* Tagline */}
         <div
           style={{
+            display: "flex",
             marginTop: 24,
             fontFamily:
               '"Syne", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif',
@@ -63,6 +66,7 @@ export default async function Image() {
         {/* Linha de apoio */}
         <div
           style={{
+            display: "flex",
             marginTop: 32,
             paddingInline: 48,
             maxWidth: 760,

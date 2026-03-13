@@ -1,29 +1,82 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-60 -70 120 140">
   <defs>
-    <radialGradient id="pequi-grad" cx="0" cy="0" r="1">
-      <stop offset="0%" stop-color="#FDD96A" />
-      <stop offset="55%" stop-color="#F0A500" />
-      <stop offset="100%" stop-color="#C8860A" />
+    <radialGradient id="polpa" cx="48%" cy="42%" r="50%">
+      <stop offset="0%" stop-color="#FFE88A" />
+      <stop offset="50%" stop-color="#F0A500" />
+      <stop offset="100%" stop-color="#D4900A" />
     </radialGradient>
+    <radialGradient id="brilho" cx="35%" cy="30%" r="40%">
+      <stop offset="0%" stop-color="#FFF5CC" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#F0A500" stop-opacity="0" />
+    </radialGradient>
+    <linearGradient id="casca-ext" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5A6B3A" />
+      <stop offset="50%" stop-color="#3D4A28" />
+      <stop offset="100%" stop-color="#2A3418" />
+    </linearGradient>
+    <linearGradient id="casca-int" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#6B7D44" />
+      <stop offset="100%" stop-color="#4A5C30" />
+    </linearGradient>
   </defs>
   <rect x="-60" y="-70" width="120" height="140" fill="#050504" />
-  <g fill="none" stroke="url(#pequi-grad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
-    <!-- Silhueta do pequi com gomos suaves -->
-    <path d="
-      M 0 -46
-      C 22 -48  34 -40  40 -26
-      C 46 -12  44  -2  40   8
-      C 34  22  24  32  12  40
-      C  4  46   0  48   0  50
-      C  0  48  -4  46 -12  40
-      C -24 32 -34 22 -40  8
-      C -44 -2 -46 -12 -40 -26
-      C -34 -40 -22 -48   0 -46
-      Z
-    " />
-    <!-- Cabinho + folha mínima -->
-    <path d="M 0 -48 L 0 -60" />
-    <path d="M 0 -58 C 9 -62  16 -59  18 -52" />
-  </g>
-</svg>
 
+  <!-- Casca esquerda (aberta para trás) -->
+  <path d="
+    M -4 -38
+    C -18 -42 -34 -38 -42 -22
+    C -48 -8 -48 8 -42 22
+    C -36 34 -24 44 -12 50
+    C -6 53 -2 52 0 50
+    C -6 40 -14 24 -16 6
+    C -18 -12 -14 -28 -4 -38
+    Z
+  " fill="url(#casca-ext)" stroke="#2A3418" stroke-width="1.5" />
+  <!-- Interior da casca esquerda -->
+  <path d="
+    M -4 -38
+    C -6 -28 -8 -12 -6 6
+    C -4 24 0 42 0 50
+    C -6 40 -14 24 -16 6
+    C -18 -12 -14 -28 -4 -38
+    Z
+  " fill="url(#casca-int)" opacity="0.6" />
+
+  <!-- Casca direita (aberta para trás) -->
+  <path d="
+    M 4 -38
+    C 18 -42 34 -38 42 -22
+    C 48 -8 48 8 42 22
+    C 36 34 24 44 12 50
+    C 6 53 2 52 0 50
+    C 6 40 14 24 16 6
+    C 18 -12 14 -28 4 -38
+    Z
+  " fill="url(#casca-ext)" stroke="#2A3418" stroke-width="1.5" />
+  <!-- Interior da casca direita -->
+  <path d="
+    M 4 -38
+    C 6 -28 8 -12 6 6
+    C 4 24 0 42 0 50
+    C 6 40 14 24 16 6
+    C 18 -12 14 -28 4 -38
+    Z
+  " fill="url(#casca-int)" opacity="0.6" />
+
+  <!-- Polpa amarela (caroço exposto no centro) -->
+  <ellipse cx="0" cy="4" rx="14" ry="20" fill="url(#polpa)" />
+  <ellipse cx="0" cy="4" rx="14" ry="20" fill="url(#brilho)" />
+
+  <!-- Sementinha no centro da polpa -->
+  <ellipse cx="0" cy="2" rx="5" ry="7.5" fill="#C8860A" opacity="0.7" />
+  <ellipse cx="-1" cy="0" rx="2.5" ry="4" fill="#FFE0A0" opacity="0.4" />
+
+  <!-- Contorno dourado sutil na polpa -->
+  <ellipse cx="0" cy="4" rx="14" ry="20" fill="none" stroke="#D4900A" stroke-width="1.2" opacity="0.6" />
+
+  <!-- Cabinho -->
+  <path d="M 0 -38 C -1 -46 0 -54 2 -60" fill="none" stroke="#5A6B3A" stroke-width="3" stroke-linecap="round" />
+  <!-- Folhinha -->
+  <path d="M 1 -54 C 8 -60 16 -57 18 -50" fill="none" stroke="#6B7D44" stroke-width="2.2" stroke-linecap="round" />
+  <path d="M 1 -54 C 10 -55 15 -52 18 -50" fill="none" stroke="#6B7D44" stroke-width="1" opacity="0.5" stroke-linecap="round" />
+</svg>
