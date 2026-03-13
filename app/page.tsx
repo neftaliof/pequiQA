@@ -135,7 +135,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main className="relative" style={{ zIndex: 1 }}>
         {/* Hero v3 — canvas + conteúdo unificado */}
         <HeroV3 />
 
@@ -143,36 +143,33 @@ export default function Home() {
         <section
           className="py-10 sm:py-14"
           style={{
-            background: "linear-gradient(180deg, #050504 0%, #0a0906 100%)",
+            background: "linear-gradient(180deg, var(--hero-dark) 0%, #0a0906 100%)",
           }}
         >
-          <div
-            className="flex items-center justify-center max-w-lg mx-auto px-6"
-            style={{ fontFamily: "Syne, sans-serif" }}
-          >
+          <div className="flex items-center justify-center max-w-lg mx-auto px-6 font-body">
             <div className="flex-1 flex flex-col items-center gap-1">
-              <span className="text-sm font-bold" style={{ color: "rgba(251,245,230,0.8)" }}>
+              <span className="text-sm font-bold" style={{ color: "rgba(var(--hero-cream),0.8)" }}>
                 Processo
               </span>
-              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(251,245,230,0.35)" }}>
+              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(var(--hero-cream),0.35)" }}>
                 No requisito
               </span>
             </div>
-            <div className="w-px h-8" style={{ background: "rgba(200,134,10,0.12)" }} />
+            <div className="w-px h-8" style={{ background: "rgba(var(--hero-gold),0.12)" }} />
             <div className="flex-1 flex flex-col items-center gap-1">
-              <span className="text-sm font-bold" style={{ color: "rgba(251,245,230,0.8)" }}>
+              <span className="text-sm font-bold" style={{ color: "rgba(var(--hero-cream),0.8)" }}>
                 Automação
               </span>
-              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(251,245,230,0.35)" }}>
+              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(var(--hero-cream),0.35)" }}>
                 No deploy
               </span>
             </div>
-            <div className="w-px h-8" style={{ background: "rgba(200,134,10,0.12)" }} />
+            <div className="w-px h-8" style={{ background: "rgba(var(--hero-gold),0.12)" }} />
             <div className="flex-1 flex flex-col items-center gap-1">
-              <span className="text-sm font-bold" style={{ color: "rgba(251,245,230,0.8)" }}>
+              <span className="text-sm font-bold" style={{ color: "rgba(var(--hero-cream),0.8)" }}>
                 Prevenção
               </span>
-              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(251,245,230,0.35)" }}>
+              <span className="text-[11px] uppercase tracking-widest" style={{ color: "rgba(var(--hero-cream),0.35)" }}>
                 Antes da produção
               </span>
             </div>
@@ -334,7 +331,9 @@ export default function Home() {
           }}
         />
       </main>
-      <Footer />
+      <div className="relative" style={{ zIndex: 1 }}>
+        <Footer />
+      </div>
     </>
   );
 }

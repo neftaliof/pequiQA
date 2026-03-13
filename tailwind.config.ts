@@ -52,7 +52,7 @@ const config: Config = {
         },
       },
       fontFamily: {
-        display: ['var(--font-playfair)', 'serif'],
+        display: ['var(--font-display)', 'serif'],
         body: ['var(--font-syne)', 'sans-serif'],
       },
       borderRadius: {

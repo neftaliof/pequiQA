@@ -3,12 +3,13 @@ import { Cormorant_Garamond, Syne } from "next/font/google";
 import "./globals.css";
 import CTAWhatsApp from "@/components/CTAWhatsApp";
 import Analytics from "@/components/Analytics";
+import SiteTrunk from "@/components/SiteTrunk";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["500", "600", "700"],
   style: ["normal", "italic"],
-  variable: "--font-playfair",
+  variable: "--font-display",
   display: "swap",
 });
 
@@ -158,6 +159,7 @@ export default function RootLayout({
             </filter>
           </defs>
         </svg>
+        <SiteTrunk />
         {children}
         <CTAWhatsApp />
       </body>

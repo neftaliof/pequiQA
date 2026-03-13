@@ -35,6 +35,14 @@
     --input: 0 0% 89%;
     --ring: 95 55% 20%;
     --radius: 0.5rem;
+
+    /* Paleta hero — escuro */
+    --hero-cream: 251, 245, 230;
+    --hero-gold: 200, 134, 10;
+    --hero-gold-light: 240, 165, 0;
+    --hero-dark: #050504;
+    --hero-dark-green: #0e1a07;
+    --hero-green: #4A7C28;
   }
 }
 
@@ -51,6 +59,57 @@
     letter-spacing: -0.02em;
   }
 }
+
+@keyframes hero-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes hero-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes hero-divider-grow {
+  from {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  to {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes scroll-hint {
+  0%, 100% { opacity: 0.4; transform: translateY(0); }
+  50% { opacity: 0.8; transform: translateY(6px); }
+}
+
+.hero-stagger-1 { animation: hero-scale-in 1s ease-out 0.2s both; }
+.hero-stagger-2 { animation: hero-fade-up 0.8s ease-out 0.6s both; }
+.hero-stagger-3 { animation: hero-divider-grow 0.6s ease-out 0.9s both; }
+.hero-stagger-4 { animation: hero-fade-up 0.8s ease-out 1.1s both; }
+.hero-stagger-5 { animation: hero-fade-up 0.8s ease-out 1.4s both; }
+.hero-stagger-6 { animation: hero-fade-up 0.6s ease-out 1.7s both; }
+.hero-stagger-7 { animation: hero-fade-in 1s ease-out 2.2s both; }
 
 @keyframes whatsapp-ping {
   75%, 100% {
