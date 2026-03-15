@@ -47,8 +47,9 @@ export function PremiumButton({
         onMouseLeave={() => setIsHovered(false)}
         className="relative overflow-hidden group inline-flex items-center font-body"
         style={{
-          padding: isLarge ? '1rem 2.5rem' : '0.875rem 2rem',
-          borderRadius: '0.5rem',
+          padding: isLarge ? '0.875rem 1.75rem' : '0.75rem 1.5rem',
+          minHeight: 48,
+          borderRadius: '0.75rem',
           border: isPrimary ? 'none' : '2px solid #F2B705',
           backgroundColor: isPrimary ? '#F2B705' : 'transparent',
           color: isPrimary ? '#0B2F1F' : '#F2B705',

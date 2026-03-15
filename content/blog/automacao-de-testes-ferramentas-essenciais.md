@@ -1,6 +1,6 @@
 ---
 title: "Automação de testes: as 15 ferramentas essenciais que todo QA precisa conhecer"
-date: "12 de março, 2026"
+date: "2026-03-12"
 excerpt: "Um guia completo sobre as ferramentas de automação de testes mais usadas no mercado — de Selenium a Playwright — com prós, contras e quando usar cada uma."
 category: "Ferramentas"
 ---

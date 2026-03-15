@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from 'framer-motion';
 import { ClipboardCheck, Settings, Zap, Link2, Shield, CheckCircle } from 'lucide-react';
 
 const journeySteps = [
@@ -17,18 +16,18 @@ export function QualityJourney() {
     <section className="relative py-24" style={{ background: '#0B2F1F' }}>
       <div className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25" style={{ background: '#F2B705', top: '-1px', height: '100px' }} />
 
-      <div className="max-w-[1200px] mx-auto px-8">
-        <motion.div className="text-center mb-20" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-20">
           <h2 className="mb-4 font-display" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#FFFFFF' }}>Jornada da Qualidade</h2>
           <p className="max-w-2xl mx-auto font-body" style={{ fontSize: '1.125rem', color: 'rgba(255, 255, 255, 0.7)' }}>O processo da Pequi QA para prevenir erros em produção</p>
-        </motion.div>
+        </div>
 
         <div className="max-w-3xl mx-auto relative">
           <div className="absolute left-1/2 -translate-x-1/2 w-0.5 top-0 bottom-0 opacity-30" style={{ background: '#F2B705' }} />
 
           <div className="space-y-12">
             {journeySteps.map((step, index) => (
-              <motion.div key={step.title} className="relative flex items-start gap-6" initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, delay: index * 0.1 }}>
+              <div key={step.title} className="relative flex items-start gap-6">
                 <div className="absolute left-1/2 -translate-x-1/2 w-4 h-4 rounded-full z-10" style={{ background: '#F2B705', top: '24px' }} />
                 <div className={`flex-1 ${index % 2 === 0 ? 'pr-12 text-right' : 'pl-12'}`}>
                   {index % 2 === 1 && <div className="flex-1" />}
@@ -42,7 +41,7 @@ export function QualityJourney() {
                     <p className="font-body" style={{ fontSize: '1rem', color: 'rgba(255, 255, 255, 0.8)', lineHeight: '1.7' }}>{step.description}</p>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

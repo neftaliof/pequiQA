@@ -1,10 +1,9 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import CTABanner from "@/components/CTABanner";
 import MarkdownContent from "@/components/MarkdownContent";
-import { getPostBySlug, getAllPosts } from "@/lib/blog";
+import { getPostBySlug, getAllPosts, formatBlogDate } from "@/lib/blog";
 import { notFound } from "next/navigation";
-import { Calendar } from "lucide-react";
+import { Calendar, MessageCircle, Mail } from "lucide-react";
 import { Metadata } from "next";
 import Link from "next/link";
 
@@ -16,6 +15,8 @@ export async function generateStaticParams() {
 }
 
 const baseUrl = "https://pequiqa.com.br";
+const WHATSAPP_BLOG_URL =
+  "https://wa.me/5548988526644?text=Ol%C3%A1!%20Li%20o%20artigo%20e%20gostaria%20de%20conversar.";
 
 export async function generateMetadata({
   params,
@@ -57,55 +58,115 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     <>
       <Header />
       <main className="pt-16 md:pt-20">
-        {/* Hero */}
-        <section className="bg-primary py-12 sm:py-16 md:py-20">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto">
-              <Link
-                href="/blog"
-                className="inline-flex items-center gap-2 text-white/70 hover:text-accent text-sm font-medium mb-6 transition-colors"
-              >
-                ← Voltar ao blog
-              </Link>
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <span className="px-3 py-1 bg-accent text-white rounded-full text-xs sm:text-sm font-semibold">
+        {/* Hero — mesmo estilo manifesto/landing */}
+        <section
+          className="relative py-14 sm:py-20 md:py-24"
+          style={{ background: "linear-gradient(180deg, #0B2F1F 0%, #133A28 100%)" }}
+        >
+          <div
+            className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25"
+            style={{ background: "#F2B705", top: "-1px", height: "80px" }}
+          />
+          <div className="max-w-[900px] mx-auto px-6 sm:px-8">
+            <Link
+              href="/blog"
+              className="inline-flex items-center gap-2 text-sm font-medium mb-6 transition-colors"
+              style={{ color: "rgba(255,255,255,0.75)" }}
+            >
+              ← Voltar ao blog
+            </Link>
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+              {post.category && (
+                <span
+                  className="px-3 py-1 rounded-full text-xs sm:text-sm font-semibold"
+                  style={{ background: "#F2B705", color: "#0B2F1F" }}
+                >
                   {post.category}
                 </span>
-                <div className="flex items-center gap-2 text-white/80 text-sm">
-                  <Calendar size={16} />
-                  <span>{post.date}</span>
-                </div>
+              )}
+              <div
+                className="flex items-center gap-2 text-sm"
+                style={{ color: "rgba(255,255,255,0.8)" }}
+              >
+                <Calendar size={16} />
+                <span>{formatBlogDate(post.date)}</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white mb-4 sm:mb-6 leading-tight">
-                {post.title}
-              </h1>
-              <p className="text-lg sm:text-xl text-white/90">{post.excerpt}</p>
             </div>
+            <h1
+              className="font-display font-bold text-white mb-4 sm:mb-6 leading-tight"
+              style={{ fontSize: "clamp(1.875rem, 4vw, 3.25rem)" }}
+            >
+              {post.title}
+            </h1>
+            <p className="font-body text-lg sm:text-xl" style={{ color: "rgba(255,255,255,0.9)" }}>
+              {post.excerpt}
+            </p>
           </div>
+          <div
+            className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25"
+            style={{ background: "#F2B705", bottom: "-1px", height: "80px" }}
+          />
         </section>
 
-        {/* Content */}
-        <section className="py-12 sm:py-16 md:py-20 bg-background">
-          <div className="container mx-auto px-4 sm:px-6">
-            <article className="max-w-4xl mx-auto py-20">
+        {/* Conteúdo */}
+        <section
+          className="py-12 sm:py-16 md:py-20"
+          style={{ background: "#F4EFE6" }}
+        >
+          <div className="max-w-[900px] mx-auto px-6 sm:px-8">
+            <article className="py-12 sm:py-16">
               <MarkdownContent content={post.content} />
             </article>
           </div>
         </section>
 
-        {/* CTA */}
-        <CTABanner
-          title="Gostou do conteúdo?"
-          subtitle="Vamos conversar sobre como posso ajudar sua empresa."
-          primaryCTA={{
-            text: "Falar no WhatsApp",
-            href: "https://wa.me/5548988526644?text=Olá! Li o artigo e gostaria de conversar.",
-          }}
-          secondaryCTA={{
-            text: "Enviar e-mail",
-            href: "mailto:contato@pequiqa.com.br",
-          }}
-        />
+        {/* CTA — mesmo bloco do manifesto */}
+        <section className="relative py-20" style={{ background: "#F4EFE6" }}>
+          <div
+            className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25"
+            style={{ background: "#F2B705", top: "-1px", height: "80px" }}
+          />
+          <div className="max-w-[600px] mx-auto px-6 sm:px-8 text-center">
+            <h2
+              className="font-display font-bold mb-4"
+              style={{ fontSize: "clamp(1.75rem, 4vw, 2.25rem)", color: "#0B2F1F" }}
+            >
+              Gostou do conteúdo?
+            </h2>
+            <p
+              className="font-body mb-8"
+              style={{ fontSize: "1.0625rem", color: "#133A28", opacity: 0.85 }}
+            >
+              Vamos conversar sobre como podemos ajudar sua empresa.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <a
+                href={WHATSAPP_BLOG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 font-body font-semibold px-6 py-3 rounded-lg transition-all hover:opacity-95"
+                style={{
+                  background: "#F2B705",
+                  color: "#0B2F1F",
+                }}
+              >
+                <MessageCircle className="w-5 h-5" />
+                Falar no WhatsApp
+              </a>
+              <a
+                href="mailto:contato@pequiqa.com.br?subject=Li um artigo do blog"
+                className="inline-flex items-center justify-center gap-2 font-body font-semibold px-6 py-3 rounded-lg border-2 transition-all hover:opacity-90"
+                style={{
+                  borderColor: "#F2B705",
+                  color: "#0B2F1F",
+                }}
+              >
+                <Mail className="w-5 h-5" />
+                Enviar e-mail
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
       <Footer />
     </>

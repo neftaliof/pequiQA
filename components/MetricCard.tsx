@@ -12,7 +12,7 @@ interface MetricCardProps {
 export default function MetricCard({ value, label, index = 0 }: MetricCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}

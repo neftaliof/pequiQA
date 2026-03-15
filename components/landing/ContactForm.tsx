@@ -71,11 +71,11 @@ export function ContactForm() {
         style={{ background: '#F2B705', top: '-1px', height: '100px' }}
       />
 
-      <div className="max-w-[1200px] mx-auto px-8">
-        <div className="grid lg:grid-cols-2 gap-12 items-start">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-start">
           {/* Info */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
+            initial={{ opacity: 1, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
@@ -103,7 +103,7 @@ export function ContactForm() {
                 <motion.div
                   key={i}
                   className="flex items-center gap-3"
-                  initial={{ opacity: 0, x: -20 }}
+                  initial={{ opacity: 1, x: 0 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 + i * 0.1 }}
@@ -119,13 +119,13 @@ export function ContactForm() {
 
           {/* Form */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
+            initial={{ opacity: 1, x: 0 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
             <div
-              className="relative p-8 rounded-2xl overflow-hidden"
+              className="relative p-5 sm:p-6 lg:p-8 rounded-2xl overflow-hidden"
               style={{
                 background: 'rgba(244, 239, 230, 0.05)',
                 backdropFilter: 'blur(10px)',
@@ -142,7 +142,7 @@ export function ContactForm() {
               {formState === 'success' ? (
                 <motion.div
                   className="text-center py-12"
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 1, scale: 1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.4 }}
                 >
@@ -157,7 +157,7 @@ export function ContactForm() {
               ) : formState === 'error' ? (
                 <motion.div
                   className="text-center py-12"
-                  initial={{ opacity: 0 }}
+                  initial={{ opacity: 1 }}
                   animate={{ opacity: 1 }}
                 >
                   <p className="font-body text-red-400 mb-2">Erro ao enviar. Tente novamente.</p>
@@ -171,12 +171,12 @@ export function ContactForm() {
                     <input
                       type="text" id="cf-name" name="name" required
                       value={formData.name} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg transition-all duration-300 font-body"
+                      className="w-full px-4 py-3.5 sm:py-3 min-h-[48px] rounded-xl transition-all duration-300 font-body"
                       style={inputStyle} {...focusHandlers}
                     />
                   </div>
 
-                  <div className="grid md:grid-cols-2 gap-4">
+                  <div className="grid sm:grid-cols-2 gap-4">
                     <div>
                       <label htmlFor="cf-email" className="block mb-2 font-body text-sm uppercase tracking-wider" style={{ color: '#F2B705' }}>
                         E-mail *
@@ -184,7 +184,7 @@ export function ContactForm() {
                       <input
                         type="email" id="cf-email" name="email" required
                         value={formData.email} onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg transition-all duration-300 font-body"
+                        className="w-full px-4 py-3.5 sm:py-3 min-h-[48px] rounded-xl transition-all duration-300 font-body"
                         style={inputStyle} {...focusHandlers}
                       />
                     </div>
@@ -195,7 +195,7 @@ export function ContactForm() {
                       <input
                         type="tel" id="cf-phone" name="phone"
                         value={formData.phone} onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-lg transition-all duration-300 font-body"
+                        className="w-full px-4 py-3.5 sm:py-3 min-h-[48px] rounded-xl transition-all duration-300 font-body"
                         style={inputStyle} {...focusHandlers}
                       />
                     </div>
@@ -208,7 +208,7 @@ export function ContactForm() {
                     <input
                       type="text" id="cf-company" name="company"
                       value={formData.company} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg transition-all duration-300 font-body"
+                      className="w-full px-4 py-3.5 sm:py-3 min-h-[48px] rounded-xl transition-all duration-300 font-body"
                       style={inputStyle} {...focusHandlers}
                     />
                   </div>
@@ -220,7 +220,7 @@ export function ContactForm() {
                     <textarea
                       id="cf-message" name="message" required rows={4}
                       value={formData.message} onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-lg resize-none transition-all duration-300 font-body"
+                      className="w-full px-4 py-3.5 sm:py-3 min-h-[120px] rounded-xl resize-none transition-all duration-300 font-body"
                       style={inputStyle} {...focusHandlers}
                     />
                   </div>

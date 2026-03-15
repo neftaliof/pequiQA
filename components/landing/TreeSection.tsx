@@ -17,14 +17,8 @@ export function TreeSection() {
     <section className="relative py-20" style={{ background: 'linear-gradient(180deg, #0B2F1F 0%, #133A28 100%)' }}>
       <div className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25" style={{ background: '#F2B705', top: '-1px', height: '80px' }} />
 
-      <div className="max-w-[1200px] mx-auto px-8">
-        <motion.div
-          className="text-center mb-10"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
           <h2 className="mb-4 font-display" style={{ fontSize: 'clamp(1.75rem, 4vw, 2.5rem)', color: '#FFFFFF' }}>
             Como o Pequi
           </h2>
@@ -33,15 +27,9 @@ export function TreeSection() {
             a qualidade do seu software precisa de raízes sólidas: processo estruturado,
             automação consistente e prevenção estratégica.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="relative w-full max-w-5xl mx-auto"
-          initial={{ opacity: 0, scale: 0.92 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-        >
+        <div className="relative w-full max-w-5xl mx-auto">
           <PequiTree />
 
           {techTools.map((tool, index) => (
@@ -49,10 +37,7 @@ export function TreeSection() {
               key={tool.name}
               className="absolute"
               style={{ left: tool.x, top: tool.y, transform: 'translate(-50%, -50%)', zIndex: 10 }}
-              initial={{ opacity: 0, scale: 0, rotate: -180 }}
-              whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: tool.delay, type: 'spring', stiffness: 220 }}
+              initial={false}
               whileHover={{ scale: 1.35, zIndex: 20 }}
             >
               <motion.div
@@ -106,21 +91,15 @@ export function TreeSection() {
               </motion.div>
             </motion.div>
           ))}
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="text-center mt-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
+        <div className="text-center mt-8">
           <p className="italic max-w-lg mx-auto font-display" style={{ fontSize: '1.125rem', color: '#F2B705' }}>
             Cada fruto dourado representa uma ferramenta de qualidade.
             <br />
             Tecnologia que nasce do processo e floresce na produção.
           </p>
-        </motion.div>
+        </div>
       </div>
 
       <div className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25" style={{ background: '#F2B705', bottom: '-1px', height: '80px' }} />

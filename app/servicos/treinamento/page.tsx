@@ -1,9 +1,7 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CTABanner from "@/components/CTABanner";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check, GraduationCap } from "lucide-react";
 import { Metadata } from "next";
+import { ServicoPageLayout } from "../_components/ServicoPageLayout";
+import { SectionLight, SectionDark, cardLight, cardDark, sectionTitleLight, sectionTitleGold, listItemLight } from "../_components/ServicoSection";
+import { Check, GraduationCap } from "lucide-react";
 
 const baseUrl = "https://pequiqa.com.br";
 
@@ -21,8 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function TreinamentoPage() {
-  const modulos = [
+const modulos = [
     {
       titulo: "Fundamentos de QA",
       topicos: [
@@ -73,177 +70,92 @@ export default function TreinamentoPage() {
     },
   ];
 
-  const formatos = [
-    {
-      titulo: "In-Company",
-      descricao: "Treinamento presencial ou remoto exclusivo para sua empresa.",
-      ideal: "Times de 5-15 pessoas",
-      valor: "A partir de R$ 8.000",
-    },
-    {
-      titulo: "Mentoria Individual",
-      descricao: "Acompanhamento 1:1 personalizado para desenvolver habilidades específicas.",
-      ideal: "Profissionais que querem se especializar",
-      valor: "A partir de R$ 200/hora",
-    },
-  ];
+const formatos = [
+  { titulo: "In-Company", descricao: "Treinamento presencial ou remoto exclusivo para sua empresa.", ideal: "Times de 5-15 pessoas", valor: "A partir de R$ 8.000" },
+  { titulo: "Mentoria Individual", descricao: "Acompanhamento 1:1 personalizado para desenvolver habilidades específicas.", ideal: "Profissionais que querem se especializar", valor: "A partir de R$ 200/hora" },
+];
 
-  const beneficios = [
-    "Material didático completo (slides, exercícios, checklists)",
-    "Certificado de conclusão",
-    "Acesso a comunidade exclusiva de alunos",
-    "Suporte pós-treinamento por 30 dias",
-    "Gravação das aulas (formato remoto)",
-    "Projeto prático ao final do curso",
-  ];
+const beneficios = [
+  "Material didático completo (slides, exercícios, checklists)",
+  "Certificado de conclusão",
+  "Acesso a comunidade exclusiva de alunos",
+  "Suporte pós-treinamento por 30 dias",
+  "Gravação das aulas (formato remoto)",
+  "Projeto prático ao final do curso",
+];
 
+export default function TreinamentoPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-20">
-        {/* Hero */}
-        <section className="bg-primary py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
-                Treinamento de Times Internos
-              </h1>
-              <p className="text-xl text-white/90">
-                Capacitação com as melhores práticas de QA e automação de testes.
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Descrição */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-6">
-                Para quem é este serviço?
-              </h2>
-              <div className="prose prose-lg max-w-none text-text/80 space-y-4 mb-12">
-                <p>
-                  Este serviço é ideal para empresas que querem <strong>capacitar seu time interno</strong> em
-                  qualidade de software, seja para começar do zero ou para especializar profissionais
-                  que já atuam na área.
-                </p>
-                <p>Você vai se beneficiar se:</p>
-                <ul className="list-disc pl-6 space-y-2">
-                  <li>Quer formar QAs internos em vez de contratar externos</li>
-                  <li>Precisa nivelar conhecimento do time</li>
-                  <li>Quer implementar automação de testes</li>
-                  <li>Busca especialização em áreas específicas (API, performance, mobile)</li>
-                  <li>Quer criar uma cultura de qualidade na empresa</li>
-                </ul>
+    <ServicoPageLayout
+      title="Treinamento de Times Internos"
+      subtitle="Capacitação com as melhores práticas de QA e automação de testes."
+      ctaTitle="Quer capacitar seu time em QA?"
+      ctaSubtitle="Vamos montar um programa de treinamento personalizado para sua empresa."
+      whatsappMessage="Olá! Quero saber mais sobre Treinamento de Times."
+      emailSubject="Treinamento de Times"
+    >
+      <SectionLight>
+        <h2 className={sectionTitleLight} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Para quem é este serviço?</h2>
+        <div className="space-y-4 mb-10 font-body" style={{ color: "#133A28", opacity: 0.9, lineHeight: 1.75 }}>
+          <p>Este serviço é ideal para empresas que querem <strong>capacitar seu time interno</strong> em qualidade de software, seja para começar do zero ou para especializar profissionais que já atuam na área.</p>
+          <p>Você vai se beneficiar se:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Quer formar QAs internos em vez de contratar externos</li>
+            <li>Precisa nivelar conhecimento do time</li>
+            <li>Quer implementar automação de testes</li>
+            <li>Busca especialização em áreas específicas (API, performance, mobile)</li>
+            <li>Quer criar uma cultura de qualidade na empresa</li>
+          </ul>
+        </div>
+      </SectionLight>
+      <SectionDark>
+        <h2 className={`${sectionTitleGold} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#F2B705" }}>Módulos Disponíveis</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {modulos.map((mod, i) => (
+            <div key={i} className={cardDark}>
+              <div className="flex items-start justify-between mb-4">
+                <GraduationCap className="w-10 h-10" style={{ color: "#F2B705" }} />
+                <span className="text-xs font-semibold px-3 py-1 rounded-full" style={{ background: "rgba(242,183,5,0.2)", color: "#F2B705" }}>{mod.nivel}</span>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Módulos */}
-        <section className="py-20 bg-background-alt">
-          <div className="container mx-auto px-4">
-            <div className="max-w-5xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                Módulos Disponíveis
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {modulos.map((modulo, index) => (
-                  <Card key={index} className="bg-white border-none shadow-md">
-                    <CardContent className="p-6">
-                      <div className="flex items-start justify-between mb-4">
-                        <GraduationCap className="w-10 h-10 text-accent" />
-                        <span className="text-sm font-semibold text-accent bg-accent/10 px-3 py-1 rounded-full">
-                          {modulo.nivel}
-                        </span>
-                      </div>
-                      <h3 className="text-2xl font-display font-bold text-primary mb-2">
-                        {modulo.titulo}
-                      </h3>
-                      <p className="text-sm text-text/60 mb-4">Duração: {modulo.duracao}</p>
-                      <ul className="space-y-2">
-                        {modulo.topicos.map((topico, idx) => (
-                          <li key={idx} className="flex items-start gap-2 text-sm text-text/70">
-                            <div className="w-1.5 h-1.5 rounded-full bg-accent mt-2 flex-shrink-0" />
-                            {topico}
-                          </li>
-                        ))}
-                      </ul>
-                    </CardContent>
-                  </Card>
+              <h3 className="font-display font-bold text-white text-lg mb-2">{mod.titulo}</h3>
+              <p className="text-sm text-white/60 mb-4 font-body">Duração: {mod.duracao}</p>
+              <ul className="space-y-2">
+                {mod.topicos.map((t, j) => (
+                  <li key={j} className="flex items-start gap-2 text-sm text-white/80 font-body">
+                    <div className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0" style={{ background: "#F2B705" }} />
+                    {t}
+                  </li>
                 ))}
-              </div>
-              <p className="text-center text-text/60 mt-8">
-                * Módulos podem ser contratados individualmente ou em pacotes personalizados
-              </p>
+              </ul>
             </div>
-          </div>
-        </section>
-
-        {/* Formatos */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                Formatos de Treinamento
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                {formatos.map((formato, index) => (
-                  <Card key={index} className="bg-white border-none shadow-lg">
-                    <CardContent className="p-8">
-                      <h3 className="text-3xl font-display font-bold text-primary mb-4">
-                        {formato.titulo}
-                      </h3>
-                      <p className="text-text/70 mb-4">{formato.descricao}</p>
-                      <p className="text-sm text-text/60 mb-6 italic">
-                        <strong>Ideal para:</strong> {formato.ideal}
-                      </p>
-                      <div className="text-2xl font-display font-bold text-accent">
-                        {formato.valor}
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
+          ))}
+        </div>
+        <p className="text-center text-white/60 text-sm mt-6 font-body">* Módulos podem ser contratados individualmente ou em pacotes personalizados</p>
+      </SectionDark>
+      <SectionLight>
+        <h2 className={`${sectionTitleLight} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Formatos de Treinamento</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          {formatos.map((f, i) => (
+            <div key={i} className={cardLight}>
+              <h3 className="font-display font-bold text-xl mb-3" style={{ color: "#0B2F1F" }}>{f.titulo}</h3>
+              <p className="font-body text-sm mb-3" style={{ color: "#133A28", opacity: 0.85 }}>{f.descricao}</p>
+              <p className="text-sm italic mb-4" style={{ color: "#133A28", opacity: 0.7 }}><strong>Ideal para:</strong> {f.ideal}</p>
+              <div className="font-display font-bold text-lg" style={{ color: "#F2B705" }}>{f.valor}</div>
             </div>
-          </div>
-        </section>
-
-        {/* Benefícios */}
-        <section className="py-20 bg-background-alt">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                O que está incluído
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {beneficios.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <span className="text-text/80">{item}</span>
-                  </div>
-                ))}
-              </div>
+          ))}
+        </div>
+      </SectionLight>
+      <SectionDark>
+        <h2 className={`${sectionTitleGold} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#F2B705" }}>O que está incluído</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {beneficios.map((item, i) => (
+            <div key={i} className="flex items-start gap-3 font-body text-white/90">
+              <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#F2B705" }} />
+              <span>{item}</span>
             </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <CTABanner
-          title="Quer capacitar seu time em QA?"
-          subtitle="Vamos montar um programa de treinamento personalizado para sua empresa."
-          primaryCTA={{
-            text: "Falar no WhatsApp",
-            href: "https://wa.me/5548988526644?text=Olá! Quero saber mais sobre Treinamento de Times.",
-          }}
-          secondaryCTA={{
-            text: "Enviar e-mail",
-            href: "mailto:contato@pequiqa.com.br?subject=Treinamento de Times",
-          }}
-        />
-      </main>
-      <Footer />
-    </>
+          ))}
+        </div>
+      </SectionDark>
+    </ServicoPageLayout>
   );
 }

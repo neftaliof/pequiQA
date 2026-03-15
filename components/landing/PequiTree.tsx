@@ -213,7 +213,7 @@ export function PequiTree() {
           background: 'linear-gradient(180deg, #6B4C1E 0%, transparent 100%)',
           opacity: 0.4,
         }}
-        initial={{ opacity: 0, scaleY: 0 }}
+        initial={{ opacity: 1, scaleY: 1 }}
         animate={{ opacity: 0.4, scaleY: 1 }}
         transition={{ duration: 1.5, delay: 2.2 }}
       />

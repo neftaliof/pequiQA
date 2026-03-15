@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Search, GitBranch, Bot, Radio, Headphones } from 'lucide-react';
 import { useState } from 'react';
+import { JoaninhaIcon, PequiSmallIcon } from '@/components/icons/CerradoIcons';
 
 const services = [
   { icon: Search, title: 'Diagnóstico de Qualidade', description: 'Análise completa do estado atual da qualidade do seu produto e identificação de pontos críticos.' },
@@ -14,14 +15,19 @@ const services = [
 
 export function Services() {
   return (
-    <section id="servicos" className="relative py-24" style={{ background: '#F4EFE6' }}>
+    <section id="servicos" className="relative py-16 sm:py-20 lg:py-24" style={{ background: '#F4EFE6' }}>
       <div className="absolute left-1/2 -translate-x-1/2 w-0.5 opacity-25" style={{ background: '#F2B705', top: '-1px', height: '100px' }} />
+      {/* Decoração cerrado: joaninha e pequi */}
+      <div className="absolute top-20 right-[8%] opacity-35 pointer-events-none" aria-hidden><JoaninhaIcon size={22} /></div>
+      <div className="absolute bottom-32 left-[10%] opacity-30 pointer-events-none" aria-hidden><PequiSmallIcon size={20} /></div>
+      <div className="absolute top-1/3 left-[6%] opacity-25 pointer-events-none" aria-hidden><PequiSmallIcon size={16} /></div>
+      <div className="absolute bottom-48 right-[12%] opacity-40 pointer-events-none" aria-hidden><JoaninhaIcon size={18} /></div>
 
-      <div className="max-w-[1200px] mx-auto px-8">
-        <motion.div className="text-center mb-16" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10 sm:mb-16">
           <h2 className="mb-4 font-display" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: '#0B2F1F' }}>Nossos Serviços</h2>
           <p className="font-body" style={{ fontSize: '1.125rem', color: '#133A28', opacity: 0.8 }}>Soluções completas de engenharia de qualidade</p>
-        </motion.div>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
@@ -42,7 +48,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
     <motion.div
       className="relative p-8 rounded-2xl group cursor-pointer overflow-hidden"
       style={{ background: '#FFFFFF', boxShadow: '0 8px 30px rgba(0, 0, 0, 0.05)' }}
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 1, y: 0 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -66,7 +72,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
           backgroundImage: 'linear-gradient(rgba(242,183,5,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(242,183,5,0.03) 1px, transparent 1px)',
           backgroundSize: '15px 15px',
         }}
-        initial={{ opacity: 0 }}
+        initial={{ opacity: 1 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       />
@@ -75,14 +81,14 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
       <motion.div
         className="absolute top-2 left-2 w-4 h-4 pointer-events-none"
         style={{ borderTop: '2px solid rgba(242,183,5,0.4)', borderLeft: '2px solid rgba(242,183,5,0.4)' }}
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 1, scale: 1 }}
         animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
         transition={{ duration: 0.2 }}
       />
       <motion.div
         className="absolute top-2 right-2 w-4 h-4 pointer-events-none"
         style={{ borderTop: '2px solid rgba(242,183,5,0.4)', borderRight: '2px solid rgba(242,183,5,0.4)' }}
-        initial={{ opacity: 0, scale: 0.8 }}
+        initial={{ opacity: 1, scale: 1 }}
         animate={{ opacity: isHovered ? 1 : 0, scale: isHovered ? 1 : 0.8 }}
         transition={{ duration: 0.2 }}
       />
@@ -97,7 +103,7 @@ function ServiceCard({ service, index }: { service: typeof services[0]; index: n
         <motion.div
           className="absolute -top-1 -right-1 w-5 h-5 rounded-full flex items-center justify-center"
           style={{ background: '#F2B705' }}
-          initial={{ scale: 0, rotate: -180 }}
+          initial={{ scale: 1, rotate: 0 }}
           animate={isHovered ? { scale: 1, rotate: 0 } : { scale: 0, rotate: -180 }}
           transition={{ duration: 0.3, type: 'spring' }}
         >

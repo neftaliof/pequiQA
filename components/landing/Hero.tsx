@@ -14,8 +14,8 @@ export function Hero() {
       <StarlinkBackground />
       <PequizeiroCanvas />
 
-      <div className="relative z-10 max-w-[1200px] mx-auto px-8 pt-28 pb-20">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative z-10 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 pt-24 sm:pt-28 pb-16 sm:pb-20">
+        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center">
           <div>
             <motion.h1
               className="text-white mb-6 font-display"
@@ -43,7 +43,7 @@ export function Hero() {
             </motion.p>
 
             <motion.div
-              className="flex flex-wrap gap-4 mb-8"
+              className="flex flex-wrap gap-3 sm:gap-4 mb-6 sm:mb-8"
               initial={{ opacity: 1, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
@@ -58,13 +58,13 @@ export function Hero() {
             </motion.div>
 
             <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full"
+              className="inline-flex items-center gap-2 px-4 py-3 sm:py-2 rounded-2xl sm:rounded-full max-w-full"
               style={{ background: 'rgba(255, 255, 255, 0.1)', backdropFilter: 'blur(10px)' }}
               initial={{ opacity: 1 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.3 }}
             >
-              <span className="text-white/70 font-body text-sm">
+              <span className="text-white/70 font-body text-xs sm:text-sm text-center sm:text-left">
                 Goiás · 15 anos de mercado · Oferta especial para primeiros clientes
               </span>
             </motion.div>

@@ -179,18 +179,13 @@ const metrics = [
 function MetricCard({ metric, index, started }: { metric: typeof metrics[0], index: number, started: boolean }) {
   const count = useCountUp(metric.value, 2200, started);
   return (
-    <motion.div
-      className="relative overflow-hidden rounded-2xl p-6"
+    <div
+      className="relative overflow-hidden rounded-2xl p-6 transition-transform duration-300 hover:-translate-y-1.5"
       style={{
         background: 'white',
         border: '1px solid rgba(11,47,31,0.08)',
         boxShadow: '0 4px 24px rgba(11,47,31,0.08)',
       }}
-      initial={{ opacity: 0, y: 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6, delay: index * 0.12 }}
-      whileHover={{ y: -6, boxShadow: '0 12px 40px rgba(11,47,31,0.14)' }}
     >
       <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl" style={{ background: metric.color }} />
 
@@ -223,7 +218,7 @@ function MetricCard({ metric, index, started }: { metric: typeof metrics[0], ind
       >
         {metric.value}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -272,14 +267,9 @@ export function MetricsSection() {
         </svg>
       </div>
 
-      <div className="max-w-[1200px] mx-auto px-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
+          <div>
             <div className="flex items-start gap-4 mb-6">
               <div className="flex-shrink-0 w-14 h-14 rounded-2xl flex items-center justify-center" style={{ background: '#0B2F1F' }}>
                 <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7">
@@ -327,7 +317,7 @@ export function MetricsSection() {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-2 gap-4">
             {metrics.map((metric, index) => (

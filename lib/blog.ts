@@ -4,6 +4,8 @@ import matter from 'gray-matter';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
 
+export { formatBlogDate } from './formatBlogDate';
+
 export interface BlogPost {
   slug: string;
   title: string;

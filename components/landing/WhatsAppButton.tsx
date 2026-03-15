@@ -22,11 +22,14 @@ export function WhatsAppButton() {
   const [hovered, setHovered] = useState(false);
 
   return (
-    <div className="fixed bottom-8 right-8 z-50 flex items-center gap-3">
+    <div
+      className="fixed z-50 flex items-center gap-3 right-4 bottom-6 sm:right-6 sm:bottom-8"
+      style={{ paddingBottom: "env(safe-area-inset-bottom, 0)" }}
+    >
       <AnimatePresence>
         {hovered && (
           <motion.div
-            initial={{ opacity: 0, x: 20, scale: 0.9 }}
+            initial={{ opacity: 1, x: 0, scale: 1 }}
             animate={{ opacity: 1, x: 0, scale: 1 }}
             exit={{ opacity: 0, x: 20, scale: 0.9 }}
             transition={{ duration: 0.2 }}

@@ -1,6 +1,6 @@
 ---
 title: "Como estruturar um plano de testes eficiente"
-date: "15 de março, 2024"
+date: "2026-03-04"
 excerpt: "Aprenda a criar um plano de testes que realmente funciona, com templates práticos e exemplos reais de empresas que implementaram com sucesso."
 category: "Processos"
 ---

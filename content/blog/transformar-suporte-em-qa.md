@@ -1,7 +1,7 @@
 ---
 title: "Como transformar profissionais de suporte em QAs"
 excerpt: "Um guia completo para criar um programa de transição de carreira estruturado, com cases reais e resultados mensuráveis."
-date: "2024-03-10"
+date: "2026-03-18"
 category: "Carreira"
 author: "Pequi QA"
 ---

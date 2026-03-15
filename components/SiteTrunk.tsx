@@ -1,5 +1,11 @@
 "use client";
 
+/**
+ * Site Trunk: ilustração fixa de um "tronco" no centro da página.
+ * Conforme o usuário rola a página, o tronco "cresce" de cima para baixo;
+ * perto do final da página aparecem raízes que se abrem para os lados.
+ * Só é exibido em desktop (oculto em mobile). Inspirado na identidade Pequi/cerrado.
+ */
 import { useEffect, useRef, useState } from "react";
 
 const SVG_W = 120;

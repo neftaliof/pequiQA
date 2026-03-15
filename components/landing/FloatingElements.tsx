@@ -36,7 +36,7 @@ export function FloatingElements() {
         <motion.div
           key={particle.id}
           className="absolute"
-          initial={{ x: `${particle.x}vw`, y: '100vh', opacity: 0 }}
+          initial={{ x: `${particle.x}vw`, y: '100vh', opacity: 1 }}
           animate={{ y: '-10vh', opacity: [0, 0.6, 0.6, 0], rotate: particle.type === 'leaf' ? [0, 360] : 0 }}
           transition={{ duration: particle.duration, delay: particle.delay, repeat: Infinity, ease: 'linear' }}
           style={{ width: particle.size, height: particle.size }}

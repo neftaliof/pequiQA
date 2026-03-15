@@ -35,6 +35,17 @@ export default function Header() {
   }, [isOpen]);
 
   useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -51,10 +62,10 @@ export default function Header() {
     <header
       className="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "rgba(17, 29, 9, 0.92)" : "rgba(17, 29, 9, 0.72)",
+        background: scrolled ? "rgba(11, 47, 31, 0.94)" : "rgba(11, 47, 31, 0.85)",
         backdropFilter: "blur(20px)",
         WebkitBackdropFilter: "blur(20px)",
-        borderBottom: "1px solid rgba(200, 134, 10, 0.1)",
+        borderBottom: "1px solid rgba(242, 183, 5, 0.15)",
       }}
     >
       <div className="container mx-auto px-4 sm:px-6">
@@ -82,9 +93,14 @@ export default function Header() {
                       aria-expanded={servicosOpen}
                       className={`font-body font-medium transition-colors flex items-center gap-0.5 ${
                         servicosActive
-                          ? "text-accent border-b-2 border-accent pb-0.5"
-                          : "text-white/90 hover:text-accent hover:underline underline-offset-4 decoration-accent/60"
+                          ? "pb-0.5"
+                          : "text-white/90 hover:text-[#F2B705] hover:underline underline-offset-4"
                       }`}
+                      style={{
+                        ...(servicosActive
+                          ? { color: "#F2B705", borderBottom: "2px solid #F2B705" }
+                          : {}),
+                      }}
                     >
                       {link.label}
                       <ChevronDown
@@ -101,15 +117,15 @@ export default function Header() {
                           className="absolute left-0 top-full pt-2 -ml-2"
                         >
                           <div
-                            className="rounded-lg shadow-xl py-2 min-w-[220px]"
+                            className="rounded-xl shadow-xl py-2 min-w-[220px]"
                             style={{
-                              background: "rgba(17, 29, 9, 0.98)",
-                              border: "1px solid rgba(200, 134, 10, 0.2)",
+                              background: "rgba(11, 47, 31, 0.98)",
+                              border: "1px solid rgba(242, 183, 5, 0.25)",
                             }}
                           >
                             <Link
                               href="/servicos"
-                              className="block px-4 py-2 text-sm font-medium text-white/90 hover:text-accent hover:bg-white/5 hover:underline underline-offset-2 transition-colors"
+                              className="block px-4 py-2 text-sm font-medium text-white/90 hover:bg-white/5 transition-colors hover:text-[#F2B705]"
                               onClick={() => setServicosOpen(false)}
                             >
                               Todos os serviços
@@ -121,9 +137,10 @@ export default function Header() {
                                   key={child.href}
                                   href={child.href}
                                   aria-current={childActive ? "page" : undefined}
-                                  className={`block px-4 py-2 text-sm font-medium transition-colors ${
-                                    childActive ? "text-accent bg-white/5" : "text-white/80 hover:text-accent hover:bg-white/5 hover:underline underline-offset-2"
+                                  className={`block px-4 py-2 text-sm font-medium transition-colors hover:bg-white/5 hover:underline underline-offset-2 ${
+                                    childActive ? "bg-white/5" : "text-white/80 hover:text-[#F2B705]"
                                   }`}
+                                  style={childActive ? { color: "#F2B705" } : undefined}
                                   onClick={() => setServicosOpen(false)}
                                 >
                                   {child.label}
@@ -144,10 +161,13 @@ export default function Header() {
                   href={link.href}
                   aria-current={active ? "page" : undefined}
                   className={`font-body font-medium transition-colors ${
-                    active
-                      ? "text-accent border-b-2 border-accent pb-0.5"
-                      : "text-white/90 hover:text-accent hover:underline underline-offset-4 decoration-accent/60"
+                    active ? "pb-0.5" : "text-white/90 hover:text-[#F2B705] hover:underline underline-offset-4"
                   }`}
+                  style={
+                    active
+                      ? { color: "#F2B705", borderBottom: "2px solid #F2B705" }
+                      : undefined
+                  }
                 >
                   {link.label}
                 </Link>
@@ -155,21 +175,17 @@ export default function Header() {
             })}
           </nav>
 
-          {/* CTA Button */}
+          {/* CTA Button — mesma paleta do manifesto/serviços */}
           <div className="hidden md:block flex-shrink-0">
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2.5 h-12 px-6 rounded-lg font-semibold text-base transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F0A500]"
+              className="inline-flex items-center justify-center gap-2 h-11 px-5 rounded-lg font-semibold text-sm transition-all duration-200 hover:opacity-95 active:scale-[0.98] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
               style={{
                 fontFamily: "var(--font-body), sans-serif",
-                letterSpacing: "0.02em",
-                background: "linear-gradient(135deg, #C8860A 0%, #F0A500 50%, #fdd96a 100%)",
-                color: "#0e1a07",
-                border: "1px solid rgba(251,245,230,0.3)",
-                boxShadow:
-                  "0 2px 12px rgba(0,0,0,0.3), 0 0 20px rgba(200,134,10,0.2), inset 0 1px 0 rgba(255,255,255,0.25)",
+                backgroundColor: "#F2B705",
+                color: "#0B2F1F",
               }}
             >
               <span className="text-base" aria-hidden>🌿</span>
@@ -177,11 +193,13 @@ export default function Header() {
             </a>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button — área de toque mínima 44px */}
           <button
-            className="md:hidden text-white p-2"
+            type="button"
+            className="md:hidden text-white min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl hover:bg-white/10 active:bg-white/15 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#F2B705]"
             onClick={() => setIsOpen(!isOpen)}
-            aria-label="Toggle menu"
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -197,12 +215,13 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             className="md:hidden border-t border-white/10"
             style={{
-              background: "rgba(17, 29, 9, 0.95)",
+              background: "rgba(11, 47, 31, 0.98)",
               backdropFilter: "blur(20px)",
               WebkitBackdropFilter: "blur(20px)",
+              borderTopColor: "rgba(242, 183, 5, 0.2)",
             }}
           >
-            <nav className="container mx-auto px-4 sm:px-6 py-5 flex flex-col space-y-3" aria-label="Menu principal">
+            <nav className="container mx-auto px-4 sm:px-6 py-5 pb-6 flex flex-col gap-1" aria-label="Menu principal">
               {navLinks.map((link) => {
                 if ("hasDropdown" in link && link.hasDropdown) {
                   return (
@@ -213,9 +232,8 @@ export default function Header() {
                         aria-expanded={servicosOpen}
                         aria-controls="servicos-submenu-mobile"
                         id="servicos-trigger-mobile"
-                        className={`font-body font-medium py-2 flex items-center justify-between text-left transition-colors ${
-                          servicosActive ? "text-accent" : "text-white/90 hover:text-accent hover:underline underline-offset-4"
-                        }`}
+                        className="font-body font-medium min-h-[44px] px-1 py-3 flex items-center justify-between text-left w-full rounded-lg transition-colors text-white/90 hover:text-[#F2B705] hover:bg-white/5 active:bg-white/10"
+                        style={servicosActive ? { color: "#F2B705" } : undefined}
                       >
                         {link.label}
                         <ChevronDown
@@ -231,11 +249,12 @@ export default function Header() {
                             animate={{ height: "auto", opacity: 1 }}
                             exit={{ height: 0, opacity: 0 }}
                             transition={{ duration: 0.2 }}
-                            className="overflow-hidden flex flex-col pl-4 border-l-2 border-accent/30 space-y-1 mt-1"
+                            className="overflow-hidden flex flex-col pl-4 ml-1 border-l-2 space-y-0 mt-1 rounded-r-lg"
+                            style={{ borderColor: "rgba(242, 183, 5, 0.3)" }}
                           >
                             <Link
                               href="/servicos"
-                              className="text-sm font-medium py-2 text-white/80 hover:text-accent transition-colors"
+                              className="text-sm font-medium min-h-[44px] flex items-center px-1 py-2 text-white/80 hover:text-[#F2B705] transition-colors rounded"
                               onClick={() => {
                                 setIsOpen(false);
                                 setServicosOpen(false);
@@ -250,9 +269,8 @@ export default function Header() {
                                   key={child.href}
                                   href={child.href}
                                   aria-current={childActive ? "page" : undefined}
-                                  className={`text-sm font-medium py-2 transition-colors ${
-                                    childActive ? "text-accent" : "text-white/80 hover:text-accent"
-                                  }`}
+                                  className="text-sm font-medium min-h-[44px] flex items-center px-1 py-2 transition-colors text-white/80 hover:text-[#F2B705] rounded"
+                                  style={childActive ? { color: "#F2B705" } : undefined}
                                   onClick={() => {
                                     setIsOpen(false);
                                     setServicosOpen(false);
@@ -274,9 +292,8 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     aria-current={active ? "page" : undefined}
-                    className={`font-body font-medium py-2 transition-colors ${
-                      active ? "text-accent" : "text-white/90 hover:text-accent hover:underline underline-offset-4"
-                    }`}
+                    className="font-body font-medium min-h-[44px] flex items-center px-1 py-3 rounded-lg transition-colors text-white/90 hover:text-[#F2B705] hover:bg-white/5 active:bg-white/10"
+                    style={active ? { color: "#F2B705" } : undefined}
                     onClick={() => setIsOpen(false)}
                   >
                     {link.label}
@@ -288,15 +305,11 @@ export default function Header() {
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="inline-flex items-center justify-center gap-2.5 w-full h-12 px-6 rounded-lg font-semibold text-base transition-all duration-200"
+                className="inline-flex items-center justify-center gap-2 w-full min-h-[48px] py-3 px-5 rounded-xl font-semibold text-sm transition-all duration-200 hover:opacity-95 active:scale-[0.98] mt-2"
                 style={{
                   fontFamily: "var(--font-body), sans-serif",
-                  letterSpacing: "0.02em",
-                  background: "linear-gradient(135deg, #C8860A 0%, #F0A500 50%, #fdd96a 100%)",
-                  color: "#0e1a07",
-                  border: "1px solid rgba(251,245,230,0.3)",
-                  boxShadow:
-                    "0 2px 12px rgba(0,0,0,0.3), 0 0 20px rgba(200,134,10,0.2), inset 0 1px 0 rgba(255,255,255,0.25)",
+                  backgroundColor: "#F2B705",
+                  color: "#0B2F1F",
                 }}
               >
                 <span className="text-base" aria-hidden>🌿</span>

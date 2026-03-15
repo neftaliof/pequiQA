@@ -1,6 +1,6 @@
 ---
 title: "O que é body shopping em QA e por que evitar"
-date: "10 de março, 2024"
+date: "2026-03-25"
 excerpt: "Entenda os riscos do modelo de body shopping, como identificar quando você está sendo vítima e como escolher uma consultoria transparente."
 category: "Mercado"
 ---

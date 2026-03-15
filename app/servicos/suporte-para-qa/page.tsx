@@ -1,9 +1,7 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CTABanner from "@/components/CTABanner";
-import { Card, CardContent } from "@/components/ui/card";
-import { Check, TrendingUp, Users } from "lucide-react";
 import { Metadata } from "next";
+import { ServicoPageLayout } from "../_components/ServicoPageLayout";
+import { SectionLight, SectionDark, cardLight, cardDark, sectionTitleLight, sectionTitleGold, listItemLight, stepNum, stepNumStyle } from "../_components/ServicoSection";
+import { Check, TrendingUp } from "lucide-react";
 
 const baseUrl = "https://pequiqa.com.br";
 
@@ -21,8 +19,7 @@ export const metadata: Metadata = {
   },
 };
 
-export default function SuporteParaQAPage() {
-  const fases = [
+const fases = [
     {
       fase: "Avaliação e Seleção",
       duracao: "1 semana",
@@ -59,251 +56,122 @@ export default function SuporteParaQAPage() {
         "Integração gradual ao time de QA com acompanhamento para garantir autonomia.",
       entregaveis: ["Plano de carreira individual", "Mentoria contínua por 30 dias"],
     },
-  ];
+];
 
-  const perfil = [
-    "Experiência mínima de 1 ano em suporte técnico",
-    "Conhecimento básico de tecnologia",
-    "Atenção a detalhes e pensamento analítico",
-    "Boa comunicação escrita",
-    "Vontade de aprender e mudar de carreira",
-  ];
+const perfil = [
+  "Experiência mínima de 1 ano em suporte técnico",
+  "Conhecimento básico de tecnologia",
+  "Atenção a detalhes e pensamento analítico",
+  "Boa comunicação escrita",
+  "Vontade de aprender e mudar de carreira",
+];
 
-  const resultados = [
-    {
-      metrica: "Taxa de sucesso",
-      valor: "85%",
-      descricao: "dos profissionais completam o programa com sucesso",
-    },
-    {
-      metrica: "Tempo médio",
-      valor: "3 meses",
-      descricao: "para o profissional estar 100% autônomo como QA",
-    },
-    {
-      metrica: "Retenção",
-      valor: "90%",
-      descricao: "dos profissionais permanecem na função após 1 ano",
-    },
-  ];
+const resultados = [
+  { metrica: "Taxa de sucesso", valor: "85%", descricao: "dos profissionais completam o programa com sucesso" },
+  { metrica: "Tempo médio", valor: "3 meses", descricao: "para o profissional estar 100% autônomo como QA" },
+  { metrica: "Retenção", valor: "90%", descricao: "dos profissionais permanecem na função após 1 ano" },
+];
 
-  const beneficios = [
-    "Custo menor que contratar QA sênior externo",
-    "Profissionais já conhecem o produto e a empresa",
-    "Cria plano de carreira para time de suporte",
-    "Aumenta motivação e engajamento",
-    "Reduz turnover no suporte",
-    "Fortalece cultura de qualidade",
-  ];
+const beneficios = [
+  "Custo menor que contratar QA sênior externo",
+  "Profissionais já conhecem o produto e a empresa",
+  "Cria plano de carreira para time de suporte",
+  "Aumenta motivação e engajamento",
+  "Reduz turnover no suporte",
+  "Fortalece cultura de qualidade",
+];
 
+export default function SuporteParaQAPage() {
   return (
-    <>
-      <Header />
-      <main className="pt-20">
-        {/* Hero */}
-        <section className="bg-primary py-20">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-5xl md:text-6xl font-display font-bold text-white mb-6">
-                Transformação: Suporte → QA
-              </h1>
-              <p className="text-xl text-white/90">
-                Transforme profissionais de suporte em QAs funcionais de alta performance.
-              </p>
+    <ServicoPageLayout
+      title="Transformação: Suporte → QA"
+      subtitle="Transforme profissionais de suporte em QAs funcionais de alta performance."
+      ctaTitle="Quer criar um plano de carreira em QA para seu time de suporte?"
+      ctaSubtitle="Vamos conversar sobre como estruturar o programa na sua empresa."
+      whatsappMessage="Olá! Quero saber mais sobre Transformação Suporte → QA."
+      emailSubject="Transformação Suporte → QA"
+    >
+      <SectionLight>
+        <h2 className={sectionTitleLight} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Por que transformar suporte em QA?</h2>
+        <div className="space-y-4 mb-10 font-body" style={{ color: "#133A28", opacity: 0.9, lineHeight: 1.75 }}>
+          <p>Profissionais de suporte técnico já têm <strong>conhecimento profundo do produto</strong>, entendem as dores dos clientes e têm atenção a detalhes. São características perfeitas para um QA funcional.</p>
+          <p>O problema é que a transição não acontece naturalmente. É preciso <strong>treinamento estruturado</strong>, mentoria e acompanhamento para que o profissional desenvolva as habilidades técnicas necessárias.</p>
+          <p>Nosso programa de transformação já ajudou dezenas de profissionais a fazerem essa transição com sucesso, criando uma carreira sólida em QA.</p>
+        </div>
+        <h2 className={sectionTitleLight} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Perfil ideal do candidato</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {perfil.map((item, i) => (
+            <div key={i} className={listItemLight}>
+              <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#F2B705" }} />
+              <span style={{ color: "#133A28", opacity: 0.9 }}>{item}</span>
             </div>
-          </div>
-        </section>
-
-        {/* Descrição */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-6">
-                Por que transformar suporte em QA?
-              </h2>
-              <div className="prose prose-lg max-w-none text-text/80 space-y-4 mb-12">
-                <p>
-                  Profissionais de suporte técnico já têm <strong>conhecimento profundo do produto</strong>,
-                  entendem as dores dos clientes e têm atenção a detalhes. São características perfeitas
-                  para um QA funcional.
-                </p>
-                <p>
-                  O problema é que a transição não acontece naturalmente. É preciso{" "}
-                  <strong>treinamento estruturado</strong>, mentoria e acompanhamento para que o
-                  profissional desenvolva as habilidades técnicas necessárias.
-                </p>
-                <p>
-                  Nosso programa de transformação já ajudou dezenas de profissionais a fazerem essa
-                  transição com sucesso, criando uma carreira sólida em QA.
-                </p>
-              </div>
-
-              <h2 className="text-4xl font-display font-bold text-primary mb-6">
-                Perfil ideal do candidato
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {perfil.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <span className="text-text/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Fases do Programa */}
-        <section className="py-20 bg-background-alt">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                Como funciona o programa
-              </h2>
-              <div className="space-y-6">
-                {fases.map((fase, index) => (
-                  <Card key={index} className="bg-white border-none shadow-md">
-                    <CardContent className="p-6">
-                      <div className="flex items-start gap-4">
-                        <div className="flex-shrink-0 w-12 h-12 rounded-full bg-accent flex items-center justify-center text-white font-display font-bold text-xl">
-                          {index + 1}
-                        </div>
-                        <div className="flex-grow">
-                          <div className="flex justify-between items-start mb-2">
-                            <h3 className="text-2xl font-display font-bold text-primary">
-                              {fase.fase}
-                            </h3>
-                            <span className="text-sm text-text/60 font-semibold">
-                              {fase.duracao}
-                            </span>
-                          </div>
-                          <p className="text-text/70 mb-4">{fase.descricao}</p>
-                          <div>
-                            <p className="text-sm font-semibold text-text/60 mb-2">
-                              Entregáveis:
-                            </p>
-                            <ul className="space-y-1">
-                              {fase.entregaveis.map((item, idx) => (
-                                <li
-                                  key={idx}
-                                  className="flex items-center gap-2 text-sm text-text/70"
-                                >
-                                  <div className="w-1.5 h-1.5 rounded-full bg-accent" />
-                                  {item}
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-              <div className="mt-8 text-center">
-                <p className="text-lg text-text/70">
-                  <strong>Duração total:</strong> 11 semanas (aproximadamente 3 meses)
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Resultados */}
-        <section className="py-20 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                Resultados do Programa
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                {resultados.map((resultado, index) => (
-                  <Card
-                    key={index}
-                    className="bg-gradient-to-br from-secondary to-accent border-none text-white text-center"
-                  >
-                    <CardContent className="p-8">
-                      <TrendingUp className="w-12 h-12 mx-auto mb-4" />
-                      <div className="text-sm mb-2 opacity-90">{resultado.metrica}</div>
-                      <div className="text-5xl font-display font-bold mb-2">
-                        {resultado.valor}
-                      </div>
-                      <p className="text-sm opacity-90">{resultado.descricao}</p>
-                    </CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Benefícios */}
-        <section className="py-20 bg-background-alt">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-4xl font-display font-bold text-primary mb-12 text-center">
-                Benefícios para a empresa
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {beneficios.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <Check className="w-6 h-6 text-accent flex-shrink-0 mt-1" />
-                    <span className="text-text/80">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Investimento */}
-        <section className="py-20 bg-primary">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center">
-              <h2 className="text-4xl font-display font-bold text-white mb-6">Investimento</h2>
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-8 border border-white/20">
-                <div className="text-5xl font-display font-bold text-accent mb-4">
-                  R$ 15.000
+          ))}
+        </div>
+      </SectionLight>
+      <SectionDark>
+        <h2 className={`${sectionTitleGold} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#F2B705" }}>Como funciona o programa</h2>
+        <div className="space-y-4">
+          {fases.map((fase, i) => (
+            <div key={i} className={`${cardDark} flex flex-col sm:flex-row sm:items-start gap-4`}>
+              <div className={stepNum} style={stepNumStyle}>{i + 1}</div>
+              <div className="flex-grow">
+                <div className="flex flex-wrap justify-between items-start gap-2 mb-1">
+                  <h3 className="font-display font-bold text-white text-lg">{fase.fase}</h3>
+                  <span className="text-sm font-semibold text-white/70">{fase.duracao}</span>
                 </div>
-                <p className="text-xl text-white/90 mb-6">por profissional</p>
-                <ul className="text-left text-white/80 space-y-2 max-w-md mx-auto">
-                  <li className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0" />
-                    Programa completo de 11 semanas
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0" />
-                    Material didático e certificado
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0" />
-                    Mentoria contínua por 30 dias pós-programa
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <Check className="w-5 h-5 text-accent flex-shrink-0" />
-                    Desconto progressivo para múltiplos profissionais
-                  </li>
+                <p className="text-white/80 text-sm font-body mb-3">{fase.descricao}</p>
+                <p className="text-xs font-semibold text-white/60 mb-2">Entregáveis:</p>
+                <ul className="space-y-1">
+                  {fase.entregaveis.map((item, j) => (
+                    <li key={j} className="flex items-center gap-2 text-sm text-white/75 font-body">
+                      <div className="w-1.5 h-1.5 rounded-full" style={{ background: "#F2B705" }} />
+                      {item}
+                    </li>
+                  ))}
                 </ul>
               </div>
             </div>
-          </div>
-        </section>
-
-        {/* CTA */}
-        <CTABanner
-          title="Quer criar um plano de carreira em QA para seu time de suporte?"
-          subtitle="Vamos conversar sobre como estruturar o programa na sua empresa."
-          primaryCTA={{
-            text: "Falar no WhatsApp",
-            href: "https://wa.me/5548988526644?text=Olá! Quero saber mais sobre Transformação Suporte → QA.",
-          }}
-          secondaryCTA={{
-            text: "Enviar e-mail",
-            href: "mailto:contato@pequiqa.com.br?subject=Transformação Suporte → QA",
-          }}
-        />
-      </main>
-      <Footer />
-    </>
+          ))}
+        </div>
+        <p className="text-center text-white/70 text-sm mt-6 font-body"><strong>Duração total:</strong> 11 semanas (aproximadamente 3 meses)</p>
+      </SectionDark>
+      <SectionLight>
+        <h2 className={`${sectionTitleLight} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Resultados do Programa</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+          {resultados.map((r, i) => (
+            <div key={i} className={`${cardLight} text-center`} style={{ borderColor: "rgba(242,183,5,0.2)" }}>
+              <TrendingUp className="w-10 h-10 mx-auto mb-3" style={{ color: "#F2B705" }} />
+              <div className="text-xs font-body mb-1" style={{ color: "#133A28", opacity: 0.8 }}>{r.metrica}</div>
+              <div className="font-display font-bold text-3xl mb-1" style={{ color: "#0B2F1F" }}>{r.valor}</div>
+              <p className="text-sm font-body" style={{ color: "#133A28", opacity: 0.85 }}>{r.descricao}</p>
+            </div>
+          ))}
+        </div>
+      </SectionLight>
+      <SectionDark>
+        <h2 className={`${sectionTitleGold} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#F2B705" }}>Benefícios para a empresa</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          {beneficios.map((item, i) => (
+            <div key={i} className="flex items-start gap-3 font-body text-white/90">
+              <Check className="w-5 h-5 flex-shrink-0 mt-0.5" style={{ color: "#F2B705" }} />
+              <span>{item}</span>
+            </div>
+          ))}
+        </div>
+      </SectionDark>
+      <SectionLight>
+        <h2 className={`${sectionTitleLight} text-center`} style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)", color: "#0B2F1F" }}>Investimento</h2>
+        <div className="max-w-xl mx-auto rounded-2xl p-6 sm:p-8 border text-center" style={{ background: "rgba(11,47,31,0.06)", borderColor: "rgba(242,183,5,0.25)" }}>
+          <div className="font-display font-bold text-4xl sm:text-5xl mb-2" style={{ color: "#F2B705" }}>R$ 15.000</div>
+          <p className="font-body text-lg mb-6" style={{ color: "#133A28", opacity: 0.9 }}>por profissional</p>
+          <ul className="text-left space-y-2 max-w-sm mx-auto font-body text-sm" style={{ color: "#133A28", opacity: 0.9 }}>
+            <li className="flex items-center gap-2"><Check className="w-5 h-5 flex-shrink-0" style={{ color: "#F2B705" }} /> Programa completo de 11 semanas</li>
+            <li className="flex items-center gap-2"><Check className="w-5 h-5 flex-shrink-0" style={{ color: "#F2B705" }} /> Material didático e certificado</li>
+            <li className="flex items-center gap-2"><Check className="w-5 h-5 flex-shrink-0" style={{ color: "#F2B705" }} /> Mentoria contínua por 30 dias pós-programa</li>
+            <li className="flex items-center gap-2"><Check className="w-5 h-5 flex-shrink-0" style={{ color: "#F2B705" }} /> Desconto progressivo para múltiplos profissionais</li>
+          </ul>
+        </div>
+      </SectionLight>
+    </ServicoPageLayout>
   );
 }
