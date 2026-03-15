@@ -12,7 +12,8 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
-          DEFAULT: '#2D5016',
+          DEFAULT: '#0B2F1F',
+          light: '#133A28',
           foreground: '#FFFFFF',
         },
         secondary: {
@@ -20,12 +21,13 @@ const config: Config = {
           foreground: '#FFFFFF',
         },
         accent: {
-          DEFAULT: '#F0A500',
-          foreground: '#2C2C2C',
+          DEFAULT: '#F2B705',
+          hover: '#e0a904',
+          foreground: '#0B2F1F',
         },
         background: {
-          DEFAULT: '#FBF5E6',
-          alt: '#F4F0E8',
+          DEFAULT: '#F4EFE6',
+          alt: '#FBF5E6',
         },
         text: {
           DEFAULT: '#2C2C2C',
@@ -53,7 +55,7 @@ const config: Config = {
       },
       fontFamily: {
         display: ['var(--font-display)', 'serif'],
-        body: ['var(--font-syne)', 'sans-serif'],
+        body: ['var(--font-body)', 'sans-serif'],
       },
       borderRadius: {
         lg: 'var(--radius)',

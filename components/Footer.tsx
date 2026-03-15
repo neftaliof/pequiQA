@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Mail, MapPin } from "lucide-react";
+import { Logo } from "@/components/landing/Logo";
 
 const NAV_LINKS = [
   { href: "/servicos", label: "Serviços" },
@@ -294,8 +295,8 @@ export default function Footer() {
                 background: "linear-gradient(180deg, rgba(140,100,40,0.2), rgba(140,100,40,0.05))",
               }}
             />
-            <div className="text-2xl sm:text-3xl font-display font-bold mb-3">
-              Pequi <span className="text-accent">QA</span>
+            <div className="mb-3">
+              <Logo size="default" />
             </div>
             <p
               className="text-sm uppercase tracking-[0.2em] mb-4 font-body"
@@ -410,19 +411,19 @@ export default function Footer() {
             }}
           />
 
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 pb-2">
-            <p className="text-xs text-white/30 text-center md:text-left font-body">
-              © 2026 Pequi QA. Todos os direitos reservados.
+          <div className="flex flex-col sm:flex-row flex-wrap justify-between items-center gap-4 pb-8 sm:pb-5 min-h-[3.5rem]">
+            <p className="text-xs text-white/30 text-center sm:text-left font-body order-2 sm:order-1">
+              © {currentYear} Pequi QA. Todos os direitos reservados.
             </p>
-            <div className="flex items-center gap-3 text-xs text-white/30 font-body">
+            <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-3 gap-y-1 text-xs text-white/30 font-body order-1 sm:order-2">
               <span>
                 by{" "}
                 <span className="text-accent/50 font-semibold">Jenafree</span>{" "}
                 Labs
               </span>
-              <span style={{ color: "rgba(40,130,110,0.3)" }}>·</span>
-              <span className="italic" style={{ color: "rgba(40,130,110,0.4)" }}>
-                Enraizado no Cerrado
+              <span className="hidden sm:inline" style={{ color: "rgba(40,130,110,0.3)" }}>·</span>
+              <span className="italic whitespace-nowrap" style={{ color: "rgba(40,130,110,0.5)" }}>
+                Nascido no Cerrado
               </span>
             </div>
           </div>

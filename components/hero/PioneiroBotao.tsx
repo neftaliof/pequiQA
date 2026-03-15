@@ -246,7 +246,7 @@ export default function PioneiroBotao() {
         <button
           onClick={handleClick}
           style={{
-            fontFamily: "Syne, sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontSize: "0.88rem",
             fontWeight: 700,
             background: fired

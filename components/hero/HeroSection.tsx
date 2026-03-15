@@ -74,7 +74,7 @@ export default function HeroSection() {
         <div className="flex flex-col items-center w-full gap-6 md:hidden">
           <div
             style={{
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.6rem",
               fontWeight: 700,
               textTransform: "uppercase",
@@ -104,7 +104,7 @@ export default function HeroSection() {
           </h1>
           <p
             style={{
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.88rem",
               lineHeight: 1.6,
               color: "rgba(251,245,230,0.55)",
@@ -121,7 +121,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.9rem",
                 fontWeight: 700,
                 background: "linear-gradient(135deg, #C8860A, #F0A500)",
@@ -139,7 +139,7 @@ export default function HeroSection() {
             <Link
               href="/manifesto"
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.9rem",
                 fontWeight: 600,
                 background: "transparent",
@@ -157,7 +157,7 @@ export default function HeroSection() {
           </div>
           <p
             style={{
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.7rem",
               textAlign: "center",
               color: "rgba(251,245,230,0.4)",
@@ -172,7 +172,7 @@ export default function HeroSection() {
               gridTemplateColumns: "1fr 1fr 1fr",
               gap: "0.75rem",
               width: "100%",
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.6rem",
               textAlign: "center",
               borderTop: "1px solid rgba(200,134,10,0.1)",
@@ -215,7 +215,7 @@ export default function HeroSection() {
               display: "inline-flex",
               alignItems: "center",
               gap: "0.7rem",
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.62rem",
               fontWeight: 700,
               textTransform: "uppercase",
@@ -257,7 +257,7 @@ export default function HeroSection() {
           {/* Descrição */}
           <p
             style={{
-              fontFamily: "Syne, sans-serif",
+              fontFamily: "var(--font-body), sans-serif",
               fontSize: "0.98rem",
               lineHeight: 1.75,
               color: "rgba(251,245,230,0.5)",
@@ -282,7 +282,7 @@ export default function HeroSection() {
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.9rem",
                 fontWeight: 700,
                 background: "linear-gradient(135deg, #C8860A 0%, #F0A500 100%)",
@@ -302,7 +302,7 @@ export default function HeroSection() {
             <Link
               href="/manifesto"
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.88rem",
                 fontWeight: 600,
                 color: "rgba(251,245,230,0.85)",
@@ -330,7 +330,7 @@ export default function HeroSection() {
             <div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "1rem",
                   fontWeight: 700,
                   color: "#F0A500",
@@ -341,7 +341,7 @@ export default function HeroSection() {
               </div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.58rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
@@ -354,7 +354,7 @@ export default function HeroSection() {
             <div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "1rem",
                   fontWeight: 700,
                   color: "#F0A500",
@@ -365,7 +365,7 @@ export default function HeroSection() {
               </div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.58rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
@@ -378,7 +378,7 @@ export default function HeroSection() {
             <div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "1rem",
                   fontWeight: 700,
                   color: "#F0A500",
@@ -389,7 +389,7 @@ export default function HeroSection() {
               </div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.58rem",
                   textTransform: "uppercase",
                   letterSpacing: "0.12em",
@@ -431,7 +431,7 @@ export default function HeroSection() {
             />
             <div
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.58rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -468,7 +468,7 @@ export default function HeroSection() {
                 <li
                   key={i}
                   style={{
-                    fontFamily: "Syne, sans-serif",
+                    fontFamily: "var(--font-body), sans-serif",
                     fontSize: "0.78rem",
                     color: "rgba(251,245,230,0.45)",
                     padding: "0.4rem 0",
@@ -530,7 +530,7 @@ export default function HeroSection() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "Syne, sans-serif",
+                    fontFamily: "var(--font-body), sans-serif",
                     fontSize: "0.62rem",
                     textTransform: "uppercase",
                     letterSpacing: "0.1em",
@@ -541,7 +541,7 @@ export default function HeroSection() {
                 </div>
                 <div
                   style={{
-                    fontFamily: "Syne, sans-serif",
+                    fontFamily: "var(--font-body), sans-serif",
                     fontSize: "0.72rem",
                     color: "rgba(251,245,230,0.45)",
                     marginTop: "0.5rem",
@@ -583,7 +583,7 @@ export default function HeroSection() {
             <div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.75rem",
                   fontWeight: 700,
                   color: "#FBF5E6",
@@ -596,7 +596,7 @@ export default function HeroSection() {
               </div>
               <div
                 style={{
-                  fontFamily: "Syne, sans-serif",
+                  fontFamily: "var(--font-body), sans-serif",
                   fontSize: "0.68rem",
                   color: "rgba(251,245,230,0.45)",
                   lineHeight: 1.5,
@@ -637,7 +637,7 @@ export default function HeroSection() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.6rem",
                 fontWeight: 700,
                 textTransform: "uppercase",
@@ -674,7 +674,7 @@ export default function HeroSection() {
             </h2>
             <p
               style={{
-                fontFamily: "Syne, sans-serif",
+                fontFamily: "var(--font-body), sans-serif",
                 fontSize: "0.82rem",
                 lineHeight: 1.7,
                 color: "rgba(251,245,230,0.42)",

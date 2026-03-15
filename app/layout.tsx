@@ -1,22 +1,22 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Syne } from "next/font/google";
+import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
-import CTAWhatsApp from "@/components/CTAWhatsApp";
+import { WhatsAppButton } from "@/components/landing/WhatsAppButton";
 import Analytics from "@/components/Analytics";
 import SiteTrunk from "@/components/SiteTrunk";
 
-const cormorant = Cormorant_Garamond({
+const playfair = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   style: ["normal", "italic"],
   variable: "--font-display",
   display: "swap",
 });
 
-const syne = Syne({
+const inter = Inter({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-syne",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-body",
   display: "swap",
 });
 
@@ -51,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${syne.variable}`}>
+    <html lang="pt-BR" className={`${playfair.variable} ${inter.variable}`}>
       <body className="antialiased">
         <Analytics />
         {/* SVG filter para electric border (Jenafree no footer) */}
@@ -161,7 +161,7 @@ export default function RootLayout({
         </svg>
         <SiteTrunk />
         {children}
-        <CTAWhatsApp />
+        <WhatsAppButton />
       </body>
     </html>
   );

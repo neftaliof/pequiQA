@@ -72,7 +72,7 @@ export default function HeroFold() {
         </div>
         <div
           style={{
-            fontFamily: "Syne, sans-serif",
+            fontFamily: "var(--font-body), sans-serif",
             fontSize: "clamp(0.55rem, 1.5vw, 0.85rem)",
             fontWeight: 600,
             letterSpacing: "0.08em",

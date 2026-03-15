@@ -55,7 +55,7 @@ export default function CTAWhatsApp() {
         className="absolute right-full top-1/2 mr-3 whitespace-nowrap rounded-lg px-3 py-2 text-sm font-semibold opacity-0 transition-all duration-200 group-hover:opacity-100"
         style={{
           transform: "translateY(-50%)",
-          fontFamily: "Syne, sans-serif",
+          fontFamily: "var(--font-body), sans-serif",
           letterSpacing: "0.02em",
           background: "rgba(20,20,20,0.95)",
           backdropFilter: "blur(12px)",
